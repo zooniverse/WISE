@@ -42,7 +42,9 @@ class ImageViewer extends Controller
     srcs
 
   drawImage: (img) =>
-    ctx = document.getElementById('viewer').getContext('2d')
+    canvas = document.getElementById('viewer')
+    ctx = canvas.getContext('2d')
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.drawImage(img, 142, 62)
 
   animate: =>
