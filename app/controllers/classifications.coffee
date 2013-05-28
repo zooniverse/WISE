@@ -29,6 +29,7 @@ class Classifier extends Controller
       @$('.classification-error').show()
     else
       @$('.classification-error').hide()
+      @$('.selected').removeClass 'selected'
       @classification.send()
       Subject.next() 
 
