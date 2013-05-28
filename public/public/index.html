@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>WISE Zoo</title>
+  <link rel="stylesheet" href="application.css" type="text/css" charset="utf-8">
+</head>
+<body>
+  <div id="main">
+    <h1>Wizoo!</h1>
+    <div id="app">
+      <div class="classify">
+        <div class="image-viewer">
+          <canvas id="viewer" height="380px" width="540px"><h3 class="loading">Loading...</h3></canvas>
+          <button disabled="disabled" class="play">Play</button>
+          <input disabled="disabled" type="range" min="0" max="6" step="1" value="0"></input>
+        </div>
+        <ul class="answers">
+          <li><button name="classify" data-val="bigger">Object is bigger than bircle</button></li>
+          <li><button name="classify" data-val="multiple">Multiple sources in Circle</button></li>
+          <li><button name="classify" data-val="shift">Object shifts between frames</button></li>
+          <li><button name="classify" data-val="none">None of the above</button></li>
+          <li><button class="next" name="next">Next Subject</button></li>
+          <li class="classification-error">You need to select one of the choices!</li>
+        </ul>
+      <div>
+    </div>
+  </div>
+  <script src="application.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var jQuery  = require("jqueryify");
+    var exports = this;
+    jQuery(function(){
+      var App = require("index");
+      exports.app = new App({el: $("body")});
+    });
+  </script>
+</body>
+</html>

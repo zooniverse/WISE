@@ -1,0 +1,82 @@
+@import './mixin'
+@import "../node_modules/zooniverse/src/css/top-bar"
+@import "../node_modules/zooniverse/src/css/dialog"
+
+body
+  color: #224
+  background: #eeeeff
+  font-family: sans-serif
+
+#main 
+  margin: 0 auto
+  width: 1000px
+  padding-top: 50px
+
+#app
+  width: 900px
+
+  .image-viewer
+    float: left 
+
+    canvas
+      padding: 10px
+      display: block
+      border: 1px solid #224
+      margin-bottom: 10px
+      background: #ddd
+
+    input[type="range"]
+      width: 450px
+      float: right
+
+  .answers
+    float: right
+    list-style: none 
+    border-left: 1px solid #224
+
+    li
+      padding-bottom: 20px
+
+      &.classification-error
+        display: none
+        position: absolute
+
+      &:last-child
+        padding-bottom: 0
+
+      button
+        border-radius: 5px
+        border: 1px solid #ccc 
+        width: 150px
+        height: 50px
+
+      button[name="classify"]
+        background: linear-gradient(0deg, #955, #d77)
+        box-shadow: inset 0px 1px 0px 0px #d9b
+
+        &:hover
+          background: linear-gradient(0deg, #c67, #e88)
+
+        &:active
+          background: linear-gradient(0deg, #d77, #844)
+
+        &.selected
+          background: linear-gradient(0deg, #d77, #844)
+
+      button[name="next"]
+        background: linear-gradient(0deg, #595, #7d7)
+        box-shadow: inset 0px 1px 0px 0px #9db
+
+        &:hover
+          background: linear-gradient(0deg, #6c7, #8e8)
+
+        &:active
+          background: linear-gradient(0deg, #7d7, #484)
+    
+h2
+	text-align: center
+	font-size: 22px
+
+p
+	text-align: center
+	font-size: 16px

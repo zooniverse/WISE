@@ -1,0 +1,45 @@
+{
+  "server": {
+    "port"  : 9294
+  },
+
+  "routes": [
+    { ""        : "./public" },
+    { "/test"    : "./test/public" }
+  ],
+
+  "packages": {
+    "appName": {
+      "libs"    : [
+        "lib/html5slider.js",
+        "node_modules/zooniverse/vendor/base64.js"
+      ],
+      "modules" : [
+        "es5-shimify",
+        "json2ify",
+        "jqueryify",
+        "spine",
+        "spine/lib/local",
+        "spine/lib/route",
+        "spine/lib/manager",
+        "zooniverse/lib/api",
+        "zooniverse/controllers/top-bar",
+        "zooniverse/models/user",
+        "zooniverse/models/classification",
+        "zooniverse/models/subject"
+      ],
+      "paths"  : ["./app"],
+      "target" : "./public/application.js"
+    },
+    "css": {
+      "paths"  : "./css",
+      "target" : "./public/application.css"
+    },
+    "test": {
+      "identifier" : "specs",
+      "jsAfter"    : "require('lib/setup'); for (var key in specs.modules) specs(key);",
+      "paths"      : ["./test/specs"],
+      "target"     : "./test/public/specs.js"
+    }
+  }
+}
