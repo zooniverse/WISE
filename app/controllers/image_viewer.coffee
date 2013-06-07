@@ -8,13 +8,16 @@ class ImageViewer extends Controller
     'click button.stop' : 'stop'
 
   wavelengths: [
-    '2massj',
-    '2massk',
-    '2massh',
-    'wise1',
-    'wise2',
+    'dssdss2blue',
+    'dssdss2red',
+    'dssdss2ir',
+    'wise4',
     'wise3',
-    'wise4'
+    'wise2',
+    'wise1',
+    '2massj',
+    '2massh',
+    '2massk'
   ]
 
   constructor: ->
@@ -45,7 +48,7 @@ class ImageViewer extends Controller
     canvas = document.getElementById('viewer')
     ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.drawImage(img, 142, 62)
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
 
   animate: =>
     if @animateImages

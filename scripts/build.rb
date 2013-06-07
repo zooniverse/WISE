@@ -6,14 +6,14 @@ bucket = s3.buckets['zooniverse-demo']
 
 build = <<-BASH
 rm -rf build
-cp -R public/public pre_build_public
-cp -RL public/public build_public
-rm -rf public/public
-mv build_public public/public
+cp -R public pre_build_public
+cp -RL public build_public
+rm -rf public
+mv build_public public
 echo 'Building application...'
-hem build
-mv public/public build
-mv pre_build_public public/public
+hem build --debug
+mv public build
+mv pre_build_public public
 BASH
 
 timestamp = `date -u +%Y-%m-%d_%H-%M-%S`.chomp
@@ -23,10 +23,10 @@ echo 'Compressing...'
 
 timestamp=#{ timestamp }
 
-mv build/application.js "build/application-$timestamp.js"
-mv build/application.css "build/application-$timestamp.css"
-gzip -9 -c "build/application-$timestamp.js" > "build/application-$timestamp.js.gz"
-gzip -9 -c "build/application-$timestamp.css" > "build/application-$timestamp.css.gz"
+gzip -9 -c "build/application.js" > "build/application-$timestamp.js"
+gzip -9 -c "build/application.css" > "build/application-$timestamp.css"
+rm build/application.css
+rm build/application.js
 BASH
 
 system build
@@ -67,9 +67,15 @@ to_upload.each.with_index do |file, index|
   else
     `file --mime-type -b #{ file }`.chomp
   end
-  
+
+  options = {file: file, acl: :public_read, content_type: content_type}
+
+  if content_type == 'application/javascript' || content_type == 'text/css'
+    options[:content_encoding] = 'gzip'
+  end
+
   puts "#{ '%2d' % (index + 1) } / #{ '%2d' % total }: Uploading #{ file } as #{ content_type }"
-  bucket.objects["wise/#{file}"].write file: file, acl: :public_read, content_type: content_type
+  bucket.objects["wise/#{file}"].write options
 end
 
 bucket.objects['wise/index.html'].write file: 'index.html', acl: :public_read, content_type: 'text/html', cache_control: 'no-cache, must-revalidate'
