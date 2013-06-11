@@ -73,7 +73,7 @@ class ImageViewer extends Controller
   scrub: (e) =>
     if (e.type is 'mousedown') 
       @$('input[type="range"]').on('mousemove', @scrub)
-        .on('mouseup', -> @.off('mousemove mouseup'))
+        .on('mouseup', => @$('input[type="range"]').off('mousemove mouseup'))
     imageNo = $('input[type="range"]').val()
     @drawImage(@images[imageNo])
 
