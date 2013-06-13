@@ -11,13 +11,13 @@ class ImageViewer extends Controller
     'dssdss2blue',
     'dssdss2red',
     'dssdss2ir',
-    'wise4',
-    'wise3',
-    'wise2',
-    'wise1',
     '2massj',
     '2massh',
-    '2massk'
+    '2massk',
+    'wise1',
+    'wise2',
+    'wise3',
+    'wise4'
   ]
 
   constructor: ->
