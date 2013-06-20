@@ -20,6 +20,16 @@ class ImageViewer extends Controller
     'wise4'
   ]
 
+  circleLengths: [
+    '2massj',
+    '2massh',
+    '2massk',
+    'wise1',
+    'wise2',
+    'wise3',
+    'wise4'
+  ]
+
   constructor: ->
     super
 
@@ -32,28 +42,37 @@ class ImageViewer extends Controller
       if (loadedImages is subject.metadata.files.length)
         cb()
 
-    for src in @subjectWavelengths(subject) 
+    for source in @subjectWavelengths(subject) 
       img = new Image
-      img.src = src
+      img.src = source.src
       img.onload = inc
-      @images.push img
+      @images.push {img: img, wavelength: source.wavelength}
 
   subjectWavelengths: (subject) =>
     srcs = []
     for wavelength in @wavelengths when subject.location[wavelength]?
-      srcs.push subject.location[wavelength] 
+      srcs.push {src: subject.location[wavelength], wavelength: wavelength}
     srcs
 
   drawImage: (img) =>
     canvas = document.getElementById('viewer')
     ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+    ctx.drawImage(img.img, 0, 0, canvas.width, canvas.height)
+    @drawCircle(ctx, canvas) if img.wavelength in @circleLengths
+
+  drawCircle: (ctx, canvas) =>
+    ctx.beginPath()
+    ctx.arc(canvas.width / 2, canvas.height / 2, 15, 0, Math.PI*2, true)
+    ctx.closePath()
+    ctx.strokeStyle = 'red'
+    ctx.stroke()
 
   animate: =>
     if @animateImages
       imageNo = parseInt(@$('input[type="range"]').val())
       if imageNo + 1 >= @images.length 
+        @stop()
         imageNo = 0 
       else 
         imageNo = imageNo + 1
