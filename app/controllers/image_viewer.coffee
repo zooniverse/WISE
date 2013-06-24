@@ -62,10 +62,11 @@ class ImageViewer extends Controller
     @drawCircle(ctx, canvas) if img.wavelength in @circleLengths
 
   drawCircle: (ctx, canvas) =>
-    ctx.beginPath()
-    ctx.arc(canvas.width / 2, canvas.height / 2, 15, 0, Math.PI*2, true)
-    ctx.closePath()
+    ctx.lineWidth = 2
     ctx.strokeStyle = 'red'
+    ctx.beginPath()
+    ctx.arc(canvas.width / 2, canvas.height / 2, 16, 0, Math.PI*2, true)
+    ctx.closePath()
     ctx.stroke()
 
   animate: =>
@@ -73,6 +74,7 @@ class ImageViewer extends Controller
       imageNo = parseInt(@$('input[type="range"]').val())
       if imageNo + 1 >= @images.length 
         @stop()
+        @trigger 'played'
         imageNo = 0 
       else 
         imageNo = imageNo + 1
@@ -119,7 +121,6 @@ class ImageViewer extends Controller
       @$('.loading').hide()
       @activateControls()
       @drawImage(@images[0])) if subject? 
-
 
   finderChartUrl: (subject) ->
     """

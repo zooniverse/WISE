@@ -12,10 +12,12 @@ class Classifier extends Controller
   constructor: ->
     super
     @imageViewer = new ImageViewer {el: '.image-viewer'}
+    @imageViewer.on 'played', @unlock
     User.on 'change', => Subject.next()
     Subject.on 'select', =>
       @classification = new Classification subject: Subject.current
       @imageViewer.setupSubject(Subject.current)
+      @lock()
 
   onChangeAnnotate: (e) =>
     @selected?.removeClass 'selected'
@@ -23,6 +25,12 @@ class Classifier extends Controller
     value = @selected.data('val')
     @classification.removeAnnotation @classification.annotations[0]
     @classification.annotate classified_as: value 
+
+  unlock: =>
+    @$('button').removeAttr 'disabled'
+
+  lock: =>
+    @$('button').attr 'disabled', 'disabled'
 
   onClickNext: =>
     if !@classification.annotations[0]
