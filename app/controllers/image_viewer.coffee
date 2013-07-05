@@ -66,7 +66,7 @@ class ImageViewer extends Controller
     ctx.lineWidth = 2
     ctx.strokeStyle = 'red'
     ctx.beginPath()
-    ctx.arc(canvas.width / 2, canvas.height / 2, 20, 0, Math.PI*2, true)
+    ctx.arc(canvas.width / 2, canvas.height / 2, 30, 0, Math.PI*2, true)
     ctx.closePath()
     ctx.stroke()
 
