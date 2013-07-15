@@ -79,7 +79,6 @@ class ImageViewer extends Controller
   updateTimeline: =>
     @$('input[checked="checked"]').removeProp('checked')
     @$("input[data-index=\"#{@index}\"]").prop('checked', true)
-    console.log @$("input[data-index=\"#{@index}\"]")
 
   drawImage: =>
     img = @images[@index]
@@ -102,7 +101,6 @@ class ImageViewer extends Controller
       if @index + 1 >= @images.length 
         @stop()
         @trigger 'played'
-        @index = 0 
       else 
         @index = @index + 1
       @drawImage()
@@ -114,6 +112,7 @@ class ImageViewer extends Controller
     @animateImages = false
 
   play: (e) =>
+    @index = -1 if @index + 1 >= @images.length
     @$('button.play').text('stop').removeClass('play').addClass('stop')
     @animateImages = true
     @animate()
