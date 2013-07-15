@@ -1,9 +1,9 @@
 {Controller} = require 'spine'
+radioTemplate = require 'views/radio'
 
 class ImageViewer extends Controller
   events:
-    'change input[type="range"]' : 'scrub'
-    'mousedown input[type="range"]' : 'scrub'
+    'click input[type="radio"]' : 'scrub'
     'click button.play' : 'play'
     'click button.stop' : 'stop'
 
@@ -30,8 +30,21 @@ class ImageViewer extends Controller
     'wise4'
   ]
 
+  readableWavelengths:
+    'dssdss2blue': 'DSS2 Blue'
+    'dssdss2red': 'DSS2 Red'
+    'dssdss2ir': 'DSS2 IR'
+    '2massj': '2MASS J'
+    '2massh': '2MASS H'
+    '2massk' : '2MASS K'
+    'wise1' : 'WISE 1'
+    'wise2' : 'WISE 2'
+    'wise3' : 'WISE 3'
+    'wise4' : 'WISE 4'
+
   constructor: ->
     super
+    @index = 0
 
   preloadImages: (subject, cb) =>
     @images = []
@@ -54,8 +67,22 @@ class ImageViewer extends Controller
       srcs.push {src: subject.location[wavelength], wavelength: wavelength}
     srcs
 
-  drawImage: (img) =>
-    console.log img
+  drawTimeline: =>
+    @$('.timeline').empty()
+    for {wavelength}, index in @images 
+      $('.timeline').append radioTemplate
+        band: @readableWavelengths[wavelength]
+        index: index
+
+    @$('.timeline li:first-child input').attr('checked', 'checked')
+
+  updateTimeline: =>
+    @$('input[checked="checked"]').removeProp('checked')
+    @$("input[data-index=\"#{@index}\"]").prop('checked', true)
+    console.log @$("input[data-index=\"#{@index}\"]")
+
+  drawImage: =>
+    img = @images[@index]
     canvas = document.getElementById('viewer')
     ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -72,19 +99,18 @@ class ImageViewer extends Controller
 
   animate: =>
     if @animateImages
-      imageNo = parseInt(@$('input[type="range"]').val())
-      if imageNo + 1 >= @images.length 
+      if @index + 1 >= @images.length 
         @stop()
         @trigger 'played'
-        imageNo = 0 
+        @index = 0 
       else 
-        imageNo = imageNo + 1
-      @drawImage(@images[imageNo])
-      @$('input[type="range"]').val(imageNo)
+        @index = @index + 1
+      @drawImage()
+      @updateTimeline()
       setTimeout(@animate, 500)
 
   stop: =>
-    $('button.stop').text('play').removeClass('stop').addClass('play')
+    @$('button.stop').text('play').removeClass('stop').addClass('play')
     @animateImages = false
 
   play: (e) =>
@@ -93,11 +119,8 @@ class ImageViewer extends Controller
     @animate()
 
   scrub: (e) =>
-    if (e.type is 'mousedown') 
-      @$('input[type="range"]').on('mousemove', @scrub)
-        .on('mouseup', => @$('input[type="range"]').off('mousemove mouseup'))
-    imageNo = $('input[type="range"]').val()
-    @drawImage(@images[imageNo])
+    @index = e.target.dataset.index
+    @drawImage()
 
   activateControls: =>
     @$('button.play').removeAttr 'disabled'
@@ -108,8 +131,8 @@ class ImageViewer extends Controller
     @$('input[type="range"]').attr 'disabled', 'disabled'
 
   renderInfo: (subject) =>
-    @$('.ra').text subject.coords[0]
-    @$('.dec').text subject.coords[1]
+    @$('.ra').text subject.coords[0].toFixed(2)
+    @$('.dec').text subject.coords[1].toFixed(2)
     @$('.hip').text subject.metadata.hip_id
     @$('.finder-chart').attr 'href', @finderChartUrl(subject)
 
@@ -121,7 +144,9 @@ class ImageViewer extends Controller
     @preloadImages(subject, =>
       @$('.loading').hide()
       @activateControls()
-      @drawImage(@images[0])) if subject? 
+      if subject? 
+        @drawTimeline()
+        @drawImage())
 
   finderChartUrl: (subject) ->
     """

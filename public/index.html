@@ -11,17 +11,17 @@
     <div id="app">
       <div class="classify">
         <div class="image-viewer">
+          <ul class="timeline"></ul>
           <canvas id="viewer" height="380px" width="380px"><h3 class="loading">Loading...</h3></canvas>
-          <div class="controls">
-            <button disabled="disabled" class="play">Play</button>
-            <input disabled="disabled" type="range" min="0" max="9" step="1" value="0"/>
-          </div>
           <div class="info">
             <a target="_blank" class="finder-chart" href="">
               <label>HIP <span class="hip"></span></label>
               <label>RA: <span class="ra"></span></label>
               <label>Dec: <span class="dec"></span></label>
             </a>
+            <div class="controls">
+              <button disabled="disabled" class="play">Play</button>
+            </div>
           </div>
         </div>
         <ul class="answers">

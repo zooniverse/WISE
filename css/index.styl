@@ -17,11 +17,17 @@ body
     text-align: left
 
 #app
-  width: 700px
   display: inline-block
 
   .image-viewer
+    width: 530px
     float: left 
+
+    a
+      text-decoration: none
+      font-size: 14px
+      position: relative
+      top: 3px
 
     canvas
       padding: 10px
@@ -30,12 +36,35 @@ body
       margin-bottom: 10px
       background: #ddd
 
+    .info
+      text-align: left
+      width: 400px
+
     input[type="range"]
       width: 300px
       float: right
 
+    .controls
+      float: right
+
+    .timeline
+      font-size: 12px
+      list-style: none
+      float: right
+      text-align: left
+      padding-left: 10px
+      padding-right: 20px
+
+      li
+        padding-bottom: 5px
+
+        label
+          position: relative
+          top: -3px
+
   .answers
     list-style: none 
+    width: 300
     float: right
     border-left: 1px solid #224
 
