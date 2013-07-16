@@ -94,51 +94,62 @@ body
           top: -3px
 
   .answers
-    list-style: none 
-    width: 300
+    width: 250px
     float: right
     border-left: 1px solid #224
+    text-align: left 
 
-    li
-      padding-bottom: 20px
+    h4
+      text-align: center
 
-      &.classification-error
-        display: none
-        position: absolute
+    ul
+      list-style: none 
+      padding-left: 50px
 
-      &:last-child
-        padding-bottom: 0
+      li
+        padding-bottom: 20px
 
-      button
-        border-radius: 5px
-        border: 1px solid #ccc 
-        width: 150px
-        height: 50px
+        &.classification-error
+          display: none
+          position: absolute
 
-      button.classify
-        vbg-gradient(#d77, #955)
-        box-shadow: inset 0px 1px 0px 0px #d9b
+        &:last-child
+          padding-bottom: 0
 
-        &:hover
-          vbg-gradient(#e88, #c67)
+        button
+          border-radius: 5px
+          text-align: center
+          border: 1px solid #ccc 
+          width: 150px
+          height: 50px
 
-        &:active
-          vbg-gradient(#844, #d77)
+        button.classify:not([DISABLED])
+          
+          &.candidates
+            vbg-gradient(#7d7, #595)
+            box-shadow: inset 0px 1px 0px 0px #9db
 
-        &.selected
-          vbg-gradient(#844, #d77)
-          box-shadow: 0 0 7px 4px #aaccFF 
+          &:hover
+            vbg-gradient(#6c7, #8e8)
 
-      button.next
-        vbg-gradient(#7d7, #595)
-        box-shadow: inset 0px 1px 0px 0px #9db
+          &:active
+            vbg-gradient(#484, #7d7)
+ 
+          &.selected
+            vbg-gradient(#844, #d77)
+            box-shadow: 0 0 7px 4px #aaccFF 
 
-        &:hover
-          vbg-gradient(#6c7, #8e8)
+        button.next
+          vbg-gradient(#d77, #955)
+          box-shadow: inset 0px 1px 0px 0px #d9b
 
-        &:active
-          vbg-gradient(#484, #7d7)
-    
+          &:hover
+            vbg-gradient(#e88, #c67)
+
+          &:active
+            vbg-gradient(#844, #d77)
+
+     
 h2
 	text-align: center
 	font-size: 22px
