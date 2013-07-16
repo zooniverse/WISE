@@ -1,12 +1,9 @@
 {Controller} = require 'spine'
 Timeline = require 'controllers/timeline'
 Info = require 'controllers/info'
+Controls = require 'controllers/controls'
 
 class ImageViewer extends Controller
-  events:
-    'click button.play' : 'play'
-    'click button.stop' : 'stop'
-
   wavelengths: [
     'dssdss2blue',
     'dssdss2red',
@@ -38,6 +35,10 @@ class ImageViewer extends Controller
 
     @timeline = new Timeline {el: '.timeline'}
     @timeline.on 'scrub', @goTo
+
+    @controls = new Controls {el: ".controls"}
+    @controls.on 'play', @play
+    @controls.on 'pause', @pause
 
     @info = new Info {el: ".info"}
     @setupCanvas()
@@ -88,21 +89,22 @@ class ImageViewer extends Controller
   animate: =>
     if @animateImages
       if @index + 1 >= @images.length 
-        @stop()
+        if @controls.loop
+          @index = 0
+        else
+          @pause() 
         @trigger 'played'
       else 
         @index = @index + 1
       @drawImage()
-      @timeline.updateTimeline()
+      @timeline.updateTimeline(@index)
       setTimeout(@animate, 500)
 
-  stop: =>
-    @$('button.stop').text('play').removeClass('stop').addClass('play')
+  pause: =>
     @animateImages = false
 
-  play: (e) =>
+  play: =>
     @index = -1 if @index + 1 >= @images.length
-    @$('button.play').text('stop').removeClass('play').addClass('stop')
     @animateImages = true
     @animate()
 
@@ -120,6 +122,7 @@ class ImageViewer extends Controller
 
   setupSubject: (subject) =>
     return if !subject
+    @controls.reset()
     @deactivateControls()
     @$('input[type="range"]').val 0
     @info.setupSubject(subject)

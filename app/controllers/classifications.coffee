@@ -6,8 +6,8 @@ ImageViewer = require 'controllers/image_viewer'
 
 class Classifier extends Controller
   events:
-    'click button[name="classify"]' : 'onChangeAnnotate'
-    'click button[name="next"]' : 'onClickNext'
+    'click button.classify' : 'onChangeAnnotate'
+    'click button.next' : 'onClickNext'
 
   constructor: ->
     super
@@ -27,10 +27,10 @@ class Classifier extends Controller
     @classification.annotate classified_as: value 
 
   unlock: =>
-    @$('button').removeAttr 'disabled'
+    @$('.answers button').removeAttr 'disabled'
 
   lock: =>
-    @$('button').attr 'disabled', 'disabled'
+    @$('.answers button').attr 'disabled', 'disabled'
 
   onClickNext: =>
     if !@classification.annotations[0]

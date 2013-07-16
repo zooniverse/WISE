@@ -45,7 +45,38 @@ body
       float: right
 
     .controls
-      float: right
+      position: absolute
+      height: 400px
+      width: 400px
+
+      .play.big
+        position: absolute 
+        top: 150px
+        left: 150px
+
+      .bottom-row
+        position: absolute
+        bottom: 0
+        width: inherit
+
+      .play.small, .pause
+        float: left
+        display: none
+
+      .loop
+        float: right
+
+        .badge
+          height: 12px
+          width: 12px
+          border: 1px solid red
+          border-radius: 15px
+          background: red
+          color: white
+          font-size: 10px
+          position: absolute
+          right: 5px
+          top: 24px
 
     .timeline
       font-size: 12px
@@ -84,7 +115,7 @@ body
         width: 150px
         height: 50px
 
-      button[name="classify"]
+      button.classify
         vbg-gradient(#d77, #955)
         box-shadow: inset 0px 1px 0px 0px #d9b
 
@@ -98,7 +129,7 @@ body
           vbg-gradient(#844, #d77)
           box-shadow: 0 0 7px 4px #aaccFF 
 
-      button[name="next"]
+      button.next
         vbg-gradient(#7d7, #595)
         box-shadow: inset 0px 1px 0px 0px #9db
 
