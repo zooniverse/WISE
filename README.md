@@ -1,6 +1,9 @@
 WISE
 ====
 
+## Prereqs
+* node.js 0.6.x
+
 ## Usage
 ```
 git clone https://github.com/zooniverse/WISE.git
