@@ -1,9 +1,9 @@
 {Controller} = require 'spine'
-radioTemplate = require 'views/radio'
+Timeline = require 'controllers/timeline'
+Info = require 'controllers/info'
 
 class ImageViewer extends Controller
   events:
-    'click input[type="radio"]' : 'scrub'
     'click button.play' : 'play'
     'click button.stop' : 'stop'
 
@@ -30,30 +30,33 @@ class ImageViewer extends Controller
     'wise4'
   ]
 
-  readableWavelengths:
-    'dssdss2blue': 'DSS2 Blue'
-    'dssdss2red': 'DSS2 Red'
-    'dssdss2ir': 'DSS2 IR'
-    '2massj': '2MASS J'
-    '2massh': '2MASS H'
-    '2massk' : '2MASS K'
-    'wise1' : 'WISE 1'
-    'wise2' : 'WISE 2'
-    'wise3' : 'WISE 3'
-    'wise4' : 'WISE 4'
+  circleRadius: 34
 
   constructor: ->
     super
     @index = 0
 
-  preloadImages: (subject, cb) =>
+    @timeline = new Timeline {el: '.timeline'}
+    @timeline.on 'scrub', @goTo
+
+    @info = new Info {el: ".info"}
+    @setupCanvas()
+
+  setupCanvas: ->
+    @canvas = document.getElementById('viewer')
+    @ctx = @canvas.getContext('2d')
+    @ctx.lineWidth = 2
+    @ctx.strokeStyle = 'red'
+
+  preloadImages: (subject) =>
     @images = []
     loadedImages = 0
+    promise = new $.Deferred()
 
     inc = =>
       loadedImages = loadedImages + 1
       if (loadedImages is subject.metadata.files.length)
-        cb()
+        promise.resolve()
 
     for source in @subjectWavelengths(subject) 
       img = new Image
@@ -61,40 +64,26 @@ class ImageViewer extends Controller
       img.onload = inc
       @images.push {img: img, wavelength: source.wavelength}
 
+    return promise
+
   subjectWavelengths: (subject) =>
     srcs = []
     for wavelength in @wavelengths when subject.location[wavelength]?
       srcs.push {src: subject.location[wavelength], wavelength: wavelength}
     srcs
 
-  drawTimeline: =>
-    @$('.timeline').empty()
-    for {wavelength}, index in @images 
-      $('.timeline').append radioTemplate
-        band: @readableWavelengths[wavelength]
-        index: index
-
-    @$('.timeline li:first-child input').attr('checked', 'checked')
-
-  updateTimeline: =>
-    @$('input[checked="checked"]').removeProp('checked')
-    @$("input[data-index=\"#{@index}\"]").prop('checked', true)
-
   drawImage: =>
     img = @images[@index]
-    canvas = document.getElementById('viewer')
-    ctx = canvas.getContext('2d')
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.drawImage(img.img, 0, 0, canvas.width, canvas.height)
-    @drawCircle(ctx, canvas) if img.wavelength in @circleLengths
+    @ctx.clearRect(0, 0, @canvas.width, @canvas.height)
+    @ctx.drawImage(img.img, 0, 0, @canvas.width, @canvas.height)
+    @drawCircle() if img.wavelength in @circleLengths
 
-  drawCircle: (ctx, canvas) =>
-    ctx.lineWidth = 2
-    ctx.strokeStyle = 'red'
-    ctx.beginPath()
-    ctx.arc(canvas.width / 2, canvas.height / 2, 34, 0, Math.PI*2, true)
-    ctx.closePath()
-    ctx.stroke()
+  drawCircle: =>
+    @ctx.beginPath()
+    @ctx.arc(@canvas.width / 2, @canvas.height / 2, 
+            @circleRadius, 0, Math.PI*2, true)
+    @ctx.closePath()
+    @ctx.stroke()
 
   animate: =>
     if @animateImages
@@ -104,7 +93,7 @@ class ImageViewer extends Controller
       else 
         @index = @index + 1
       @drawImage()
-      @updateTimeline()
+      @timeline.updateTimeline()
       setTimeout(@animate, 500)
 
   stop: =>
@@ -117,8 +106,8 @@ class ImageViewer extends Controller
     @animateImages = true
     @animate()
 
-  scrub: (e) =>
-    @index = e.target.dataset.index
+  goTo: (index) =>
+    @index = index
     @drawImage()
 
   activateControls: =>
@@ -129,26 +118,18 @@ class ImageViewer extends Controller
     @$('button.play').attr 'disabled', 'disabled'
     @$('input[type="range"]').attr 'disabled', 'disabled'
 
-  renderInfo: (subject) =>
-    @$('.ra').text subject.coords[0].toFixed(2)
-    @$('.dec').text subject.coords[1].toFixed(2)
-    @$('.hip').text subject.metadata.hip_id
-    @$('.finder-chart').attr 'href', @finderChartUrl(subject)
-
   setupSubject: (subject) =>
     return if !subject
     @deactivateControls()
     @$('input[type="range"]').val 0
-    @renderInfo(subject)
-    @preloadImages(subject, =>
-      @$('.loading').hide()
-      @activateControls()
-      if subject? 
-        @drawTimeline()
-        @drawImage())
+    @info.setupSubject(subject)
 
-  finderChartUrl: (subject) ->
-    """
-      http://irsa.ipac.caltech.edu/applications/finderchart/#id=Hydra_finderchart_finder_chart&DoSearch=true&subsize=0.08333333400000001&thumbnail_size=medium&sources=DSS,SDSS,twomass,WISE&UserTargetWorldPt=#{subject.coords[0]};#{subject.coords[1]};EQ_J2000&TargetPanel.field.targetName=HIP%20#{subject.metadata.hip_id}&SimpleTargetPanel.field.resolvedBy=nedthensimbad&dss_bands=poss1_blue,poss1_red,poss2ukstu_blue,poss2ukstu_red,poss2ukstu_ir&SDSS_bands=u,g,r,i,z&twomass_bands=j,h,k&wise_bands=1,2,3,4&projectId=finderchart&searchName=finder_chart&startIdx=0&pageSize=0&shortDesc=Finder%20Chart&isBookmarkAble=true&isDrillDownRoot=true&isSearchResult=true
-    """
+    @preloadImages(subject).then(@postloadImages)
+
+  postloadImages: =>
+    @$('.loading').hide()
+    @activateControls()
+    @timeline.render(@images)
+    @drawImage()
+
 module.exports = ImageViewer
