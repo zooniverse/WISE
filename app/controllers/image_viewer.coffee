@@ -74,7 +74,7 @@ class ImageViewer extends Controller
         if @controls.loop
           @index = 0
         else
-          @pause() 
+          @controls.pause()
         @trigger 'played'
       else 
         @index = @index + 1
@@ -88,24 +88,16 @@ class ImageViewer extends Controller
   play: =>
     @index = -1 if @index + 1 >= @images.length
     @animateImages = true
-    @animate()
+    setTimeout(@animate, 250)
 
   goTo: (index) =>
     @index = index
     @drawImage()
 
-  activateControls: =>
-    @$('button.play').removeAttr 'disabled'
-    @$('input[type="range"]').removeAttr 'disabled'
-
-  deactivateControls: =>
-    @$('button.play').attr 'disabled', 'disabled'
-    @$('input[type="range"]').attr 'disabled', 'disabled'
-
   setupSubject: (subject) =>
     return if !subject
+    @index = 0
     @controls.reset()
-    @deactivateControls()
     @$('input[type="range"]').val 0
     @info.setupSubject(subject)
 
@@ -113,7 +105,6 @@ class ImageViewer extends Controller
 
   postloadImages: =>
     @$('.loading').hide()
-    @activateControls()
     @timeline.render(@images)
     @drawImage()
 
