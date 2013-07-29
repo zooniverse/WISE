@@ -40,7 +40,6 @@ class Overlay extends Controller
     @ctx.stroke()
 
   wavelength: (wavelength) =>
-    @ctx.clearRect(0, 0, @canvas.width, @canvas.height)
     @drawCrosshair()
     if wavelength in @circleLengths
       @drawCircle()

@@ -29,7 +29,7 @@ class ImageViewer extends Controller
     @controls.on 'play', @play
     @controls.on 'pause', @pause
 
-    @overlay = new Overlay {el: '#overlay' }
+    @overlay = new Overlay {el: '#viewer' }
 
     @info = new Info {el: ".info"}
     @setupCanvas()
