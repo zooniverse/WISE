@@ -2,6 +2,7 @@
 Timeline = require 'controllers/timeline'
 Info = require 'controllers/info'
 Controls = require 'controllers/controls'
+Overlay = require 'controllers/overlay'
 
 class ImageViewer extends Controller
   wavelengths: [
@@ -17,18 +18,6 @@ class ImageViewer extends Controller
     'wise4'
   ]
 
-  circleLengths: [
-    '2massj',
-    '2massh',
-    '2massk',
-    'wise1',
-    'wise2',
-    'wise3',
-    'wise4'
-  ]
-
-  circleRadius: 34
-
   constructor: ->
     super
     @index = 0
@@ -40,14 +29,14 @@ class ImageViewer extends Controller
     @controls.on 'play', @play
     @controls.on 'pause', @pause
 
+    @overlay = new Overlay {el: '#overlay' }
+
     @info = new Info {el: ".info"}
     @setupCanvas()
 
   setupCanvas: ->
     @canvas = document.getElementById('viewer')
     @ctx = @canvas.getContext('2d')
-    @ctx.lineWidth = 2
-    @ctx.strokeStyle = 'red'
 
   preloadImages: (subject) =>
     @images = []
@@ -77,14 +66,7 @@ class ImageViewer extends Controller
     img = @images[@index]
     @ctx.clearRect(0, 0, @canvas.width, @canvas.height)
     @ctx.drawImage(img.img, 0, 0, @canvas.width, @canvas.height)
-    @drawCircle() if img.wavelength in @circleLengths
-
-  drawCircle: =>
-    @ctx.beginPath()
-    @ctx.arc(@canvas.width / 2, @canvas.height / 2, 
-            @circleRadius, 0, Math.PI*2, true)
-    @ctx.closePath()
-    @ctx.stroke()
+    @overlay.wavelength(img.wavelength)
 
   animate: =>
     if @animateImages

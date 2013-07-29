@@ -29,12 +29,17 @@ body
       position: relative
       top: 3px
 
-    canvas
+    canvas#viewer
       padding: 10px
       display: block
       border: 1px solid #224
       margin-bottom: 10px
       background: #ddd
+
+    canvas#overlay
+      position: absolute
+      left: 181px
+      top: 150px
 
     .info
       text-align: left
@@ -48,6 +53,7 @@ body
       position: absolute
       height: 400px
       width: 400px
+      z-index: 1
 
       .play.big
         position: absolute 
