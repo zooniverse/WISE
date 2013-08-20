@@ -45,7 +45,7 @@ class ImageViewer extends Controller
 
     inc = =>
       loadedImages = loadedImages + 1
-      if (loadedImages is subject.metadata.files.length)
+      if (loadedImages is @wavelengths.length)
         promise.resolve()
 
     for source in @subjectWavelengths(subject) 
