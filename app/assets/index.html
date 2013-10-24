@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WISE Zoo</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/vendor.css" type="text/css" charset="utf-u">
+    <link rel="stylesheet" href="/css/app.css" type="text/css" charset="utf-u">
+  </head>
+  <body>
+    <div id="background">
+      <svg id="bigTriangleColor" preserveAspectRatio="none" viewBox="0 0 100 102" height="400" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <path id="background" d="M0 0 L0 75 L50 100 L100 75 L100 0 Z"></path>
+        <path id="white" d="M0 75 L50 100 L100 75 L100 110 L0 110 Z"></path>
+      </svg>
+    </div>
+    <header>
+      <div class="row">
+        <h1 class="column half pull-left">WISE Zoo</h1>
+        <span class="column half pull-right" id="global-menu">Menu <img src="/img/menu_14.svg" onerror="this.src='/img/menu_14.png'"></span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#/classify">Classify</a></li>
+          <li><a href="#/science">Science</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/team">Team</a></li>
+          <li><a href="http://talk.wisezoo.org">Discuss</a></li>
+          <li><a href="http://wisezoo.blog.zooniverse.org">Blog</a></li>
+          <div id="share">
+          </div>
+        </nav>
+      </header>
+      <section id="classify">
+        <div class="row">
+          <div class="column full">
+            <canvas width="400px" height="400px"></canvas>
+          </div>
+        </div>
+        <div class="row">
+          <div id="question" class="column full">
+            What best describes the object you see?
+          </div> 
+        </div>
+        <div class="row">
+          <button class="btn answer column half">The Object is bigger than the circle</button> 
+          <button id="multi" class="btn answer column half">Multiple Sources in the circle</button> 
+        </div>
+        <div class="row">
+          <button class="btn answer column half">Object shifts between frames</button> 
+          <button id="good" class="btn answer column half">Fits in the circle, Good candidate</button> 
+        </div>
+        <div class="row">
+          <button id="finish" class="btn column full">Finish</button>
+        </div>
+      </section>
+      <section id="science">
+      </section>
+      <section id="about">
+      </section>
+      <section id="team">
+      </section>
+      <footer>
+        <div id="footer-text" class="row">The Zooniverse is a collection of web-based Citizen Science projects that use the efforts of volunteers to help researchers deal with the flood of data that confronts them.</div>
+        <div class="row"><a id="zooniverse-home" class="btn column full" href="http://zooniverse.org">Visit Zooniverse.org</a></div>
+      </footer>
+    </body>
+    <script src="/js/vendor.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+  </html>
+
