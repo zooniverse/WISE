@@ -1,4 +1,15 @@
 section#classify
+  button
+    [DISABLED]
+      opacity: 0.5
+
+    &.selected:not([DISABLED])
+      border-color: #000
+      background: #000
+      color: #fff
+
+    &:hover:not([DISABLED])
+      border-color: #45aae3
 
   #question
     font-size: 18px
@@ -13,14 +24,6 @@ section#classify
     font-size: 18px
     color: #fff
     border-color: #45aae3
-
-  #multi
-    border-color: #45aae3
-
-  #good
-    border-color: #000
-    background: #000
-    color: #fff
 
   #canvas-container
     position: relative

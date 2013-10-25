@@ -13,7 +13,7 @@ class Classify extends ToggleView
 
     User.on('change', => Subject.next())
     Subject.on('select', =>
-      @classification = new Classification subject: Subject.current
+      @classification = new Classification({subject: Subject.current})
       @viewer.setupSubject(Subject.current)
       @lock())
 
@@ -25,14 +25,14 @@ class Classify extends ToggleView
     @selected?.removeClass('selected')
     @selected = $(e.target).addClass('selected')
     value = @selected.data('val')
-    @classification.removeAnnotation @classification.annotations[0]
-    @classification.annotate classified_as: value
+    @classification.removeAnnotation(@classification.annotations[0])
+    @classification.annotate({classified_as: value})
 
   unlock: =>
-    @$('.answers button').removeAttr('disabled')
+    @$('.answer').removeAttr('disabled')
 
   lock: =>
-    @$('.answers button').attr('disabled', 'disabled')
+    @$('.answer').attr('disabled', 'disabled')
 
   onClickNext: =>
     if !@classification.annotations[0]
