@@ -1,0 +1,85 @@
+@import 'nib'
+
+body 
+  margin: 0
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+#background
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  height: 400px
+  z-index: -1
+
+  svg
+    background: url(/img/background.jpg) no-repeat 
+    background-size: cover
+    position: absolute 
+
+    path#background
+      fill: rgba(0,0,0,0.5)
+
+    path#white
+      fill: #fff
+
+section
+  display: none
+
+  &.active
+    display: block
+
+.row
+  width: 400px
+  margin: 5px auto
+  box-sizing: border-box
+
+  &.flex
+    width: 500px
+
+    .column.full
+      width: 400px
+      display: block
+      margin: 0 auto
+
+  .column
+    display: inline-block
+    box-sizing: border-box
+
+    &.flex
+      display: inline
+      width: none
+
+    &.full
+      width: 100% 
+
+    &.half
+      width: 49%
+
+      &.pull-right
+        text-align: right
+
+      &.pull-left
+        text-align: left 
+
+      &:last-child
+        float: right
+
+.btn
+  border: 2px solid #ababab
+  border-radius: 3px
+  background: #fff
+  font-size: 12px
+  height: 50px
+  box-sizing: border-box
+  font-weight: 700
+  padding-left: 35px
+  padding-right: 35px
+  cursor: pointer
+
+  &.circular
+    border: 2px solid #fff
+    border-radius: 50%
+    background: #000
+    color: #fff
+    padding: 10px
