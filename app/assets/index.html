@@ -31,16 +31,41 @@
         </ul>
         <div id="share">
           <h3>Share</h3>
-          <button>Twitter</button>
-          <button>Facebook</button>
-          <button>Pintrest</button>
+          <button class="btn circular">Twitter</button>
+          <button class="btn circular">Facebook</button>
+          <button class="btn circular">Pintrest</button>
         </div>
       </nav>
     </header>
     <section id="classify">
-      <div class="row">
+      <div class="row flex">
+        <div id="controls" class="column flex">
+          <button id="favorite" class="btn circular">
+            <img src="/img/favorite.png">
+          </button>
+          <a id="talk" class="btn circular">
+            <img src="/img/talk.png">
+          </a>
+        </div>
+        <div id="timeline" class="column flex">
+          <ul>
+            <li>SOMETHING!!!</li>
+          </ul>
+        </div>
         <div class="column full">
-          <canvas width="400px" height="400px"></canvas>
+          <div id="canvas-container">
+            <canvas width="400px" height="400px">
+            </canvas>
+            <button class="btn circular" id="play">
+              <img src="/img/play.svg">
+            </button>
+            <button class="btn circular" id="pause">
+              <img src="/img/pause.svg" onerror="this.src='/img/pause.png'">
+            </button>
+            <button class="btn circular" id="loop">
+              <img src="/img/loop.svg" onerror="this.src='/img/loop.png'">
+            </button>
+          </div> 
         </div>
       </div>
       <div class="row">

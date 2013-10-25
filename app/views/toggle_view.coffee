@@ -6,14 +6,13 @@ class ToggleView extends Backbone.View
 
   hide: ->
     @visible = false
-    @$el.addClass('active')
+    @$el.removeClass('active')
 
   show: ->
     @visible = true 
     @$el.addClass('active')
 
   toggle: ->
-    @visible = not @visible
-    @$el.toggleClass('active')
+    if @visible then @hide() else @show()
 
 module.exports = ToggleView

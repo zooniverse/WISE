@@ -22,6 +22,59 @@ section#classify
     background: #000
     color: #fff
 
-  canvas
-    background: #fff
-    border: 1px solid #000
+  #canvas-container
+    position: relative
+    height: 400px
+    width: inherit
+    z-index: -1
+
+    canvas
+      background: #fff
+      border: 1px solid #000
+      position: absolute
+      z-index: -1
+
+    button
+      position: absolute
+      bottom: 10px
+      border: none
+      width: 50px
+      z-index: 2
+      padding: 0
+
+      &#play
+        left: 10px
+
+      &#pause
+        display: none
+        left: 10px
+
+      &#loop
+        right: 10px
+
+      &:hover
+        background: #222
+
+  #controls
+    width: 38px
+    height: 100px
+    float: left
+
+    .btn 
+      margin-bottom: 10px
+      height: 38px
+      width: 38px
+      padding: 0
+      display: block
+
+    a > img
+      position: relative
+      top: 8px
+      left: 8px
+
+  #timeline
+    float: right
+
+    ul
+      padding: 0
+      color: #fff

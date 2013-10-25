@@ -34,24 +34,36 @@ section
   margin: 5px auto
   box-sizing: border-box
 
+  &.flex
+    width: 500px
+
+    .column.full
+      width: 400px
+      display: block
+      margin: 0 auto
+
   .column
     display: inline-block
     box-sizing: border-box
 
-  .full
-    width: 100% 
+    &.flex
+      display: inline
+      width: none
 
-  .half
-    width: 49%
+    &.full
+      width: 100% 
 
-    &.pull-right
-      text-align: right
+    &.half
+      width: 49%
 
-    &.pull-left
-      text-align: left 
+      &.pull-right
+        text-align: right
 
-    &:last-child
-      float: right
+      &.pull-left
+        text-align: left 
+
+      &:last-child
+        float: right
 
 .btn
   border: 2px solid #ababab
@@ -64,3 +76,9 @@ section
   padding-left: 35px
   padding-right: 35px
   cursor: pointer
+
+  &.circular
+    border: 2px solid #fff
+    border-radius: 50%
+    background: #000
+    color: #fff
