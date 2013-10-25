@@ -1,4 +1,0 @@
-<li>
-  <input data-index="<%- @index %>" type="radio" name="band" />
-  <label for="band"><%- @band %></label>
-</li>
