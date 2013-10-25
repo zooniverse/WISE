@@ -15,14 +15,22 @@ class AppView extends Backbone.View
   }
 
   events: {
-    'click #global-menu' : 'toggleMenu'
+    'click .menu' : 'toggleMenu'
+    'click' : 'maybeToggleMenu'
   }
 
-  constructor: ->
+  initialize: ->
     @active = @views.classify
     @menu = new Menu()
 
   toggleMenu: ->
+    @$('.menu').toggleClass('active')
+    @menu.toggle()
+    return false
+
+  maybeToggleMenu: ->
+    if @menu.visible
+      @toggleMenu()
 
   activate: (view) ->
     if view

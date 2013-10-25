@@ -8,7 +8,7 @@ class Router extends Backbone.Router
     'team(/)' : 'team'
   }
 
-  constructor: (appView) ->
+  initialize: (appView) ->
     @appView = appView
 
   index: ->
@@ -16,15 +16,15 @@ class Router extends Backbone.Router
     @navigate('#/classify', {trigger: true})
 
   classify: ->
-    appView.activate('classify')
+    @appView.activate('classify')
 
   science: ->
-    appView.activate('science')
+    @appView.activate('science')
 
   about: ->
-    appView.activate('about')
+    @appView.activate('about')
 
   team: ->
-    appView.activate('team')
+    @appView.activate('team')
 
 module.exports = Router
