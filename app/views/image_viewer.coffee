@@ -77,7 +77,7 @@ class ImageViewer extends Backbone.View
       else
         @index = @index + 1
       @drawImage()
-      @trigger('next', @index)
+      @timeline.updateTimeline(@index)
       setTimeout(@animate, 500)
 
   pause: =>
@@ -89,7 +89,7 @@ class ImageViewer extends Backbone.View
     setTimeout(@animate, 250)
 
   goTo: (index) =>
-    @index = index
+    @index = parseInt(index)
     @drawImage()
 
   setupSubject: (subject) =>

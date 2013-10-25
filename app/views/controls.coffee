@@ -1,5 +1,5 @@
 class Controls extends Backbone.View
-  el: '.control'
+  el: '#canvas-container'
 
   events:
     'click #play': 'play'
