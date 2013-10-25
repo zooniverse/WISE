@@ -31,9 +31,15 @@
         </ul>
         <div id="share">
           <h3>Share</h3>
-          <button class="btn circular">Twitter</button>
-          <button class="btn circular">Facebook</button>
-          <button class="btn circular">Pintrest</button>
+          <button id="twitter" class="btn circular">
+              <img src="/img/twitter.svg" onerror="this.src='/img/twitter.png'">
+          </button>
+          <button id="facebook" class="btn circular">
+            <img src="/img/facebook.svg" onerror="this.src='/img/facebook.png'">
+          </button>
+          <button id="pintrest" class="btn circular">
+            <img src="/img/pinterest.svg" onerror="this.src='/img/pinterest.png'">
+          </button>
         </div>
       </nav>
     </header>
@@ -49,7 +55,6 @@
         </div>
         <div id="timeline" class="column flex">
           <ul>
-            <li>SOMETHING!!!</li>
           </ul>
         </div>
         <div class="column full">
@@ -57,7 +62,7 @@
             <canvas width="400px" height="400px">
             </canvas>
             <button class="btn circular" id="play">
-              <img src="/img/play.svg">
+              <img src="/img/play.svg" onerror="this.src='/img/play.png'">
             </button>
             <button class="btn circular" id="pause">
               <img src="/img/pause.svg" onerror="this.src='/img/pause.png'">
