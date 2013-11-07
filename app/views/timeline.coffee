@@ -2,6 +2,9 @@ class Timeline extends Backbone.View
   el: '#timeline ul'
   template: require('templates/radio')
 
+  initialize: ->
+    @listenTo(@model, "change:index", @updateTimeline)
+
   events:
     'click input[type="radio"]' : 'scrub'
 
@@ -17,20 +20,20 @@ class Timeline extends Backbone.View
     'wise3' : 'WISE 3 (12 μm)'
     'wise4' : 'WISE 4 (22 μm)'
 
-  render: (images) =>
+  render: =>
     @$el.empty()
-    for {wavelength}, index in images
+    for {wavelength}, index in @model.get('images')
       @$el.append @template
         band: @readableWavelengths[wavelength]
         index: index
 
     @$('li:first-child input').prop('checked', true)
 
-  updateTimeline: (index) =>
+  updateTimeline: (m, index) ->
     @$('input[checked="checked"]').removeProp('checked')
     @$("input[data-index=\"#{index}\"]").prop('checked', true)
 
   scrub: (e) =>
-    @trigger 'scrub', e.target.dataset.index
+    @model.set('index', parseInt(e.target.dataset.index))
 
 module.exports = Timeline

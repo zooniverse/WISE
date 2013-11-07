@@ -8,8 +8,8 @@ class Classify extends ToggleView
   el: '#classify'
 
   initialize: ->
-    @viewer = new ImageViewer()
-    @listenTo(@viewer, 'played', @unlock)
+    @viewer = new ImageViewer({el: "#canvas-container", controls: true})
+    @listenTo(@viewer.model, 'played', @unlock)
 
     User.on('change', => Subject.next())
     Subject.on('select', =>

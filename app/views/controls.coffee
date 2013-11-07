@@ -1,29 +1,29 @@
 class Controls extends Backbone.View
-  el: '#canvas-container'
+  initialize: ->
+    @listenTo(@model, "change:animate", @reset)
 
   events:
     'click #play': 'play'
     'click #pause' : 'pause'
     'click #loop' : 'toggleLoop'
 
-  loop: false
-   
-  reset: =>
-    @$('#play').show()
-    @$('#pause').hide()
+  reset: (m, a) ->
+    unless a
+      @$('#play').show()
+      @$('#pause').hide()
 
-  play: (e) =>
+  play: (e) ->
     @$('#play').hide()
     @$('#pause').show()
-    @trigger 'play'
+    @model.set('animate', true)
 
-  pause: (e) =>
+  pause: (e) ->
     @$('#pause').hide()
     @$('#play').show()
-    @trigger 'pause'
+    @model.set('animate', false)
 
-  toggleLoop: (e) =>
-    @loop = not @loop
+  toggleLoop: (e) ->
     @$('#loop').toggleClass('active')
+    @model.toggleLoop()
 
 module.exports = Controls
