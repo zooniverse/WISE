@@ -1,0 +1,38 @@
+@import "nib"
+
+.guide
+  position: absolute
+  top: 0
+  left: -300px
+  background: rgba(10, 10, 10, 0.7)
+  height: 100%
+  width: 300px
+  color: #fff
+  z-index: 5
+  transition: transform 0.5s ease-in-out
+  overflow-y: auto
+
+  &.active
+    transform: translateX(300px)
+    
+  .example  
+    width: 200px
+    margin: 0 auto
+    padding-top: 20px
+
+    &:first-child
+      padding-top: 0
+
+    canvas
+      border: 1px solid #000
+
+  .close
+    float: right
+    font-size: 10px
+    cursor: pointer
+    margin: 20px 10px
+    
+    img
+      position: relative
+      top: 3px  
+

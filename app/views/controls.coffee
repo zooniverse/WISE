@@ -15,12 +15,12 @@ class Controls extends Backbone.View
   play: (e) ->
     @$('#play').hide()
     @$('#pause').show()
-    @model.set('animate', true)
+    @model.play()
 
   pause: (e) ->
     @$('#pause').hide()
     @$('#play').show()
-    @model.set('animate', false)
+    @model.pause()
 
   toggleLoop: (e) ->
     @$('#loop').toggleClass('active')

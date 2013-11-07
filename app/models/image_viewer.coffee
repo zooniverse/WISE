@@ -48,6 +48,13 @@ class ImageViewer extends Backbone.Model
   isPlaying: ->
     @get('animate')
 
+  play: ->
+    @set('index', 0) if @get('index') + 1 is @get('images').length
+    setTimeout((=> @set('animate', true)), 500)
+
+  pause: ->
+    @set('animate', false)
+
   currentImage: ->
     @get('images')[@get('index')]
 
@@ -56,14 +63,15 @@ class ImageViewer extends Backbone.Model
     l = @get('loop')
     imgs = @get('images')
 
-    console.log(i)
     if i >= imgs.length
       unless l
-        @trigger('played')
         @set('animate', false) 
-      i = 0
+        @trigger('played')
+        i = i - 1
+      else
+        i = 0
 
-    @set('index', i)
+    @set('index', i) 
 
   reset: ->
     _.each(@defaults, ((v, k) -> @set(k, v)), @)

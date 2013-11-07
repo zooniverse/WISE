@@ -30,7 +30,6 @@ class ImageViewer extends Backbone.View
 
   animate: =>
     if @model.isPlaying()
-      @drawImage()
       @model.incrementIndex()
       setTimeout(@animate, 500)
 
@@ -41,7 +40,7 @@ class ImageViewer extends Backbone.View
 
   postloadImages: =>
     @$('.loading').hide()
-    @timeline.render()
+    @timeline?.render()
     @drawImage()
 
 module.exports = ImageViewer

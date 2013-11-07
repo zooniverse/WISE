@@ -3,13 +3,17 @@ ImageViewer = require('views/image_viewer')
 Subject = zooniverse.models.Subject
 Classification = zooniverse.models.Classification
 User = zooniverse.models.User
+ExampleGuide = require('views/example_guide')
 
 class Classify extends ToggleView
   el: '#classify'
 
   initialize: ->
     @viewer = new ImageViewer({el: "#canvas-container", controls: true})
+    @exampleGuide = new ExampleGuide()
+
     @listenTo(@viewer.model, 'played', @unlock)
+    @listenTo(@exampleGuide, 'hidden', => @guideButton.removeClass('active'))
 
     User.on('change', => Subject.next())
     Subject.on('select', =>
@@ -24,6 +28,7 @@ class Classify extends ToggleView
     'click button.answer' : 'onChangeAnnotate'
     'click button#finish' : 'onClickNext'
     'click button#favorite' : 'toggleFavorite'
+    'click button#guide' : 'showGuide'
 
   onChangeAnnotate: (e) =>
     @selected?.removeClass('selected')
@@ -56,5 +61,10 @@ class Classify extends ToggleView
   setTalkLink: (subject) ->
     @talkLink or= @$("#talk")
     @talkLink.attr('href', subject.talkHref())
+
+  showGuide: ->
+    @guideButton or= @$('#guide')
+    @exampleGuide.show()
+    @guideButton.addClass('active')
 
 module.exports = Classify

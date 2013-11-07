@@ -42,10 +42,63 @@
           </a>
         </div>
       </nav>
+      <div id="keyboard-guide" class="guide">
+        <span class="close">Close Guide <img src="/img/closemenu_14.svg" onerror="this.src='/img/closemenu_14.png'"></span>
+      </div>
+      <div id="classification-guide" class="guide">
+        <span class="close">Close Guide <img src="/img/closemenu_14.svg" onerror="this.src='/img/closemenu_14.png'"></span>
+        <div id="good-example" class="example">
+          <canvas height="200px" width="200px"></canvas>
+          <p>This an example of a good candidate.</p>
+          <div class="exploded">
+          </div>
+        </div>
+        <div id="empty-example" class="example">
+          <canvas height="200px" width="200px"></canvas>
+          <p>This an example of a empty image.</p>
+          <div class="exploded">
+          </div>
+        </div>
+        <div id="galaxy-example" class="example">
+          <canvas height="200px" width="200px"></canvas>
+          <p>This an example of a galaxy.</p>
+          <div class="exploded">
+          </div>
+        </div>
+        <div id="nebula-example" class="example">
+          <canvas height="200px" width="200px"></canvas>
+          <p>This an example of a nebula.</p>
+          <div class="exploded">
+          </div>
+        </div>
+        <div id="multi-example" class="example">
+          <canvas height="200px" width="200px"></canvas>
+          <p>This an example of multiple sources.</p>
+          <div class="exploded">
+          </div>
+        </div>
+        <div id="shift-example" class="example">
+          <canvas height="200px" width="200px"></canvas>
+          <p>This an example of a shifting source.</p>
+          <div class="exploded">
+          </div>
+        </div>
+      </div>
     </header>
     <section id="classify">
-      <div class="row flex">
-        <div id="controls" class="column flex">
+      <div id="controls" class="row">
+        <div class="column half pull-left">
+          <button id="tutorial" class="btn circular">
+            T
+          </button>
+          <button id="keyboard" class="btn circular">
+            K
+          </button>
+          <button id="guide" class="btn circular">
+            G
+          </button>
+        </div>
+        <div class="column half pull-right">
           <button id="favorite" class="btn circular">
             <img src="/img/favorite.png">
           </button>
@@ -53,6 +106,8 @@
             <img src="/img/talk.png">
           </a>
         </div>
+      </div>
+      <div class="row flex">
         <div id="timeline" class="column flex">
           <ul>
           </ul>
