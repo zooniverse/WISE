@@ -17,7 +17,8 @@ class Classify extends ToggleView
       @viewer.setupSubject(Subject.current)
       @setTalkLink(Subject.current)
       @favorite.removeClass('active') if @favorite
-      @lock())
+      @lock()
+      console.log("Current Subject: ", Subject.current.id, " ", Subject.current.location, " ", Subject.current.metadata.set))
 
   events:
     'click button.answer' : 'onChangeAnnotate'
@@ -39,10 +40,8 @@ class Classify extends ToggleView
 
   onClickNext: =>
     if !@classification.annotations[0]
-      console.log('here')
       @$('.classification-error').show()
     else
-      console.log('here')
       @$('.classification-error').hide()
       @$('.selected').removeClass('selected')
       @classification.send()
