@@ -15,6 +15,7 @@ class Classify extends ToggleView
     Subject.on('select', =>
       @classification = new Classification({subject: Subject.current})
       @viewer.setupSubject(Subject.current)
+      @setTalkLink(Subject.current)
       @lock())
 
   events:
@@ -42,5 +43,9 @@ class Classify extends ToggleView
       @$('.selected').removeClass('selected')
       @classification.send()
       Subject.next() 
+
+  setTalkLink: (subject) ->
+    @talkLink or= @$("#talk")
+    @talkLink.attr('href', subject.talkHref())
 
 module.exports = Classify
