@@ -28,8 +28,9 @@ class AppView extends Backbone.View
     @menu.toggle()
     return false
 
-  maybeToggleMenu: ->
-    if @menu.visible
+  maybeToggleMenu: (ev) ->
+    tag = ev.target.tagName 
+    if @menu.visible and ((tag isnt "A") and (tag isnt "IMG"))
       @toggleMenu()
 
   activate: (view) ->
