@@ -16,7 +16,7 @@ class Classify extends ToggleView
       @classification = new Classification({subject: Subject.current})
       @viewer.setupSubject(Subject.current)
       @setTalkLink(Subject.current)
-      @favorite.removeClass('active')
+      @favorite.removeClass('active') if @favorite
       @lock())
 
   events:
@@ -32,10 +32,10 @@ class Classify extends ToggleView
     @classification.annotate({classified_as: value})
 
   unlock: =>
-    @$('.answer, #finish').removeAttr('disabled')
+    @$('.answer, #finish').prop('disabled', false)
 
   lock: =>
-    @$('.answer, #finish').attr('disabled', 'disabled')
+    @$('.answer, #finish').prop('disabled', true)
 
   onClickNext: =>
     if !@classification.annotations[0]
