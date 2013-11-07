@@ -4,7 +4,7 @@ Zooniverse frontend for the WISE project looking for debris disks around stars
 
 ## Getting started
 * Install (if you don't have them):
-    * [Node.js](http://nodejs.org): `brew install node` on OS X, (see here)[https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os] for Ubuntu. 
+    * [Node.js](http://nodejs.org): `brew install node` on OS X, [see here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os) for Ubuntu. 
     * [Brunch](http://brunch.io): `npm install -g brunch`
     * [Bower](http://bower.io): `npm install -g bower`
 * Run:
