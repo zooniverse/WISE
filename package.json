@@ -1,9 +1,9 @@
 {
-  "name": "your-app",
+  "name": "WISE Zoo",
   "description": "Description",
   "author": "Your Name",
   "version": "0.0.1",
-  "repository": "",
+  "repository": "https://github.com/zooniverse/WISE",
   "scripts": {
     "start": "brunch watch --server",
     "test": "brunch test"
