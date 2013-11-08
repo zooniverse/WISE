@@ -4,6 +4,7 @@ Subject = zooniverse.models.Subject
 Classification = zooniverse.models.Classification
 User = zooniverse.models.User
 ExampleGuide = require('views/example_guide')
+tutorialSubject = require('lib/tutorial_subject')
 
 class Classify extends ToggleView
   el: '#classify'
@@ -15,8 +16,9 @@ class Classify extends ToggleView
     @listenTo(@viewer.model, 'played', @unlock)
     @listenTo(@exampleGuide, 'hidden', => @guideButton.removeClass('active'))
 
-    User.on('change', => Subject.next())
-    Subject.on('select', @onNextSubject)
+  onUserChange: =>
+    return Subject.next() if User.current?.project?.tutorial_done
+    @startTutorial()
 
   onNextSubject: =>
     @classification = new Classification({subject: Subject.current})
@@ -25,7 +27,6 @@ class Classify extends ToggleView
     @favorite.removeClass('active') if @favorite
     @lock()
     console.log("Current Subject: ", Subject.current.id, Subject.current.metadata.set)
-    console.log("Current Subject JSON: ", JSON.stringify(Subject.current))
 
   events:
     'click button.answer' : 'onChangeAnnotate'
@@ -69,5 +70,15 @@ class Classify extends ToggleView
     @guideButton or= @$('#guide')
     @exampleGuide.show()
     @guideButton.addClass('active')
+
+  startTutorial: ->
+    Subject.current = new Subject(tutorialSubject)
+    @onNextSubject()
+
+  show: ->
+    super
+    User.on('change', @onUserChange) 
+    Subject.on('select', @onNextSubject)
+    @onUserChange() 
 
 module.exports = Classify
