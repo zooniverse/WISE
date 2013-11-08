@@ -83,10 +83,12 @@ class Classify extends ToggleView
     @onNextSubject()
     @tut or= new Tutorial(tutorial)
     @tut.el.bind('end-tutorial', @endTutorial)
+    @$('button#tutorial').addClass('active')
     @tut.start()
 
   endTutorial: =>
     delete @tut
+    @$('button#tutorial').removeClass('active')
     if User.current
       User.current.setPreference('tutorial_done', true)
 
