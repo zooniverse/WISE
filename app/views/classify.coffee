@@ -16,13 +16,16 @@ class Classify extends ToggleView
     @listenTo(@exampleGuide, 'hidden', => @guideButton.removeClass('active'))
 
     User.on('change', => Subject.next())
-    Subject.on('select', =>
-      @classification = new Classification({subject: Subject.current})
-      @viewer.setupSubject(Subject.current)
-      @setTalkLink(Subject.current)
-      @favorite.removeClass('active') if @favorite
-      @lock()
-      console.log("Current Subject: ", Subject.current.id, " ", Subject.current.location, " ", Subject.current.metadata.set))
+    Subject.on('select', @onNextSubject)
+
+  onNextSubject: =>
+    @classification = new Classification({subject: Subject.current})
+    @viewer.setupSubject(Subject.current)
+    @setTalkLink(Subject.current)
+    @favorite.removeClass('active') if @favorite
+    @lock()
+    console.log("Current Subject: ", Subject.current.id, Subject.current.metadata.set)
+    console.log("Current Subject JSON: ", JSON.stringify(Subject.current))
 
   events:
     'click button.answer' : 'onChangeAnnotate'
