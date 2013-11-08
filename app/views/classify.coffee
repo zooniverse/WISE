@@ -85,7 +85,7 @@ class Classify extends ToggleView
     @tut.el.bind('end-tutorial', @endTutorial)
     @tut.start()
 
-  endTutorial: ->
+  endTutorial: =>
     delete @tut
     if User.current
       User.current.setPreference('tutorial_done', true)
