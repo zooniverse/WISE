@@ -40,7 +40,6 @@ class ImageViewer extends Backbone.View
 
   postloadImages: =>
     @$('.loading').hide()
-    @timeline?.render()
     @drawImage()
 
 module.exports = ImageViewer
