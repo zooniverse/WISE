@@ -7,7 +7,7 @@ var fs = require('fs'),
 
 AWS.config.loadFromPath('./.aws-cred.json');
 
-var s3bucket = new AWS.S3({params: {Bucket: 'tools.zooniverse.org'}});
+var s3bucket = new AWS.S3({params: {Bucket: 'zooniverse-demo'}});
 var $ = cheerio.load(fs.readFileSync("./public/index.html"));
 var version = require('./package').version
 
@@ -24,10 +24,12 @@ fs.readdir('./public/img', function(err, imgs) {
         return console.log("Failed to read: ", img);
       var fileType = img.split('.').slice(-1)[0],
         contentType = (fileType === "svg") ? "image/svg+xml" : "image/" + fileType;
+
+      console.log(contentType);
       s3bucket.putObject({
         ACL: 'public-read',
         Body: file,
-        Key: 'beta/img/' + img,
+        Key: 'wise/img/' + img,
         ContentType: contentType 
       }, function(err) {
         if (err)
@@ -60,7 +62,7 @@ zlib.gzip(css, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'beta/css/style.' + version + '.css',
+    Key: 'wise/css/style.' + version + '.css',
     ContentEncoding: 'gzip',
     ContentType: 'text/css'
   }, function(err) {
@@ -91,7 +93,7 @@ zlib.gzip(js.code, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'beta/js/app.' + version + '.js',
+    Key: 'wise/js/app.' + version + '.js',
     ContentEncoding: 'gzip',
     ContentType: 'application/javascript'
   }, function(err) {
@@ -106,8 +108,8 @@ zlib.gzip(js.code, function(err, result) {
 // Modify and Save HTML
 
 console.log("Update HTML");
-$('link').remove();
-$('script').remove();
+$('link.removeable').remove();
+$('script.removeable').remove();
 $('head').append('<link rel="stylesheet" type="text/css" href="css/style.' + version + '.css">');
 $('body').append('<script src="js/app.' + version + '.js" onload="require(' + "'init'" + ')();"></script>');
 
@@ -119,7 +121,7 @@ zlib.gzip($.html(), function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'beta/index.html',
+    Key: 'wise/index.html',
     ContentEncoding: 'gzip',
     CacheControl: 'no-cache, must-revalidate',
     ContentType: 'text/html'
