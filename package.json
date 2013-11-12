@@ -2,7 +2,7 @@
   "name": "WISE-Zoo",
   "description": "Description",
   "author": "Your Name",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "repository": "https://github.com/zooniverse/WISE",
   "scripts": {
     "start": "brunch watch --server",
