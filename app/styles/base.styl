@@ -6,10 +6,11 @@
 .pull-left
   text-align: left 
 
+html
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 
 body 
   margin: 0
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 
 #background
   width: 100%
@@ -86,29 +87,29 @@ section
   font-size: 12px
   height: 50px
   box-sizing: border-box
-  font-weight: 700
+  font-weight: 400
   padding-left: 20px
   padding-right: 20px
   cursor: pointer
+  background-image: none
+  vertical-align: middle
+  text-align: center
 
   &.circular
     border: 2px solid #fff
     border-radius: 50%
     background: #000
     color: #fff
-    width: 50px
-    padding: 10px
+    width: auto 
+    height: auto 
+    padding: 20px
 
     img
-      position: relative
-      top: 2px
+      vertical-align: middle
 
 a.btn
   text-decoration: none
   display: inline-block
-
-  &.circular > img
-    top: 3px
 
   &:hover
     border-color: #45aae3
