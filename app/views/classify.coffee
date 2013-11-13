@@ -96,4 +96,8 @@ class Classify extends ToggleView
     super
     _.defer(=> @onUserChange())
 
+  hide: ->
+    super
+    @tut?.end()
+
 module.exports = Classify
