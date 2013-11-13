@@ -7,16 +7,6 @@ class Overlay extends Backbone.View
     @ctx.strokeStyle = 'red'
     @center = {x: @el.width / 2, y: @el.height / 2}
 
-  circleLengths: [
-    '2massj',
-    '2massh',
-    '2massk',
-    'wise1',
-    'wise2',
-    'wise3',
-    'wise4'
-  ]
-
   circleRadius: 34
 
   drawCrosshair: =>
@@ -39,7 +29,6 @@ class Overlay extends Backbone.View
 
   wavelength: (wavelength) =>
     @drawCrosshair()
-    if wavelength in @circleLengths
-      @drawCircle()
+    @drawCircle()
 
 module.exports = Overlay
