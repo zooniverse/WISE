@@ -8,7 +8,7 @@ module.exports =
     welcome: new Step
       number: 1
       header: "Welcome to WISE ZOO"
-      details: "Help us search for starts with hidden disks of dust around them, similar to the asteroid belt. These starts show us wehre to look for planetary systems, and teach us how they form."
+      details: "Help us search for starts with hidden disks of dust around them, similar to the asteroid belt. These starts show us where to look for planetary systems, and teach us how they form."
       attachment: "center center #canvas-container center center"
       next: "flipbook"
 
