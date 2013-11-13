@@ -11,6 +11,7 @@ class Timeline extends Backbone.View
 
   events:
     'mousedown input' : 'startScrub'
+    'touchdown input' : 'startScrub'
 
   readableWavelengths:
     'dssdss2blue': 'DSS2 Blue (0.665 μm)'
@@ -29,12 +30,18 @@ class Timeline extends Backbone.View
     @currentWavelength.text(@names[index])
 
   startScrub: =>
+    if parseInt(@range.val()) isnt @model.get('index')
+      @model.set('index', parseInt(@range.val()))
     @$el.on('mousemove', @scrub)
     @$el.on('mosueup', @endScrub)
+    @$el.on('touchmove', @scrub)
+    @$el.on('touchup', @endScrub)
 
   endScrub: =>
     @$el.off('mousemove')
     @$el.off('mouseup')
+    @$el.on('touchmove', @scrub)
+    @$el.on('touchup', @endScrub)
 
   scrub: =>
     @model.set('index', parseInt(@range.val()))
