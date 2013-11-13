@@ -5,7 +5,7 @@ class Menu extends ToggleView
   el: 'nav'
 
   events: {
-    'click a' : 'closeMenu'
+    'click a' : 'hide'
   }
 
   initialize: ->
@@ -20,7 +20,8 @@ class Menu extends ToggleView
     @twitter.attr('href', subject.twitterHref())
     @pinterest.attr('href', subject.pinterestHref())
 
-  closeMenu: ->
-    @hide()
+  hide: ->
+    super
+    @trigger 'hidden'
 
 module.exports = Menu

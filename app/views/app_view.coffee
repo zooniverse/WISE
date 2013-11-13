@@ -22,6 +22,7 @@ class AppView extends Backbone.View
   initialize: ->
     @active = @views.classify
     @menu = new Menu()
+    @listenTo(@menu, 'hidden', => @$('.menu').removeClass('active'))
 
   toggleMenu: ->
     @$('.menu').toggleClass('active')
