@@ -78,7 +78,7 @@ class Classify extends ToggleView
     @guideButton.addClass('active')
 
   startTutorial: =>
-    return if @tut?
+    return if @tut? or !@visible
     Subject.current = new Subject(tutorialSubject)
     @onNextSubject()
     @tut or= new Tutorial(tutorial)
