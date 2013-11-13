@@ -46,8 +46,8 @@ fs.readdir('./public/img', function(err, imgs) {
 console.log("Build CSS");
 
 var cssInput = [
-  "./public/css/app.css",
-  "./public/css/vendor.css"
+  "./public/css/vendor.css",
+  "./public/css/app.css"
 ];
 
 var css = clean.process(cssInput.map(function(f) { 
