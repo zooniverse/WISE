@@ -3,11 +3,10 @@ class Timeline extends Backbone.View
   template: require('templates/radio')
 
   initialize: ->
-    @nos = _.values(@wavelengthNos)
     @names = _.values(@readableWavelengths)
     @listenTo(@model, "change:index", @updateTimeline)
     @range = @$('input')
-    @currentWavelength = @$('p')
+    @currentWavelength = @$('p:NOT(.pull-left, .pull-right)')
     @updateTimeline(@model, @model.get('index'))
 
   events:
@@ -25,20 +24,8 @@ class Timeline extends Backbone.View
     'wise3' : 'WISE 3 (12 μm)'
     'wise4' : 'WISE 4 (22 μm)'
 
-  wavelengthNos: 
-    'dssdss2blue': 0.6 
-    'dssdss2red': 0.9 
-    'dssdss2ir': 1.1
-    '2massj': 1.2
-    '2massh': 1.6
-    '2massk' : 2.1
-    'wise1' : 3.4
-    'wise2' : 4.6
-    'wise3' : 12
-    'wise4' : 22
-
   updateTimeline: (m, index) ->
-    @range.val(@nos[index])
+    @range.val(index)
     @currentWavelength.text(@names[index])
 
   startScrub: =>
@@ -49,17 +36,8 @@ class Timeline extends Backbone.View
     @$el.off('mousemove')
     @$el.off('mouseup')
 
-  closeTo: (val) =>
-    (wave, index) =>
-      next = if index + 1 >= @nos.length then -1 else @nos[index+1]
-      prev = if index - 1 < 0 then -1 else @nos[index-1]
-      ((prev is -1) or (val > ((wave + prev) / 2))) and
-        ((next is -1) or (val < ((wave + next) / 2)))
-
   scrub: =>
-    value = _.find(@nos, @closeTo(parseFloat(@range.val())))
-    @range.val(value)
-    @model.set('index', _.indexOf(@nos, value))
+    @model.set('index', parseInt(@range.val()))
     
 
 
