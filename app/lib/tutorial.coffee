@@ -16,7 +16,8 @@ module.exports =
       number: 2
       header: "Using the Interface"
       details: "We find new debris disk stars by looking at flipbooks of images of the star taken with different telescopes. You won't see a disk or ring directly. Click the Play button to start the flipbook."
-      attachment: "right center #play left center"
+      attachment: "left center #play right center"
+      className: "arrow-left"
       next: { 'click button#play': 'explain1' }
 
     explain1: new Step
@@ -38,6 +39,7 @@ module.exports =
       header: "The Scrub Bar"
       details: "Sometimes you'll need to look at individual frames more closely. You can use this scrub bar to move through images individually. Try it out by clicking and dragging it back a forth. Release the mouse button when you're done."
       attachment: "center top #timeline center bottom"
+      className: "arrow-up"
       next: {"mouseup #timeline input" : "good"}
 
     good: new Step
@@ -52,13 +54,15 @@ module.exports =
       header: "Guide"
       details: "There are a variety of reason that an object may not end up being a good candidate. We're interested in what some of bad subject are. We have example of all the possible classifications in a guide accessible by clicking on this button. Open it up!"
       attachment: "center top #guide center bottom"
+      className: "arrow-up"
       next: {"click #guide" : "guide2"}
 
     guide2: new Step
       number: 7
       header: "Guide"
       details: "To see a flipbook play through hover over it with your mouse. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done click 'Close Guide' to return the classification."
-      attachment: "left center #example-guide right center"
+      attachment: "-1.0 center #classification-guide right center"
+      className: "arrow-left"
       next: {"click .close" : "end"}
 
     end: new Step
