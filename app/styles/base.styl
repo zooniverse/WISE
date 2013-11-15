@@ -40,9 +40,8 @@ html
     &.active
       display: block
 
-    &:NOT(#classify, #index) > .row
-      background: #fff
-      border: 1px solid #000
+    &:NOT(#classify) > .row, &:NOT(#index) > .row
+      background: rgba(255, 255, 255, 0.4)
 
       .column
         padding: 10px 30px
