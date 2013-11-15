@@ -15,7 +15,7 @@ class Classify extends ToggleView
     @viewer = new ImageViewer({el: "#canvas-container", controls: true})
     @exampleGuide = new ExampleGuide()
 
-    @listenTo(@viewer.model, 'played', @unlock)
+    @listenTo(@viewer.model, 'change:index', @unlock)
     @listenTo(@exampleGuide, 'hidden', => @guideButton.removeClass('active'))
 
     User.on('change', @onUserChange) 
@@ -47,7 +47,8 @@ class Classify extends ToggleView
     @classification.removeAnnotation(@classification.annotations[0])
     @classification.annotate({classified_as: value})
 
-  unlock: =>
+  unlock: (m, index) ->
+    return unless index is 9
     @$('.answer, #finish').prop('disabled', false)
 
   lock: =>

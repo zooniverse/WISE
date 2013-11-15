@@ -66,7 +66,6 @@ class ImageViewer extends Backbone.Model
     if i >= imgs.length
       unless l
         @set('animate', false) 
-        @trigger('played')
         i = i - 1
       else
         i = 0
