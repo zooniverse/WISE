@@ -2,6 +2,7 @@ Classify = require('views/classify')
 Science = require('views/science')
 About = require('views/about')
 Team = require('views/team')
+Index = require('views/index')
 Menu = require('views/menu')
 
 class AppView extends Backbone.View
@@ -12,6 +13,7 @@ class AppView extends Backbone.View
     science: new Science()
     about: new About()
     team: new Team()
+    index: new Index()
   }
 
   events: {
@@ -20,7 +22,7 @@ class AppView extends Backbone.View
   }
 
   initialize: ->
-    @active = @views.classify
+    @active = @views.index
     @menu = new Menu()
     @listenTo(@menu, 'hidden', => @$('.menu').removeClass('active'))
 

@@ -12,8 +12,7 @@ class Router extends Backbone.Router
     @appView = appView
 
   index: ->
-    console.log('here')
-    @navigate('#/classify', {trigger: true})
+    @appView.activate('index')
 
   classify: ->
     @appView.activate('classify')

@@ -28,8 +28,11 @@ html
       path#background
         fill: rgba(0,0,0,0.5)
 
-      path#white
-        fill: #fff
+  path.white
+    fill: #fff
+
+  path.gray
+    fill: #f1f1f1
 
   section
     display: none
@@ -37,7 +40,7 @@ html
     &.active
       display: block
 
-    &:NOT(#classify) > .row
+    &:NOT(#classify, #index) > .row
       background: #fff
       border: 1px solid #000
 
@@ -55,21 +58,9 @@ html
     margin: 5px auto
     box-sizing: border-box
 
-    &.flex
-      width: 500px
-
-      .column.full
-        width: 400px
-        display: block
-        margin: 0 auto
-
-    .column
+   .column
       display: inline-block
       box-sizing: border-box
-
-      &.flex
-        display: inline
-        width: none
 
       &.full
         width: 100% 
