@@ -6,7 +6,7 @@ section#classify
 
     &.selected:not([DISABLED])
       border-color: #000
-      background: #000
+      background-color: #000
       color: #fff
 
     &:hover:not([DISABLED])
@@ -73,6 +73,10 @@ section#classify
       height: 38px
       width: 38px
       padding: 0
+      background-color: transparent
+
+      &.active
+        background-color: #45aae3
 
      a.btn
       height: auto
