@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <title>WISE Zoo</title>
+    <title>Disk Detective</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link class="removeable" rel="stylesheet" href="/css/vendor.css" type="text/css" charset="utf-u">
     <link class="removeable" rel="stylesheet" href="/css/app.css" type="text/css" charset="utf-u">
@@ -17,9 +17,9 @@
     </div>
     <header>
       <div class="row">
-        <h1 class="column half pull-left"><a href="#/">Hs for Ps</a></h1>
-        <span class="menu column half pull-right" id="global-menu-open">Menu <img src="img/menu_14.svg" onerror="this.src='img/menu_14.png'"></span>
-        <span class="menu column half pull-right" id="global-menu-close">Close Menu<img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
+        <h1 class="column half pull-left"><a href="#/">Disk Detective</a></h1>
+        <span class="menu column pull-right" id="global-menu-open">Menu <img src="img/menu_14.svg" onerror="this.src='img/menu_14.png'"></span>
+        <span class="menu column pull-right" id="global-menu-close">Close Menu<img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
       </div>
       <nav>
         <ul>
@@ -95,7 +95,7 @@
       <div class="row">
         <img width=150 height =150 src="img/background.jpg" />
         <h3>What is WISE looking for?</h3>
-        <p>They looking at distant starts to find debris disks similar to our asteroid field. These disks indicate that these starts are in the early stages of forming planetary systems. Learning more about these stars can tell us how our solar system formed. </p>
+        <p>They looking at distant stars to find debris disks similar to our asteroid field. These disks indicate that these stars are in the early stages of forming planetary systems. Learning more about these stars can tell us how our solar system formed. </p>
       </div>
       <svg id="bigTriangleColor" preserveAspectRatio="none" viewBox="0 0 100 102" height="50" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <path class="gray" d="M0 0 L50 100 L100 0 L100 100 L0 100 Z"></path>
@@ -117,21 +117,21 @@
     <section id="classify">
       <div id="controls" class="row">
         <div class="column half pull-left">
-          <button id="tutorial" class="btn circular">
+          <button title="Start Tutorial" id="tutorial" class="btn circular">
             <img height=30 width=30 src="img/tutorial.svg" onerror="this.src='img/tutorial.png'">
           </button>
-          <button id="keyboard" class="btn circular">
+          <button title="Show Keyboard Shortcuts" id="keyboard" class="btn circular" disabled="disabled">
             <img height=30 width=30 src="img/keyboard.svg" onerror="this.src='img/keyboard.png'">
           </button>
-          <button id="guide" class="btn circular">
+          <button title="Show Example Images" id="guide" class="btn circular">
             <img height=30 width=30 src="img/guide.svg" onerror="this.src='img/guide.png'">
           </button>
         </div>
         <div class="column half pull-right">
-          <button id="favorite" class="btn circular">
+          <button title="Favorite Subject" id="favorite" class="btn circular">
             <img height=20 width=20 src="img/favorite.png">
           </button>
-          <a target="_blank" id="talk" class="btn circular">
+          <a title="Discuss on Talk" target="_blank" id="talk" class="btn circular">
             <img src="img/talk.png">
           </a>
         </div>
@@ -141,13 +141,13 @@
           <div id="canvas-container">
             <canvas width="400px" height="400px">
             </canvas>
-            <button class="btn circular" id="play">
+            <button class="btn circular" title="Play" id="play">
               <img src="img/play.svg" onerror="this.src='img/play.png'">
             </button>
-            <button class="btn circular" id="pause">
+            <button class="btn circular" title="Pause" id="pause">
               <img src="img/pause.svg" onerror="this.src='img/pause.png'">
             </button>
-            <button class="btn circular" id="loop">
+            <button class="btn circular" title="Toggle Loop" id="loop">
               <img src="img/loop.svg" onerror="this.src='img/loop.png'">
             </button>
           </div> 
@@ -175,7 +175,7 @@
         <button class="btn answer column half" data-val="empty">Empty circle at longer wavelengths</button> 
       </div>
       <div class="row">
-        <button class="btn answer column half" data-val="oval">Asymmetrical or Ovalular at shorter wavelengths</button> 
+        <button class="btn answer column half" data-val="oval">Asymmetrical or Oval at shorter wavelengths</button> 
         <button class="btn answer column half" data-val="multi">Multiple objects at shorter wavelengths</button> 
       </div>
       <div class="row">
