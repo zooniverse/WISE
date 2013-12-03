@@ -30,23 +30,31 @@ module.exports =
     explain2: new Step
       number: 3
       header: "Using the Interface"
-      details: "For a star to be a debris disk, it's should be entirely contained within the red circle."
+      details: "For a star to be a debris disk, it should be contained within the red circle."
       attachment: "center top #canvas-container center bottom"
       next: "scrub"
 
     scrub: new Step
       number: 4
       header: "The Scrub Bar"
-      details: "Sometimes you'll need to look at individual frames more closely. You can use the scrub bar to move through images individually. Try it out by clicking and dragging it back a forth. Release the mouse button when you're done."
+      details: "Sometimes you'll need to look at individual frames more closely. You can use the scrub bar to move through images individually. Try it out by clicking and dragging it back and forth. Release the mouse button when you're done."
       attachment: "center top #timeline center bottom"
       className: "arrow-up"
-      next: {"mouseup #timeline input" : "good"}
+      next: {"mouseup #timeline input" : "survey"}
+
+    survey: new Step
+      number: 5
+      header: "Different Surveys"
+      details: "When you watch through the flipbook, you should pay attention to what survey each image is from. You'll be looking for different problems in images from different surveys. For example non-circular objects in images from the DSS2 and 2 MASS surveys."
+      attachment: "center top #timeline p:last-child center 1.8"
+      className: "arrow-up"
+      next: "good"
 
     good: new Step
       number: 5
       header: "Classify"
       details: "After you watch the flipbook at least once. You can select a classification for the star. This is a good candidate since it is round and entirely contained within the circle. Go ahead and select 'Good Candidate' then click 'Finish'."
-      attachment: "center center #canvas-container center center"
+      attachment: "center bottom #canvas-container center bottom"
       next: {"click #finish" : "guide"}
 
     guide: new Step
