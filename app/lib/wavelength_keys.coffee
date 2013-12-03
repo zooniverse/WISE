@@ -1,0 +1,11 @@
+module.exports =
+  'dss2blue': 'DSS2 Blue (0.665 μm)'
+  'dss2red': 'DSS2 Red (0.975 μm)'
+  'dss2ir': 'DSS2 IR (1.15 μm)'
+  '2massj': '2MASS J (1.24 μm)'
+  '2massh': '2MASS H (1.66 μm)'
+  '2massk' : '2MASS K (2.16 μm)'
+  'wise1' : 'WISE 1 (3.4 μm)'
+  'wise2' : 'WISE 2 (4.6 μm)'
+  'wise3' : 'WISE 3 (12 μm)'
+  'wise4' : 'WISE 4 (22 μm)'

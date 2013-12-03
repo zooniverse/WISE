@@ -27,6 +27,25 @@
     canvas
       border: 1px solid #000
 
+    .exploded
+      display: none
+
+      p
+        text-align: center
+
+      &.active
+        display: block
+
+      .close-ex
+        float: right
+        font-size: 10px
+        padding-bottom: 10px
+        cursor: pointer
+
+        img
+          position: relative
+          top: 3px
+
   .close
     float: right
     font-size: 10px
