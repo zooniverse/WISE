@@ -9,11 +9,12 @@ class ExampleGuide extends ToggleView
     "click .close" : "hide"
     "mouseover .example canvas" : "play"
     "mouseout .example canvas" : "pause"
+    "mouseup .example" : "explode"
   }
 
   viewers: {}
 
-  examples: ["good", "empty", "galaxy", "nebula", "multi", "shift"]
+  examples: ["good", "multiple", "empty", "galaxy", "nebula", "multi", "shift"]
 
   play: (ev) ->
     iv = @viewers[ev.target.parentNode.id]
@@ -42,6 +43,8 @@ class ExampleGuide extends ToggleView
     super
     _.each(@examples, @removeExample, @)
     @trigger "hidden"
+
+
 
 
 module.exports = ExampleGuide
