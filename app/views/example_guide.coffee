@@ -56,7 +56,10 @@ class ExampleGuide extends ToggleView
       box.append(explodedTemplate({src: src, wavelength: wavelengthKeys[w]})))
 
   closeExplode: (ev) ->
-    box = @$(ev.target).parent()
+    if ev.target.tagName is 'IMG'
+      box = @$(ev.target).parent()
+    else
+      box = @$(ev.target).parent().parent()
     box.children(":NOT(.close-ex)").remove()
     box.removeClass('active')
 
