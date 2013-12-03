@@ -81,12 +81,11 @@ class Classify extends ToggleView
     @exampleGuide.toggle()
 
   startTutorial: (ev) =>
-    if @tut?
-      unless @visible and ev?
-        return
-      else
-        @tut.end()
-        return @endTutorial()
+    if @tut? and ev?
+      @tut.end()
+      return @endTutorial()
+    else if @tut? or !@visible
+      return
     Subject.current = new Subject(tutorialSubject)
     @onNextSubject()
     @tut or= new Tutorial(tutorial)
