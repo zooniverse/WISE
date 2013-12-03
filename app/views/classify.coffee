@@ -12,10 +12,12 @@ class Classify extends ToggleView
   el: '#classify'
 
   initialize: ->
+    @guideButton or= @$('#guide')
     @viewer = new ImageViewer({el: "#canvas-container", controls: true})
     @exampleGuide = new ExampleGuide()
 
     @listenTo(@viewer.model, 'change:index', @unlock)
+    @listenTo(@exampleGuide, 'shown', => @guideButton.addClass('active'))
     @listenTo(@exampleGuide, 'hidden', => @guideButton.removeClass('active'))
 
     User.on('change', @onUserChange) 
@@ -76,12 +78,15 @@ class Classify extends ToggleView
     @talkLink.attr('href', subject.talkHref())
 
   showGuide: ->
-    @guideButton or= @$('#guide')
-    @exampleGuide.show()
-    @guideButton.addClass('active')
+    @exampleGuide.toggle()
 
-  startTutorial: =>
-    return if @tut? or !@visible
+  startTutorial: (ev) =>
+    if @tut?
+      unless @visible and ev?
+        return
+      else
+        @tut.end()
+        return @endTutorial()
     Subject.current = new Subject(tutorialSubject)
     @onNextSubject()
     @tut or= new Tutorial(tutorial)

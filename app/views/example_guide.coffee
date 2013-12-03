@@ -41,11 +41,12 @@ class ExampleGuide extends ToggleView
   show: ->
     super
     _.each(@examples, @render, @)
+    @trigger("shown")
 
   hide: ->
     super
     _.each(@examples, @removeExample, @)
-    @trigger "hidden"
+    @trigger("hidden")
 
   explode: (ev) ->
     box = @$(ev.target).siblings(".exploded").addClass("active")
