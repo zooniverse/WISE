@@ -41,11 +41,11 @@ class Classify extends ToggleView
     'click button#tutorial' : 'startTutorial'
 
   onChangeAnnotate: (e) =>
-    @selected?.removeClass('selected')
-    @selected = $(e.target).addClass('selected')
-    value = @selected.data('val')
-    @classification.removeAnnotation(@classification.annotations[0])
-    @classification.annotate({classified_as: value})
+    if e.target.id is "good"
+      @$('.selected').removeClass('selected')
+    else
+      @$("#good").removeClass('selected')
+    @$(e.target).addClass('selected')
 
   unlock: (m, index) ->
     return unless index is 9
@@ -55,6 +55,8 @@ class Classify extends ToggleView
     @$('.answer, #finish').prop('disabled', true)
 
   onClickNext: =>
+    @$('.selected').each((i, b) =>
+      @classification.annotate({classified_as: b.dataset.val}))
     if !@classification.annotations[0]
       @$('.classification-error').show()
     else
