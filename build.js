@@ -7,7 +7,7 @@ var fs = require('fs'),
 
 AWS.config.loadFromPath('./.aws-cred.json');
 
-var s3bucket = new AWS.S3({params: {Bucket: 'zooniverse-demo'}});
+var s3bucket = new AWS.S3({params: {Bucket: 'www.diskdetective.org'}});
 var $ = cheerio.load(fs.readFileSync("./public/index.html"));
 var version = require('./package').version
 
@@ -29,7 +29,7 @@ fs.readdir('./public/img', function(err, imgs) {
       s3bucket.putObject({
         ACL: 'public-read',
         Body: file,
-        Key: 'wise/img/' + img,
+        Key: 'beta/img/' + img,
         ContentType: contentType 
       }, function(err) {
         if (err)
@@ -62,7 +62,7 @@ zlib.gzip(css, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'wise/css/style.' + version + '.css',
+    Key: 'beta/css/style.' + version + '.css',
     ContentEncoding: 'gzip',
     ContentType: 'text/css'
   }, function(err) {
@@ -93,7 +93,7 @@ zlib.gzip(js.code, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'wise/js/app.' + version + '.js',
+    Key: 'beta/js/app.' + version + '.js',
     ContentEncoding: 'gzip',
     ContentType: 'application/javascript'
   }, function(err) {
@@ -121,7 +121,7 @@ zlib.gzip($.html(), function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'wise/index.html',
+    Key: 'beta/index.html',
     ContentEncoding: 'gzip',
     CacheControl: 'no-cache, must-revalidate',
     ContentType: 'text/html'
