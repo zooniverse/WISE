@@ -1,4 +1,4 @@
-# WISE Zoo -- to be renamed
+# Disk Detective
 
 Zooniverse frontend for the WISE project looking for debris disks around stars
 
