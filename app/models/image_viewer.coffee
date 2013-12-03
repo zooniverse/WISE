@@ -1,8 +1,8 @@
 class ImageViewer extends Backbone.Model
   wavelengths: [
-    'dssdss2blue',
-    'dssdss2red',
-    'dssdss2ir',
+    'dss2blue',
+    'dss2red',
+    'dss2ir',
     '2massj',
     '2massh',
     '2massk',

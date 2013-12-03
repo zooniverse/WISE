@@ -1,34 +1,34 @@
 module.exports = {
-  "id":"52781e7e806ea51485000017"
-  "coords":[64.815958,29.107389]
+  "id":"529e01c3806ea51d76000010"
+  "coords":["64.82","+29.11"]
   "project_id":"5193f3c43ae7402e2c000001"
   "workflow_ids":["5193f3c43ae7402e2c000002"]
   "zooniverse_id":"AWI0000027"
   "location":
-    "2massh":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-2massh.png"
-    "2massj":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-2massj.png"
-    "wise4":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-wise4.png"
-    "dssdss2blue":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-dssdss2blue.png"
-    "dssdss2ir":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-dssdss2ir.png"
-    "wise2":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-wise2.png"
-    "2massk":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-2massk.png"
-    "dssdss2red":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-dssdss2red.png"
-    "wise1":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-wise1.png"
-    "wise3":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-wise3.png"
-    "standard":"http://zooniverse-demo.s3.amazonaws.com/wise/subjects/standard/52781e7e806ea51485000017-2massh.png"
+    "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise3.png"
+    "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise2.png"
+    "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-2massj.png"
+    "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise1.png"
+    "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-2massk.png"
+    "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-dss2red.png"
+    "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-dss2blue.png"
+    "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-2massh.png"
+    "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-dss2ir.png"
+    "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise4.png"
+    "standard":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise3.png"
   "metadata":
     "files": [
-      "fc_64.815958+29.107389_2massh.png",
-      "fc_64.815958+29.107389_2massj.png",
-      "fc_64.815958+29.107389_wise4.png",
-      "fc_64.815958+29.107389_dssdss2blue.png",
-      "fc_64.815958+29.107389_dssdss2ir.png",
-      "fc_64.815958+29.107389_wise2.png",
-      "fc_64.815958+29.107389_2massk.png",
-      "fc_64.815958+29.107389_dssdss2red.png",
-      "fc_64.815958+29.107389_wise1.png",
-      "fc_64.815958+29.107389_wise3.png"
+      "J041915.83+290626.6_w3.png",
+      "J041915.83+290626.6_w2.png",
+      "J041915.83+290626.6_2mass-atlas-971129n-j0520044_sub.png",
+      "J041915.83+290626.6_w1.png",
+      "J041915.83+290626.6_2mass-atlas-971129n-k0520044_sub.png",
+      "J041915.83+290626.6_poss2ukstu_red_sub.png",
+      "J041915.83+290626.6_poss2ukstu_blue_sub.png",
+      "J041915.83+290626.6_2mass-atlas-971129n-h0520044_sub.png",
+      "J041915.83+290626.6_poss2ukstu_ir_sub.png",
+      "J041915.83+290626.6_w4.png"
     ]
-    "image_bands": ["2massh","2massj","wise4","dssdss2blue","dssdss2ir","wise2","2massk","dssdss2red","wise1","wise3"]
+    "image_bands": ["2massh","2massj","wise4","dss2blue","dss2ir","wise2","2massk","dss2red","wise1","wise3"]
     "set":"good"
 }
