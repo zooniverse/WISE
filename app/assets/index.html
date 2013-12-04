@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <title>Disk Detective</title>
+    <title data-t7e-key="title">Disk Detective</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link class="removeable" rel="stylesheet" href="/css/vendor.css" type="text/css" charset="utf-u">
     <link class="removeable" rel="stylesheet" href="/css/app.css" type="text/css" charset="utf-u">
@@ -20,21 +20,21 @@
     </div>
     <header>
       <div class="row">
-        <h1 class="column half pull-left"><a href="#/">Disk Detective</a></h1>
-        <span class="menu column pull-right" id="global-menu-open">Menu <img src="img/menu_14.svg" onerror="this.src='img/menu_14.png'"></span>
-        <span class="menu column pull-right" id="global-menu-close">Close Menu<img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
+        <h1 data-t7e-key="title" class="column half pull-left"><a href="#/">Disk Detective</a></h1>
+        <span data-t7e-key="open_menu" class="menu column pull-right" id="global-menu-open">Menu <img src="img/menu_14.svg" onerror="this.src='img/menu_14.png'"></span>
+        <span data-t7e-key="close_menu" class="menu column pull-right" id="global-menu-close">Close Menu<img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
       </div>
       <nav>
         <ul>
-          <li><a href="#/classify">Classify</a></li>
-          <li><a href="#/science">Science</a></li>
-          <li><a href="#/about">About</a></li>
-          <li><a href="#/team">Team</a></li>
-          <li><a href="http://talk.wisezoo.org">Discuss</a></li>
-          <li><a href="http://wisezoo.blog.zooniverse.org">Blog</a></li>
+          <li><a data-t7e-key="menu.classify" href="#/classify">Classify</a></li>
+          <li><a data-t7e-key="menu.science" href="#/science">Science</a></li>
+          <li><a data-t7e-key="menu.about" href="#/about">About</a></li>
+          <li><a data-t7e-key="menu.team" href="#/team">Team</a></li>
+          <li><a data-t7e-key="menu.talk" href="http://talk.wisezoo.org">Discuss</a></li>
+          <li><a data-t7e-key="menu.blog" href="http://wisezoo.blog.zooniverse.org">Blog</a></li>
         </ul>
         <div id="share">
-          <h3>Share</h3>
+          <h3 data-t7e-key="menu.share">Share</h3>
           <a target="_blank" id="twitter" class="btn circular">
             <img src="img/twitter.svg" onerror="this.src='img/twitter.png'">
           </a>
@@ -47,87 +47,88 @@
         </div>
       </nav>
       <div id="keyboard-guide" class="guide">
-        <span class="close">Close Guide <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
+        <span data-t7e-key="guide.close" class="close">Close Guide <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+        <div class="keyboard-content" data-t7e-key="guide.keyboard"></div>
       </div>
       <div id="classification-guide" class="guide">
-        <span class="close">Close Guide <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
+        <span data-t7e-key="guide.close" class="close">Close Guide <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'"></span>
         <div id="good-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>An example of a good candidate--it looks round at all wavelengths and stays close to the plus sign.</p>
+          <p data-t7e-key="examples.good">An example of a good candidate--it looks round at all wavelengths and stays close to the plus sign.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.close" class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
         <div id="nebula-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>The object is extended beyond the red circle in the WISE images. It's probably a Nebula.</p>
+          <p data-t7e-key="examples.nebula">The object is extended beyond the red circle in the WISE images. It's probably a Nebula.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.close" class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
         <div id="galaxy-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>This is an example of a candidate that is not round in the DSS and 2MASS images. It's probably a Galaxy.</p>
+          <p data-t7e-key-"examples.galaxy">This is an example of a candidate that is not round in the DSS and 2MASS images. It's probably a Galaxy.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.close" class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
         <div id="shift-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>This object moves between images. It is near the cross in the DSS and 2MASS images, but is more distant at longer ones. Sometimes you may see a very minute shift between frames. This is usually acceptable provided it looks like an otherwise good candidate.</p>
+          <p data-t7e-key="examples.shift">This object moves between images. It is near the cross in the DSS and 2MASS images, but is more distant at longer ones. Sometimes you may see a very minute shift between frames. This is usually acceptable provided it looks like an otherwise good candidate.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.close"class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
         <div id="empty-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>In the WISE images, there is no object in the red circle.</p>
+          <p data-t7e-key="examples.empty">In the WISE images, there is no object in the red circle.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.empty" class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
         <div id="multi-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>This example has multiple objects in the DSS and 2MASS images</p>
+          <p data-t7e-key="examples.empty">This example has multiple objects in the DSS and 2MASS images.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.empty" class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
         <div id="multiple-example" class="example">
           <canvas height="200px" width="200px"></canvas>
-          <p>This candidate has multiple problems--it is not round in the DSS and 2MASS image, and it extends beyond the circle in the WISE images. It also has multiple sources within the circle.</p>
+          <p data-t7e-key="examples.empty">This candidate has multiple problems--it is not round in the DSS and 2MASS image, and it extends beyond the circle in the WISE images. It also has multiple sources within the circle.</p>
           <div class="exploded">
-            <span class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
+            <span data-t7e-key="examples.empty" class="close-ex">Close <img src="img/closemenu_14.svg" onerror="this.src='img/closemenu_14.png'" /></span>
           </div>
         </div>
       </div>
     </header>
     <section id="index">
       <div class="row">
-        <h2>Find the Birthplace of Planets</h2>
-        <p>Scientists are combing our galaxy looking for stars that could be harbouring planet-forming disks. They need your help to explain this puzzling part of stellar evolution!</p>
-        <a href="#/classify" class="btn">Start Classifying!</a>
+        <h2 data-t7e-key="index.header">Find the Birthplace of Planets</h2>
+        <p data-t7e-key="index.intro">Scientists are combing our galaxy looking for stars that could be harbouring planet-forming disks. They need your help to explain this puzzling part of stellar evolution!</p>
+        <a data-t7e-key="index.classify" href="#/classify" class="btn">Start Classifying!</a>
       </div>
       <div class="row">
         <img width=150 height =150 src="img/background.jpg" />
-        <h3>What is WISE looking for?</h3>
-        <p>WISE is a NASA mission surveying the whole sky in infrared. This project is looking at stars to find dusty debris disks, similar to our asteroid field. These disks suggest that these stars are in the early stages of forming planetary systems. Learning more about these stars can tell us how our Solar System formed.</p>
+        <h3 data-t7e-key="index.sub_head1">What is WISE looking for?</h3>
+        <p data-t7e-key="index.wise">WISE is a NASA mission surveying the whole sky in infrared. This project is looking at stars to find dusty debris disks, similar to our asteroid field. These disks suggest that these stars are in the early stages of forming planetary systems. Learning more about these stars can tell us how our Solar System formed.</p>
       </div>
       <svg id="bigTriangleColor" preserveAspectRatio="none" viewBox="0 0 100 102" height="50" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <path class="gray" d="M0 0 L50 100 L100 0 L100 100 L0 100 Z"></path>
       </svg>
       <div class="row gray">
         <img width=150 height =150 src="img/background.jpg" />
-        <h3>How will my contribution help?</h3>
-        <p>Computers often confuse debris disks around stars with other astronomical objects. We need your help to sort out what stars actually have these disks from Galaxies and Nebulae.</p>
+        <h3 data-t7e-key="index.sub_head2">How will my contribution help?</h3>
+        <p data-t7e-key="index.computers">Computers often confuse debris disks around stars with other astronomical objects. We need your help to sort out what stars actually have these disks from Galaxies and Nebulae.</p>
       </div>
       <svg id="bigTriangleColor" preserveAspectRatio="none" viewBox="0 0 100 102" height="50" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <path class="gray" d="M0 0 L50 100 L100 0 Z"></path>
       </svg>
       <div class="row">
         <img width=150 height =150 src="img/background.jpg" />
-        <h3>Want to know more?</h3>
-        <p>You can learn more about the project on the <a href="#/about">About</a> and <a href="#/science">Science</a> pages. Or you can get to <a href="#/classify">classifying</a>.</p>
+        <h3 data-t7e-key="index.sub_head3">Want to know more?</h3>
+        <p data-t7e-key="index.more">You can learn more about the project on the <a href="#/about">About</a> and <a href="#/science">Science</a> pages. Or you can get to <a href="#/classify">classifying</a>.</p>
       </div>
     </section>
     <section id="classify">
@@ -178,29 +179,29 @@
         </div>
       </div>
       <div class="row">
-        <div id="question" class="column full">
+        <div data-t7e-key="classify.question" id="question" class="column full">
           What best describes the object you see? <small>(May select more than one)</small>
         </div> 
       </div>
       <div class="row">
-        <button class="btn answer column half" data-val="multi">Multiple objects in the Red Circle</button> 
-        <button class="btn answer column half" data-val="shift">Changes position between images</button> 
+        <button data-t7e-key="classify.multi" class="btn answer column half" data-val="multi">Multiple objects in the Red Circle</button> 
+        <button data-t7e-key="classify.shift" class="btn answer column half" data-val="shift">Changes position between images</button> 
       </div>
       <div class="row">
-        <button class="btn answer column half" data-val="extended">Extended beyond circle in WISE images</button> 
-        <button class="btn answer column half" data-val="empty">Empty circle in WISE images</button> 
+        <button data-t7e-key="classify.extended" class="btn answer column half" data-val="extended">Extended beyond circle in WISE images</button> 
+        <button data-t7e-key="classify.empty" class="btn answer column half" data-val="empty">Empty circle in WISE images</button> 
       </div>
       <div class="row">
-        <button class="btn answer column half" data-val="oval">Not round in DSS2 and 2MASS images</button> 
-        <button id="good" class="btn answer column half" data-val="good">None of the Above/Good candidate</button> 
+        <button data-t7e-key="classify.oval" class="btn answer column half" data-val="oval">Not round in DSS2 and 2MASS images</button> 
+        <button data-t7e-key="classify.good" id="good" class="btn answer column half" data-val="good">None of the Above/Good candidate</button> 
       </div>
       <div class="row">
-        <button id="finish" class="btn column full">Finish</button>
+        <button data-t7e-key="classify.finish" id="finish" class="btn column full">Finish</button>
       </div>
     </section>
     <section id="science">
       <div class="row">
-        <div class="column full">
+        <div data-t7e-key="science_page" class="column full">
           <h2>Science</h2>
           <p>A few billion stars in our Galaxy host disks of rock, dust and sometimes gas that are nurseries for planets. Disk Detectives aims to find these special stars, surround by disks, so we can learn more about where planets are and how they form.</p>
 
@@ -213,12 +214,12 @@
           <p><strong>YSO disks</strong> encircle young stars, less then about 5 million years old. “YSO” stands for “Young Stellar Object”.  These disks are mostly made of gas--the gas out of which giant planets like Jupiter form. They also contain some planetesimals and some dust, which radiates the infrared light we see.  Most YSO disks are found in or near clusters of young stars.</p>
 
           <p><strong>Debris Disks</strong> resemble the asteroid belt or the Kuiper belt in our solar system. They take the form of belts of rocky and icy planetesimals, mixed in with dust produced when the planetesimals collide, but they contains little or no gas.  They are found around older stars, 5 milllion yearrs old and older. Some of the brightest stars in the sky, like Vega and Fomalhaut, host debris disks.</p>
-
-
+        </div>
+      </div>
     </section>
     <section id="about">
       <div class="row">
-        <div class="column full">
+        <div data-t7e-key="about_page" class="column full">
           <h2>About</h2>
           <p>Finding planets around other stars is hard.  But there’s an important trick we can use to study extrasolar planets that also teaches us about where the planets come from.</p>
 
@@ -230,7 +231,7 @@
     </section>
     <section id="team">
       <div class="row">
-        <div class="column full">
+        <div data-t7e-key="team_page" class="column full">
           <h2>Team</h2>
           <h3>Scientists</h3>
           <p><a href="http://www.stsci.edu/~debes">John Debes</a> is an ESA/AURA Astronomer at the Space Telescope Science Institute.  He works on the COS/STIS Instrument team and studies dust around stars both young and very old in the quest for understanding the nature of rocky planets around other stars.</p>
@@ -253,8 +254,8 @@
       </div>
     </section>
     <footer>
-      <div id="footer-text" class="row">The Zooniverse is a collection of web-based Citizen Science projects that use the efforts of volunteers to help researchers deal with the flood of data that confronts them.</div>
-      <div class="row"><a id="zooniverse-home" class="btn column full" href="http://zooniverse.org">Visit Zooniverse.org</a></div>
+      <div data-t7e-key="footer.text" id="footer-text" class="row">The Zooniverse is a collection of web-based Citizen Science projects that use the efforts of volunteers to help researchers deal with the flood of data that confronts them.</div>
+      <div class="row"><a data-t7e-key="foot.button" id="zooniverse-home" class="btn column full" href="http://zooniverse.org">Visit Zooniverse.org</a></div>
     </footer>
   </body>
   <script class="removeable" src="/js/vendor.js" charset="utf-8"></script>

@@ -1,6 +1,5 @@
 class Timeline extends Backbone.View
   el: '#timeline'
-  template: require('templates/radio')
   readableWavelengths: require('lib/wavelength_keys')
 
   initialize: ->
@@ -34,7 +33,5 @@ class Timeline extends Backbone.View
 
   scrub: =>
     @model.set('index', parseInt(@range.val()))
-    
-
 
 module.exports = Timeline
