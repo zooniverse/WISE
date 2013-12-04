@@ -58,7 +58,7 @@ class Classify extends ToggleView
 
   onClickNext: =>
     @$('.selected').each((i, b) =>
-      @classification.annotate({classified_as: b.dataset.val}))
+      @classification.annotate({classified_as: $(b).data('val')}))
     if !@classification.annotations[0]
       @$('.classification-error').show()
     else
