@@ -24,14 +24,14 @@ module.exports =
       number: 2
       header: "Using the Interface"
       details: "The ideal debris disk star does not move from image to image and does not break into two or more objects. It's pure, clean, and round."
-      attachemnt: "center top #canvas-container center bottom"
+      attachment: "center top #question center bottom"
       next: 'explain2'
 
     explain2: new Step
       number: 3
       header: "Using the Interface"
       details: "For a star to be a debris disk, it should be contained within the red circle."
-      attachment: "center top #canvas-container center bottom"
+      attachment: "center top #question center bottom"
       next: "scrub"
 
     scrub: new Step
