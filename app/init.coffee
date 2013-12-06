@@ -21,6 +21,8 @@ module.exports = ->
     host: 'https://dev.zooniverse.org'
   })
 
+  ga = new zooniverse.GoogleAnalytics({account: 'UA-1224199-50'})
+
   topBar = new zooniverse.controllers.TopBar()
   topBar.el.appendTo(document.body)
 

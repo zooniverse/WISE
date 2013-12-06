@@ -1,17 +1,17 @@
 module.exports = {
   nebula:
-    id: "529e0709806ea52a0d000035"
+    id: "529e06ed806ea52a0d000018"
     location:
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-2massk.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise4.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-dss2ir.png"
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise1.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise3.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-2massh.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-2massj.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-dss2blue.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise2.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-dss2red.png"
+      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-2massk.png"
+      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise4.png"
+      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-dss2ir.png"
+      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise1.png"
+      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise3.png"
+      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-2massh.png"
+      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-2massj.png"
+      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-dss2blue.png"
+      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise2.png"
+      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-dss2red.png"
   multiple:
     id: "529e06ff806ea52a0d00002c"
     location:

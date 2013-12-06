@@ -327,7 +327,7 @@ window.base64 = {
 
   messageId = -1;
 
-  demo = !!~location.hostname.indexOf('zooniverse-demo');
+  demo = !!~location.hostname.indexOf('demo');
 
   beta = !!~location.pathname.indexOf('beta');
 
@@ -862,6 +862,120 @@ window.base64 = {
 
   if (typeof module !== "undefined" && module !== null) {
     module.exports = translate;
+  }
+
+}).call(this);
+
+(function() {
+  var $, EventEmitter, GA_SCOPES, GoogleAnalytics, gaSrc, _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __slice = [].slice;
+
+  if (window.zooniverse == null) {
+    window.zooniverse = {};
+  }
+
+  EventEmitter = window.zooniverse.EventEmitter || require('./event-emitter');
+
+  $ = window.jQuery;
+
+  GA_SCOPES = {
+    visitor: 1,
+    session: 2,
+    page: 3
+  };
+
+  gaSrc = 'http://www.google-analytics.com/ga.js';
+
+  if (window.location.protocol === 'https:') {
+    gaSrc = gaSrc.replace('http://www', 'https://ssl');
+  }
+
+  GoogleAnalytics = (function(_super) {
+    __extends(GoogleAnalytics, _super);
+
+    GoogleAnalytics.current = null;
+
+    GoogleAnalytics.prototype.account = '';
+
+    GoogleAnalytics.prototype.domain = '';
+
+    GoogleAnalytics.prototype.trackHashes = true;
+
+    function GoogleAnalytics(params) {
+      var property, value,
+        _this = this;
+      if (params == null) {
+        params = {};
+      }
+      for (property in params) {
+        value = params[property];
+        this[property] = value;
+      }
+      this.select();
+      if (!window._gaq) {
+        $.getScript(gaSrc);
+      }
+      if (window._gaq == null) {
+        window._gaq = [];
+      }
+      window._gaq.push(['_setAccount', this.account]);
+      if (this.domain) {
+        window._gaq.push(['_setDomainName', this.domain]);
+      }
+      window._gaq.push(['_trackPageview']);
+      if (this.trackHashes) {
+        $(window).on('hashchange', (function() {
+          return _this.track();
+        }));
+      }
+    }
+
+    GoogleAnalytics.prototype.select = function() {
+      this.constructor.current = this;
+      return this.trigger('select');
+    };
+
+    GoogleAnalytics.prototype.track = function(pathname) {
+      if (typeof pathname !== 'string') {
+        pathname = "/" + location.hash;
+      }
+      window._gaq.push(['_trackPageview', pathname]);
+      return this.trigger('track', [pathname]);
+    };
+
+    GoogleAnalytics.prototype.event = function(category, action, label, value, ignoreForBounceRate) {
+      window._gaq.push(['_trackEvent'].concat(__slice.call(arguments)));
+      return this.trigger('event', __slice.call(arguments));
+    };
+
+    GoogleAnalytics.prototype.custom = function(index, key, value, scope) {
+      var command;
+      if (typeof index === 'string') {
+        index = this.constructor.indices[index];
+      }
+      if (typeof scope === 'string') {
+        scope = GA_SCOPES[scope];
+      }
+      command = ['_setCustomVar', index, key, value];
+      if (scope != null) {
+        command.push(scope);
+      }
+      window._gaq.push(command);
+      return this.trigger('custom', __slice.call(arguments));
+    };
+
+    return GoogleAnalytics;
+
+  })(EventEmitter);
+
+  if ((_ref = window.zooniverse) != null) {
+    _ref.GoogleAnalytics = GoogleAnalytics;
+  }
+
+  if (typeof module !== "undefined" && module !== null) {
+    module.exports = GoogleAnalytics;
   }
 
 }).call(this);
@@ -2847,38 +2961,38 @@ template = function(__obj) {
     
       zooniverseLogoSvg = ((_ref = window.zooniverse) != null ? (_ref1 = _ref.views) != null ? _ref1.zooniverseLogoSvg : void 0 : void 0) || require('./zooniverse-logo-svg');
     
-      __out.push('\n\n<a href="https://www.zooniverse.org/" class="logo">\n  ');
+      __out.push('\n\n<a href="https://www.zooniverse.org/" class="zooniverse-logo-container">\n  ');
     
       __out.push(zooniverseLogoSvg());
     
-      __out.push('\n</a>\n\n<div class="content">\n  <div class="heading">');
+      __out.push('\n</a>\n\n<div class="zooniverse-footer-content">\n  <div class="zooniverse-footer-heading">');
     
       __out.push(translate('footerHeading'));
     
       __out.push('</div>\n\n  ');
     
       if (this.categories != null) {
-        __out.push('\n    <div class="projects">\n      ');
+        __out.push('\n    <div class="zooniverse-footer-projects">\n      ');
         _ref2 = this.categories;
         for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
           _ref3 = _ref2[_i], category = _ref3.category, projects = _ref3.projects;
-          __out.push('\n        <div class="category">\n          <div class="category-title">');
+          __out.push('\n        <div class="zooniverse-footer-category">\n          <div class="zooniverse-footer-category-title">');
           __out.push(__sanitize(category));
           __out.push('</div>\n          ');
           for (_j = 0, _len1 = projects.length; _j < _len1; _j++) {
             project = projects[_j];
-            __out.push('\n            <div class="project">\n              <a href="');
+            __out.push('\n            <div class="zooniverse-footer-project">\n              <a href="');
             __out.push(__sanitize(project.url));
             __out.push('">');
             __out.push(__sanitize(project.name));
             __out.push('</a>\n            </div>\n          ');
           }
-          __out.push('\n          <div class="project"></div>\n        </div>\n      ');
+          __out.push('\n          <div class="zooniverse-footer-project"></div>\n        </div>\n      ');
         }
         __out.push('\n    </div>\n  ');
       }
     
-      __out.push('\n\n  <div class="general">\n    <!--div class="category"><a href="#">Zooniverse Daily</a></div-->\n    <div class="category"><a href="https://www.zooniverse.org/privacy">');
+      __out.push('\n\n  <div class="zooniverse-footer-general">\n    <!--div class="zooniverse-footer-category"><a href="#">Zooniverse Daily</a></div-->\n    <div class="zooniverse-footer-category"><a href="https://www.zooniverse.org/privacy">');
     
       __out.push(translate('privacyPolicy'));
     
