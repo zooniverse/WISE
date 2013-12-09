@@ -8,16 +8,17 @@ class Overlay extends Backbone.View
     @center = {x: @el.width / 2, y: @el.height / 2}
 
   circleRadius: 58
+  crosshairRadius: 7
 
   drawCrosshair: =>
     @ctx.beginPath()
-    @ctx.moveTo(@center.x - 5, @center.y)
-    @ctx.lineTo(@center.x + 5, @center.y)
+    @ctx.moveTo(@center.x - @crosshairRadius, @center.y)
+    @ctx.lineTo(@center.x + @crosshairRadius, @center.y)
     @ctx.closePath()
     @ctx.stroke()
     @ctx.beginPath()
-    @ctx.moveTo(@center.x, @center.y - 5)
-    @ctx.lineTo(@center.x, @center.y + 5)
+    @ctx.moveTo(@center.x, @center.y - @crosshairRadius)
+    @ctx.lineTo(@center.x, @center.y + @crosshairRadius)
     @ctx.closePath()
     @ctx.stroke()
 
