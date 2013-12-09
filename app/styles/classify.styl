@@ -1,4 +1,5 @@
 section#classify
+  position: relative
   .btn 
     &[DISABLED]
       opacity: 0.5
@@ -108,3 +109,26 @@ section#classify
   .btn.active
     border-color: #45aae3
     background-color: #45aae3
+
+@media(max-height: 790px)
+  section#classify 
+    .move-right
+      position: absolute
+      top: -10px
+      left: 50%
+      margin-left: 210px
+
+      #question
+        color: #fff
+        margin-top: 0
+        font-weight: 400
+
+      .row
+        width: 250px
+
+        .column.half
+          width: 100%
+
+          &:last-child
+            margin-top: 5px
+            float: none
