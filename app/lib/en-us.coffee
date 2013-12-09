@@ -9,7 +9,7 @@ module.exports =
     science: "Science"
     about: "About"
     team: "Team"
-    discuss: "Discuss"
+    talk: "Discuss"
     blog: "Blog"
     share: "Share"
 
