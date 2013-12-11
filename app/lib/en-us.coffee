@@ -15,7 +15,32 @@ module.exports =
 
   guide:
     close: "Close Guide"
-    keyboard: "Blah!"
+    keyboard: """
+        <h3>Keyboard Shortcuts</h3>
+          <h4>Playback</h4>
+          <ul>
+            <li>Space: Play/Pause</li>
+            <li>l: Loop</li>
+            <li>Up Arrow: Next Frame</li>
+            <li>Down Arrow: Previous Frame</li>
+          </ul>
+          <h4>Classifying</h4>
+          <ul>
+            <li>1: Mark Multiple Sources</li>
+            <li>2: Mark Shifting Source</li>
+            <li>3: Mark Extended Source</li>
+            <li>4: Mark Empty Source</li>
+            <li>5: Mark Non-round Source</li>
+            <li>6: Mark Good Source</li>
+            <li>Enter: Submit Classification</li>
+          </ul>
+          <h4>Interface</h4>
+          <ul>
+            <li>g: Toggle Guide</li>
+            <li>t: Start Tutorial</li>
+            <li>f: Toggle Favorite</li>
+          </ul>
+         """
 
   examples:
     close: "close"

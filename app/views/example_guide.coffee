@@ -34,19 +34,16 @@ class ExampleGuide extends ToggleView
     iv.setupSubject(exampleSubjects[ex])
     @viewers[id] = iv
 
-  removeExample: ->
-    _.each(@viewers, (v) -> v.undelegateEvents())
-    @viewers = {}
+  removeExample: (v) ->
+    @viewers[v].remove()
 
   show: ->
     super
     _.each(@examples, @render, @)
-    @trigger("shown")
 
   hide: ->
     super
     _.each(@examples, @removeExample, @)
-    @trigger("hidden")
 
   explode: (ev) ->
     box = @$(ev.target).siblings(".exploded").addClass("active")

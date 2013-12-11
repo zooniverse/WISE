@@ -4,6 +4,7 @@ Subject = zooniverse.models.Subject
 Classification = zooniverse.models.Classification
 User = zooniverse.models.User
 ExampleGuide = require('views/example_guide')
+KeyboardGuide = require('views/keyboard_guide')
 tutorialSubject = require('lib/tutorial_subject')
 {Tutorial} = zootorial
 tutorial = require('lib/tutorial')
@@ -12,13 +13,17 @@ class Classify extends ToggleView
   el: '#classify'
 
   initialize: ->
-    @guideButton or= @$('#guide')
+    @guideButton = @$('#guide')
+    @keyboardButton = @$('#keyboard')
     @viewer = new ImageViewer({el: "#canvas-container", controls: true})
     @exampleGuide = new ExampleGuide()
+    @keyboardGuide = new KeyboardGuide()
 
     @listenTo(@viewer.model, 'change:index', @unlock)
     @listenTo(@exampleGuide, 'shown', => @guideButton.addClass('active'))
     @listenTo(@exampleGuide, 'hidden', => @guideButton.removeClass('active'))
+    @listenTo(@keyboardGuide, 'shown', => @keyboardButton.addClass('active'))
+    @listenTo(@keyboardGuide, 'hidden', => @keyboardButton.removeClass('active'))
 
     User.on('change', @onUserChange) 
     Subject.on('select', @onNextSubject)
@@ -41,6 +46,7 @@ class Classify extends ToggleView
     'click button#favorite' : 'toggleFavorite'
     'click button#guide' : 'showGuide'
     'click button#tutorial' : 'startTutorial'
+    'click button#keyboard' : 'showKeyboardGuide'
   }
 
   keyboardEvents: {
@@ -126,6 +132,9 @@ class Classify extends ToggleView
 
   showGuide: ->
     @exampleGuide.toggle()
+
+  showKeyboardGuide: ->
+    @keyboardGuide.toggle()
 
   startTutorial: (ev) =>
     if @tut? and ev?

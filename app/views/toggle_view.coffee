@@ -37,11 +37,13 @@ class ToggleView extends Backbone.View
     @undelegateKeyEvents() if @keyboardEvents?
     @visible = false
     @$el.removeClass('active')
+    @trigger("hidden")
 
   show: ->
     @delegateKeyEvents() if @keyboardEvents?
     @visible = true 
     @$el.addClass('active')
+    @trigger("shown")
 
   toggle: ->
     if @visible then @hide() else @show()
