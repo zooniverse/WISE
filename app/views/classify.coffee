@@ -35,28 +35,75 @@ class Classify extends ToggleView
     @lock()
     console.log("Current Subject: ", Subject.current.id, Subject.current.metadata.set)
 
-  events:
+  events: {
     'click button.answer' : 'onChangeAnnotate'
     'click button#finish' : 'onClickNext'
     'click button#favorite' : 'toggleFavorite'
     'click button#guide' : 'showGuide'
     'click button#tutorial' : 'startTutorial'
+  }
+
+  keyboardEvents: {
+    'space' : 'togglePlayback'
+    'f' : 'toggleFavorite'
+    't' : 'startTutorial'
+    'g' : 'showGuide'
+    '1 2 3 4 5 6' : 'markAnswer'
+    'enter' : 'onClickNext'
+    'l' : 'toggleLoop'
+    'up' : 'nextImage'
+    'down': 'prevImage'
+  }
+
+  toggleLoop: ->
+    @viewer.model.toggleLoop()
+
+  togglePlayback: -> 
+    if @viewer.model.isPlaying()
+      @viewer.model.pause()
+    else
+      @viewer.model.play()
+
+  nextImage: ->
+    @viewer.model.incrementIndex()
+
+  prevImage: ->
+    @viewer.model.decrementIndex()
+
+  markAnswer: (ev, key) -> 
+    return if @locked
+    answers = {
+      '1': 'multi'
+      '2': 'shift'
+      '3': 'extended'
+      '4': 'empty'
+      '5': 'oval'
+      '6': 'good'
+    }
+    if key is '6'
+      @$('.selected:NOT(#good)').removeClass("selected")
+    else
+      @$("#good").removeClass("selected")
+    @$("[data-val=#{answers[key]}]").toggleClass('selected')
 
   onChangeAnnotate: (e) =>
     if e.target.id is "good"
-      @$('.selected').removeClass('selected')
+      @$('.selected:NOT(#good)').removeClass('selected')
     else
       @$("#good").removeClass('selected')
-    @$(e.target).addClass('selected')
+    @$(e.target).toggleClass('selected')
 
   unlock: (m, index) ->
     return unless index is 9
+    @locked = false
     @$('.answer, #finish').prop('disabled', false)
 
   lock: =>
+    @locked = true
     @$('.answer, #finish').prop('disabled', true)
 
   onClickNext: =>
+    return if @locked
     @$('.selected').each((i, b) =>
       @classification.annotate({classified_as: $(b).data('val')}))
     if !@classification.annotations[0]

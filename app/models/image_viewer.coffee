@@ -58,6 +58,20 @@ class ImageViewer extends Backbone.Model
   currentImage: ->
     @get('images')[@get('index')]
 
+  decrementIndex: ->
+    i = @get('index') - 1
+    l = @get('loop')
+    imgs = @get('images')
+
+    if i < 0
+      unless l
+        @set('animate', false) 
+        i = 0
+      else
+        i = imgs.length - 1
+
+    @set('index', i) 
+
   incrementIndex: ->
     i = @get('index') + 1
     l = @get('loop')
