@@ -8,24 +8,25 @@ class ToggleView extends Backbone.View
       .reduce(((m, v, k) -> 
         m.concat(_.map(k.split(" "), ((k) -> [k, _.bind(@[v], @)]), @))
       ), [], @)
-      .tap(console.log)
       .object()
       .value()
     (ev) -> 
-      ev.preventDefault()
+      return if ev.target.tagName is 'INPUT'
       if ev.keyCode is 13
         key = "enter"
       else if ev.which is 32
+        ev.preventDefault()
         key = "space"
       else if ev.keyCode is 38
+        ev.preventDefault()
         key = "up"
       else if ev.keyCode is 40
+        ev.preventDefault()
         key = "down"
       else
         key = String.fromCharCode(ev.charCode)
-      console.log(key, events, ev)
-      events[key](ev, key)
-      return false
+      if events[key]?
+        events[key](ev, key)
 
   delegateKeyEvents: ->
     $(document).on("keypress", @_keydispatch(@keyboardEvents))
