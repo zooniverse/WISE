@@ -9,9 +9,10 @@ class ImageViewer extends Backbone.View
 
     @model = new IVModel()
 
-    if opts.controls
+    if opts.controls?
       @timeline = new Timeline({model: @model})
       @controls = new Controls({model: @model, el: @el})
+      @controls.render()
 
     @overlay = new Overlay({model: @model, el: @canvas})
 

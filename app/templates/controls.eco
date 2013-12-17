@@ -1,0 +1,9 @@
+<button class="btn circular play" title="Play">
+  <img src="img/play.svg" onerror="this.src='img/play.png'">
+</button>
+<button class="btn circular pause" title="Pause">
+  <img src="img/pause.svg" onerror="this.src='img/pause.png'">
+</button>
+<button class="btn circular loop" title="Toggle Loop">
+  <img src="img/loop.svg" onerror="this.src='img/loop.png'">
+</button>

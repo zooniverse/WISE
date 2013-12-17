@@ -53,14 +53,14 @@ section#classify
       z-index: 2
       padding: 0
 
-      &#play
+      &.play
         left: 10px
 
-      &#pause
+      &.pause
         display: none
         left: 10px
 
-      &#loop
+      &.loop
         right: 10px
 
         &.active
@@ -112,11 +112,12 @@ section#classify
 
 @media(max-height: 790px)
   section#classify 
+    min-height: 500px
     .move-right
       position: absolute
-      top: -10px
+      top: 0
       left: 50%
-      margin-left: 210px
+      margin-left: 100px
 
       #question
         color: #fff
@@ -124,11 +125,21 @@ section#classify
         font-weight: 400
 
       .row
-        width: 250px
+        width: 350px
+        text-align: center
+
+        #finish
+          width: 200px
 
         .column.half
-          width: 100%
+          width: 200px
 
           &:last-child
             margin-top: 5px
             float: none
+
+    .move-left
+      position: absolute
+      right: 50%
+      margin-right: -30px
+

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
     <title data-t7e-key="title">Disk Detective</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link class="removeable" rel="stylesheet" href="/css/vendor.css" type="text/css" charset="utf-u">
@@ -160,50 +160,43 @@
       </div>
     </section>
     <section id="classify">
-      <div id="controls" class="row">
-        <div class="column half pull-left">
-          <button title="Start Tutorial" id="tutorial" class="btn circular">
-            <img height=30 width=30 src="img/tutorial.svg" onerror="this.src='img/tutorial.png'">
-          </button>
-          <button title="Show Keyboard Shortcuts" id="keyboard" class="btn circular">
-            <img height=30 width=30 src="img/keyboard.svg" onerror="this.src='img/keyboard.png'">
-          </button>
-          <button title="Show Example Images" id="guide" class="btn circular">
-            <img height=30 width=30 src="img/guide.svg" onerror="this.src='img/guide.png'">
-          </button>
-        </div>
-        <div class="column half pull-right">
-          <button title="Favorite Subject" id="favorite" class="btn circular">
-            <img height=20 width=20 src="img/favorite.png">
-          </button>
-          <a title="Discuss on Talk" target="_blank" id="talk" class="btn circular">
-            <img src="img/talk.png">
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column full">
-          <div id="canvas-container">
-            <canvas width="400px" height="400px">
-            </canvas>
-            <button class="btn circular" title="Play" id="play">
-              <img src="img/play.svg" onerror="this.src='img/play.png'">
+      <div class="move-left">
+        <div id="controls" class="row">
+          <div class="column half pull-left">
+            <button title="Start Tutorial" id="tutorial" class="btn circular">
+              <img height=30 width=30 src="img/tutorial.svg" onerror="this.src='img/tutorial.png'">
             </button>
-            <button class="btn circular" title="Pause" id="pause">
-              <img src="img/pause.svg" onerror="this.src='img/pause.png'">
+            <button title="Show Keyboard Shortcuts" id="keyboard" class="btn circular">
+              <img height=30 width=30 src="img/keyboard.svg" onerror="this.src='img/keyboard.png'">
             </button>
-            <button class="btn circular" title="Toggle Loop" id="loop">
-              <img src="img/loop.svg" onerror="this.src='img/loop.png'">
+            <button title="Show Example Images" id="guide" class="btn circular">
+              <img height=30 width=30 src="img/guide.svg" onerror="this.src='img/guide.png'">
             </button>
-          </div> 
+          </div>
+          <div class="column half pull-right">
+            <button title="Favorite Subject" id="favorite" class="btn circular">
+              <img height=20 width=20 src="img/favorite.png">
+            </button>
+            <a title="Discuss on Talk" target="_blank" id="talk" class="btn circular">
+              <img src="img/talk.png">
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div id="timeline" class="column full">
-          <input type="range" min="0" max="9" step="1" />
-          <p class="pull-left">Shorter</p>
-          <p class="pull-right">Longer</p>
-          <p></p>
+        <div class="row">
+          <div class="column full">
+            <div id="canvas-container">
+              <canvas width="400px" height="400px">
+              </canvas>
+            </div> 
+          </div>
+        </div>
+        <div class="row">
+          <div id="timeline" class="column full">
+            <input type="range" min="0" max="9" step="1" />
+            <p class="pull-left">Shorter</p>
+            <p class="pull-right">Longer</p>
+            <p></p>
+          </div>
         </div>
       </div>
       <div class="move-right">

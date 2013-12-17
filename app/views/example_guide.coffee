@@ -9,9 +9,6 @@ class ExampleGuide extends ToggleView
 
   events: {
     "click .close" : "hide"
-    "mouseover .example canvas" : "play"
-    "mouseout .example canvas" : "pause"
-    "click .example" : "explode"
     "click .close-ex" : "closeExplode"
   }
 
@@ -30,12 +27,14 @@ class ExampleGuide extends ToggleView
 
   render: (ex) ->
     id = "#{ex}-example"
-    iv = new ImageViewer({el: ("#" + id), controls: false})
+    return if @viewers[id]?
+    iv = new ImageViewer({el: ("#" + id), controls: true})
     iv.setupSubject(exampleSubjects[ex])
     @viewers[id] = iv
 
   removeExample: (v) ->
-    @viewers[v].remove()
+    @viewers["#{v}-example"].model.pause()
+    @viewers["#{v}-example"].model.reset()
 
   show: ->
     super
