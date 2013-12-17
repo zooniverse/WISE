@@ -7,7 +7,7 @@ module.exports =
   steps:
     welcome: new Step
       number: 1
-      header: "Welcome to Disk Detectives"
+      header: "Welcome to Disk Detective"
       details: "Help us search for stars with hidden disks of dust around them, similar to the asteroid belt. These stars show us where to look for planetary systems and how they form."
       attachment: "center center #canvas-container center center"
       next: "flipbook"
