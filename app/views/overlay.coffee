@@ -7,7 +7,7 @@ class Overlay extends Backbone.View
     @ctx.strokeStyle = 'red'
     @center = {x: @el.width / 2, y: @el.height / 2}
 
-  circleRadius: 58
+  circleRadius: 70
   crosshairRadius: 7
 
   drawCrosshair: =>

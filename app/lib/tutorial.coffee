@@ -30,7 +30,7 @@ module.exports =
     explain2: new Step
       number: 3
       header: "Using the Interface"
-      details: "For a star to be a debris disk, it should be contained within the red circle."
+      details: "For a star to be a debris disk, it should mostly be contained within the red circle."
       attachment: "center top #question center bottom"
       next: "scrub"
 
