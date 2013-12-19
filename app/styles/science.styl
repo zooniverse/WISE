@@ -1,0 +1,54 @@
+section#science
+  margin-bottom: 80px
+
+  .row 
+    width: 600px
+    margin: 0 auto
+
+    .column.half
+      &:first-child
+        padding-right: 10px
+
+        img
+          position: relative
+          top: -30px
+
+      &:last-child
+        padding-left: 10px
+
+
+
+    .header
+      width: 100%
+      position: relative
+      height: 169px
+      overflow: hidden
+
+      img
+        max-width: 100%
+
+      h3
+        position: absolute
+        bottom: 1px
+        padding-left: 5px
+        margin: 0
+        width: 100%
+        color: #fff
+
+@media(max-width: 700px)
+  section#science
+    .row
+      width: 400px
+
+      .column.half
+        width: 100%
+
+        &:first-child
+          padding-right: 30px
+
+          img
+            top: -60px
+
+        &:last-child
+          padding-left: 30px
+          float: none

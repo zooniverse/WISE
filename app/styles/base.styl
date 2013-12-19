@@ -18,6 +18,11 @@ html
     margin: 0
     top: -5px
 
+    a
+      color: #42aae3
+      text-decoration: none
+      font-weight: 700
+
   #background
     width: 100%
     position: absolute
@@ -56,7 +61,7 @@ html
 
         h2
           margin-top: 0
-          color: #45aae3
+          color: darken(#45aae3, 10%)
           font-size: 18px
 
   .row
@@ -111,20 +116,3 @@ html
 
     &:hover
       border-color: #45aae3
-
-.feedback
-  background: blue
-  transform: rotate(-45deg)
-  display: inline-block
-  position: absolute
-  top: 40px
-  left: -80px
-  width: 250px
-  text-align: center
-
-  a
-    color: white
-    text-decoration: none
-    font-size: 12px
-    padding: 0 20px
-    font-weight: 700
