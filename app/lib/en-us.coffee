@@ -48,7 +48,7 @@ module.exports =
     good: "An example of a good candidate--it looks round at all wavelengths and stays close to the plus sign."
     nebula: "The object is extended beyond the red circle in the WISE images. It's probably a Nebula."
     galaxy: "This is an example of a candidate that is not round in the DSS and 2MASS images. It's probably a Galaxy."
-    shift: "This object moves between images. It is near the cross in the DSS and 2MASS images, but is more distant at longer ones. Sometimes you may see a very minute shift between frames. This is usually acceptable provided it looks like an otherwise good candidate."
+    shift: "This object moves substantially between images. It is on the crosshairs in the DSS2 and 2MASS images, but off the crosshairs in the WISE 4 image."
     empty: "In the WISE images, there is no object in the red circle."
     multi: "This example has multiple objects in the DSS and 2MASS images"
     multiple: "This candidate has multiple problems--it is not round in the DSS and 2MASS image, and it extends beyond the circle in the WISE images. It also has multiple sources within the circle."
@@ -67,7 +67,7 @@ module.exports =
   classify:
     question: "What best describes the object you see? <small>(May select more than one)</small>"
     multi: "Multiple objects in the Red Circle"
-    shift: "Changes position between images"
+    shift: "Object Moves Off the Crosshairs"
     extended: "Extended beyond circle in WISE images"
     empty: "Empty circle in WISE images"
     oval: "Not round in DSS2 and 2MASS images"
