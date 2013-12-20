@@ -15,33 +15,34 @@ module.exports =
 
   guide:
     close: "Close Guide"
-    keyboard: """
-        <h3>Keyboard Shortcuts</h3>
-          <h4>Playback</h4>
-          <ul>
-            <li>Space: Play/Pause</li>
-            <li>l: Loop</li>
-            <li>Up Arrow: Next Frame</li>
-            <li>Down Arrow: Previous Frame</li>
-          </ul>
-          <h4>Classifying</h4>
-          <ul>
-            <li>1: Mark Multiple Sources</li>
-            <li>2: Mark Shifting Source</li>
-            <li>3: Mark Extended Source</li>
-            <li>4: Mark Empty Source</li>
-            <li>5: Mark Non-round Source</li>
-            <li>6: Mark Good Source</li>
-            <li>Enter: Submit Classification</li>
-          </ul>
-          <h4>Interface</h4>
-          <ul>
-            <li>g: Toggle Guide</li>
-            <li>t: Start Tutorial</li>
-            <li>f: Toggle Favorite</li>
-          </ul>
-         """
-
+    compare: "Compare"
+    playback: """<h4>Playback</h4>
+            <ul>
+              <li><strong>Space:</strong> Play/Pause</li>
+              <li><strong>l:</strong> Loop</li>
+              <li><strong>Up Arrow:</strong> Next Frame</li>
+              <li><strong>Down Arrow:</strong> Previous Frame</li>
+            </ul>"""
+    classify: """ 
+            <h4>Classifying</h4>
+            <ul>
+              <li><strong>1:</strong> Mark Multiple Sources</li>
+              <li><strong>2:</strong> Mark Shifting Source</li>
+              <li><strong>3:</strong> Mark Extended Source</li>
+              <li><strong>4:</strong> Mark Empty Source</li>
+              <li><strong>5:</strong> Mark Non-round Source</li>
+              <li><strong>6:</strong> Mark Good Source</li>
+              <li><strong>Enter:</strong> Submit Classification</li>
+            </ul>
+    """
+    interface:"""
+            <h4>Interface</h4>
+            <ul>
+              <li><strong>g:</strong> Toggle Guide</li>
+              <li><strong>t:</strong> Start Tutorial</li>
+              <li><strong>f:</strong> Toggle Favorite</li>
+            </ul>
+    """
   examples:
     close: "close"
     good: "An example of a good candidate--it looks round at all wavelengths and stays close to the plus sign."

@@ -1,4 +1,0 @@
-<div class="exploded-example">
-  <img width="200px" height="200px" src="<%= @src %>" />
-  <p><%= @wavelength %></p>
-</div> 

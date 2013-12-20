@@ -1,0 +1,6 @@
+<% wavekeys = require('lib/wavelength_keys') %>
+
+<th>Subject</th>
+<% for wave in @waves: %>
+  <th><%= wavekeys[wave] %></th>
+<% end %>

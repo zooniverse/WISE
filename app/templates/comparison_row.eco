@@ -1,0 +1,6 @@
+<tr>
+  <td><%= @name %></td>
+  <% for img in @imgs: %>
+    <td><img height="100" width="100" src="<%= img %>" /></td>
+  <% end %>
+</tr>

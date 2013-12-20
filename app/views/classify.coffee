@@ -33,6 +33,7 @@ class Classify extends ToggleView
     @startTutorial()
 
   onNextSubject: =>
+    @exampleGuide.updateTarget(Subject.current)
     @classification = new Classification({subject: Subject.current})
     @viewer.setupSubject(Subject.current)
     @setTalkLink(Subject.current)

@@ -2,19 +2,26 @@ ToggleView = require('views/toggle_view')
 exampleSubjects = require('lib/examples')
 ImageViewer = require('views/image_viewer')
 wavelengthKeys = require('lib/wavelength_keys')
-explodedTemplate = require('templates/exploded')
+headerTemplate = require('templates/comparison_header')
+rowTemplate = require('templates/comparison_row')
 
 class ExampleGuide extends ToggleView
   el: "#classification-guide"
 
   events: {
     "click .close" : "hide"
-    "click .close-ex" : "closeExplode"
+    "click .btn-compare" : "selectComparison"
+    "click .hide-compare" : 'hideCompare'
   }
 
   viewers: {}
 
   examples: ["good", "multiple", "empty", "galaxy", "nebula", "multi", "shift"]
+
+  selected: []
+
+  initialize: ->
+    _.each(@examples, @render, @)
 
   play: (ev) ->
     iv = @viewers[ev.target.parentNode.id]
@@ -28,35 +35,45 @@ class ExampleGuide extends ToggleView
   render: (ex) ->
     id = "#{ex}-example"
     return if @viewers[id]?
-    iv = new ImageViewer({el: ("#" + id), controls: true})
+    iv = new ImageViewer({el: ("#" + id + "> .column.half:first-child"), controls: true})
     iv.setupSubject(exampleSubjects[ex])
     @viewers[id] = iv
 
   removeExample: (v) ->
     @viewers["#{v}-example"].model.pause()
-    @viewers["#{v}-example"].model.reset()
-
-  show: ->
-    super
-    _.each(@examples, @render, @)
 
   hide: ->
     super
     _.each(@examples, @removeExample, @)
 
-  explode: (ev) ->
-    box = @$(ev.target).siblings(".exploded").addClass("active")
-    type = @$(ev.target).parent().attr('id').split('-')[0]
-    _.each(_.keys(wavelengthKeys), (w) ->
-      src = exampleSubjects[type].location[w]
-      box.append(explodedTemplate({src: src, wavelength: wavelengthKeys[w]})))
+  updateTarget: (target) ->
+    @hideCompare()
+    @target = target
+    @targetWavelengths = _.keys(wavelengthKeys) 
+    @$('thead').html(headerTemplate({waves: @targetWavelengths}))
+    @compare()
 
-  closeExplode: (ev) ->
-    if ev.target.tagName is 'IMG'
-      box = @$(ev.target).parent().parent()
+  selectComparison: (ev) ->
+    @$('.compare').addClass('active')
+    @$(ev.target).toggleClass('active')
+    target = ev.target.dataset.ex
+    if target in @selected
+      @selected = _.without(@selected, target)
+      @hideCompare() if _.isEmpty(@selected)
     else
-      box = @$(ev.target).parent()
-    box.children(":NOT(.close-ex)").remove()
-    box.removeClass('active')
+      @selected = @selected.concat(target)
+    @compare()
 
+  compare: ->
+    imgs = _.values(_.pick(@target.location, @targetWavelengths))
+    @$('tbody').html(rowTemplate({name: 'subject', imgs: imgs})) 
+    _.chain(@selected)
+      .map((s) -> exampleSubjects[s].location)
+      .each(((ex, i) -> 
+        imgs = _.values(_.pick(ex, @targetWavelengths))
+        @$('tbody').append(rowTemplate({name: @selected[i], imgs: imgs}))), @)
+
+  hideCompare: ->
+    @$('.compare').removeClass('active')
+    
 module.exports = ExampleGuide
