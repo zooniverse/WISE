@@ -16,7 +16,7 @@ module.exports =
       number: 2
       header: "Using the Interface"
       details: "We find new debris disk stars by looking at flipbooks of images of the star taken with different telescopes. You won't see a disk or ring directly. Click the Play button to start the flipbook."
-      attachment: "left center #play right center"
+      attachment: "left center #canvas-container .play right center"
       className: "arrow-left"
       next: { 'click button#play': 'explain1' }
 
