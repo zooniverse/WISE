@@ -29,6 +29,6 @@ module.exports = {
       "J041915.83+290626.6_poss2ukstu_ir_sub.png",
       "J041915.83+290626.6_w4.png"
     ]
-    "image_bands": ["2massh","2massj","wise4","dss2blue","dss2ir","wise2","2massk","dss2red","wise1","wise3"]
+    "bands": ["2massh","2massj","wise4","dss2blue","dss2ir","wise2","2massk","dss2red","wise1","wise3"]
     "set":"good"
 }

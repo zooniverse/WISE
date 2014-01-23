@@ -18,7 +18,7 @@ module.exports = ->
 
   api = new zooniverse.Api({
     project: 'wise'
-    host: 'https://dev.zooniverse.org'
+    host: 'http://0.0.0.0:3000'
   })
 
   ga = new zooniverse.GoogleAnalytics({account: 'UA-1224199-50'})

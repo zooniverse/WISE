@@ -1,5 +1,10 @@
 class ImageViewer extends Backbone.Model
   wavelengths: [
+    'sdssu',
+    'sdssg',
+    'sdssr',
+    'sdssi',
+    'sdssz',
     'dss2blue',
     'dss2red',
     'dss2ir',
@@ -20,20 +25,20 @@ class ImageViewer extends Backbone.Model
   }
 
   preloadImages: (subject) =>
-    imgs = []
     loadedImages = 0
     promise = new $.Deferred()
-
+    
+    locs = @subjectWavelengths(subject)
     inc = =>
       loadedImages = loadedImages + 1
-      if (loadedImages is @wavelengths.length)
+      if (loadedImages is locs.length)
         promise.resolve()
 
-    for source in @subjectWavelengths(subject)
+    imgs = _.map(locs, (source) ->
       img = new Image
       img.src = source.src
       img.onload = inc
-      imgs.push {img: img, wavelength: source.wavelength}
+      {img: img, wavelength: source.wavelength})
 
     @set('images', imgs)
 
@@ -43,6 +48,10 @@ class ImageViewer extends Backbone.Model
     srcs = []
     for wavelength in @wavelengths when subject.location[wavelength]?
       srcs.push {src: subject.location[wavelength], wavelength: wavelength}
+
+    if _.find(srcs, (s) -> s.wavelength is 'sdssu')
+      srcs = _.filter(srcs, (s) -> 
+        s.wavelength in ['dss2blue', 'dss2red', 'dss2ir'])
     srcs
 
   isPlaying: ->

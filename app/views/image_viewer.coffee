@@ -24,10 +24,11 @@ class ImageViewer extends Backbone.View
     @ctx = @canvas.getContext('2d')
 
   drawImage: =>
-    img = @model.currentImage()
+    {img, wavelength} = @model.currentImage()
+
     @ctx.clearRect(0, 0, @canvas.width, @canvas.height)
-    @ctx.drawImage(img.img, 0, 0, @canvas.width, @canvas.height)
-    @overlay.wavelength(img.wavelength)
+    @ctx.drawImage(img, 0, 0, @canvas.width, @canvas.height)
+    @overlay.wavelength(wavelength)
 
   animate: =>
     if @model.isPlaying()
@@ -41,6 +42,7 @@ class ImageViewer extends Backbone.View
 
   postloadImages: =>
     @$('.loading').hide()
+    @timeline.updateTimeline(@model, @model.get('index'))
     @drawImage()
 
 module.exports = ImageViewer

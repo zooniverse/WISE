@@ -1,9 +1,8 @@
 class Timeline extends Backbone.View
   el: '#timeline'
-  readableWavelengths: require('lib/wavelength_keys')
+  wavelengths: require('lib/wavelength_keys')
 
   initialize: ->
-    @names = _.values(@readableWavelengths)
     @listenTo(@model, "change:index", @updateTimeline)
     @range = @$('input')
     @currentWavelength = @$('p:NOT(.pull-left, .pull-right)')
@@ -15,7 +14,7 @@ class Timeline extends Backbone.View
 
   updateTimeline: (m, index) ->
     @range.val(index)
-    @currentWavelength.text(@names[index])
+    @currentWavelength.text(@wavelengths[m.currentImage()?.wavelength])
 
   startScrub: =>
     if parseInt(@range.val()) isnt @model.get('index')

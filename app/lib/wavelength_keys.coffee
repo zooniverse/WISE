@@ -1,4 +1,9 @@
 module.exports =
+  'sdssu': 'SDSS U 0.359 μm)'
+  'sdssg': 'SDSS G 0.481 μm)'
+  'sdssr': 'SDSS R 0.623 μm)'
+  'sdssi': 'SDSS I 0.764 μm)'
+  'sdssz': 'SDSS Z 0.906 μm)'
   'dss2blue': 'DSS2 Blue (0.665 μm)'
   'dss2red': 'DSS2 Red (0.975 μm)'
   'dss2ir': 'DSS2 IR (1.15 μm)'

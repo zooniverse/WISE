@@ -29,7 +29,7 @@ class Classify extends ToggleView
     Subject.on('select', @onNextSubject)
 
   onUserChange: =>
-    return Subject.next() if User.current?.project?.tutorial_done
+    return Subject.next() if User.current?.preferences?.wise?.tutorial_done
     @startTutorial()
 
   onNextSubject: =>
@@ -39,7 +39,6 @@ class Classify extends ToggleView
     @setTalkLink(Subject.current)
     @favorite.removeClass('active') if @favorite
     @lock()
-    console.log("Current Subject: ", Subject.current.id, Subject.current.metadata.set)
 
   events: {
     'click button.answer' : 'onChangeAnnotate'
