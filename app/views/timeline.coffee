@@ -13,6 +13,9 @@ class Timeline extends Backbone.View
     'touchdown input' : 'startScrub'
 
   updateTimeline: (m, index) ->
+    max = m.get('max')
+    if parseInt(@range.attr('max')) isnt max
+      @range.attr('max', max - 1)
     @range.val(index)
     @currentWavelength.text(@wavelengths[m.currentImage()?.wavelength])
 
@@ -27,8 +30,8 @@ class Timeline extends Backbone.View
   endScrub: =>
     @$el.off('mousemove')
     @$el.off('mouseup')
-    @$el.on('touchmove', @scrub)
-    @$el.on('touchup', @endScrub)
+    @$el.off('touchmove')
+    @$el.off('touchup')
 
   scrub: =>
     @model.set('index', parseInt(@range.val()))

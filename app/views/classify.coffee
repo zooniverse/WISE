@@ -29,10 +29,12 @@ class Classify extends ToggleView
     Subject.on('select', @onNextSubject)
 
   onUserChange: =>
-    return Subject.next() if User.current?.preferences?.wise?.tutorial_done
+    if User.current?.preferences?.wise?.tutorial_done
+      return Subject.next() 
     @startTutorial()
 
   onNextSubject: =>
+    @tut.end() if @tut
     @exampleGuide.updateTarget(Subject.current)
     @classification = new Classification({subject: Subject.current})
     @viewer.setupSubject(Subject.current)
@@ -100,7 +102,7 @@ class Classify extends ToggleView
     @$(e.target).toggleClass('selected')
 
   unlock: (m, index) ->
-    return unless index is 9
+    return unless index is m.get('max') - 1
     @locked = false
     @$('.answer, #finish').prop('disabled', false)
 
@@ -149,7 +151,7 @@ class Classify extends ToggleView
     @$('button#tutorial').addClass('active')
     @tut.start()
 
-  endTutorial: =>
+  endTutorial: (closeDialog) =>
     delete @tut
     @$('button#tutorial').removeClass('active')
     if User.current

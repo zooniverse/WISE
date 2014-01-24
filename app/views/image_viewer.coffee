@@ -16,7 +16,6 @@ class ImageViewer extends Backbone.View
 
     @overlay = new Overlay({model: @model, el: @canvas})
 
-    @listenTo(@model, 'change:index', @drawImage)
     @listenTo(@model, 'change:animate', @animate)
 
   setupCanvas: ->
@@ -37,6 +36,7 @@ class ImageViewer extends Backbone.View
 
   setupSubject: (subject) =>
     return if !subject
+    @stopListening(@model, 'change:index', @drawImage)
     @model.reset()
     @model.preloadImages(subject).then(@postloadImages)
 
@@ -44,5 +44,6 @@ class ImageViewer extends Backbone.View
     @$('.loading').hide()
     @timeline.updateTimeline(@model, @model.get('index'))
     @drawImage()
+    @listenTo(@model, 'change:index', @drawImage)
 
 module.exports = ImageViewer

@@ -45,13 +45,16 @@ class ImageViewer extends Backbone.Model
     return promise
 
   subjectWavelengths: (subject) =>
-    srcs = []
-    for wavelength in @wavelengths when subject.location[wavelength]?
-      srcs.push {src: subject.location[wavelength], wavelength: wavelength}
-
+    srcs = _.chain(@wavelengths)
+      .filter((w) -> subject.location[w]?)
+      .map((w) -> {src: subject.location[w], wavelength: w})
+      .value()
+       
     if _.find(srcs, (s) -> s.wavelength is 'sdssu')
       srcs = _.filter(srcs, (s) -> 
-        s.wavelength in ['dss2blue', 'dss2red', 'dss2ir'])
+        not (s.wavelength in ['dss2blue', 'dss2red', 'dss2ir']))
+
+    @set('max', srcs.length)
     srcs
 
   isPlaying: ->
