@@ -16,7 +16,7 @@ class ExampleGuide extends ToggleView
 
   viewers: {}
 
-  examples: ["good", "multiple", "empty", "galaxy", "nebula", "multi", "shift"]
+  examples: ["good", "multiple", "galaxy", "nebula", "multi", "shift"]
 
   selected: []
 
@@ -72,6 +72,12 @@ class ExampleGuide extends ToggleView
       .map((s) -> exampleSubjects[s].location)
       .each(((ex, i) -> 
         imgs = _.values(_.pick(ex, @targetWavelengths))
+
+        if @targetWavelengths.length > imgs.length
+          pad = @targetWavelengths.length - imgs.lengths
+          pad = _.chain(0).range(5).map((n) -> "").value()
+          imgs = pad.concat(imgs)
+
         name =  @selected[i].replace(/^./, (c) -> 
           c.toLocaleUpperCase())
         @$('tbody').append(rowTemplate({

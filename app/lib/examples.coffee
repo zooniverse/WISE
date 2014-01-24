@@ -74,31 +74,6 @@ module.exports = {
         "wise3",
         "wise4"
       ]
-  empty:
-    location:
-      "wise1":"http://www.diskdetective.org/img/examples/empty/wise1.png"
-      "dss2blue":"http://www.diskdetective.org/img/examples/empty/dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/img/examples/empty/dss2red.png"
-      "wise2":"http://www.diskdetective.org/img/examples/empty/wise2.png"
-      "2massh":"http://www.diskdetective.org/img/examples/empty/2massh.png"
-      "wise3":"http://www.diskdetective.org/img/examples/empty/wise3.png"
-      "wise4":"http://www.diskdetective.org/img/examples/empty/wise4.png"
-      "2massk":"http://www.diskdetective.org/img/examples/empty/2massk.png"
-      "2massj":"http://www.diskdetective.org/img/examples/empty/2massj.png"
-      "dss2ir":"http://www.diskdetective.org/img/examples/empty/dss2ir.png"
-    metadata:
-      bands: [
-        "dss2blue",
-        "dss2red",
-        "dss2ir",
-        "2massj",
-        "2massh",
-        "2massk",
-        "wise1",
-        "wise2",
-        "wise3",
-        "wise4"
-      ]
   galaxy:
     location:
       "wise1":"http://www.diskdetective.org/img/examples/galaxy/wise1.png"
@@ -126,6 +101,11 @@ module.exports = {
       ]
   good:
     location:
+      "sdssu":"http://www.diskdetective.org/img/examples/good/sdssu.png"
+      "sdssg":"http://www.diskdetective.org/img/examples/good/sdssg.png"
+      "sdssr":"http://www.diskdetective.org/img/examples/good/sdssr.png"
+      "sdssi":"http://www.diskdetective.org/img/examples/good/sdssi.png"
+      "sdssz": "http://www.diskdetective.org/img/examples/good/sdssz.png"
       "wise1":"http://www.diskdetective.org/img/examples/good/wise1.png"
       "dss2blue":"http://www.diskdetective.org/img/examples/good/dss2blue.png"
       "dss2red":"http://www.diskdetective.org/img/examples/good/dss2red.png"
@@ -138,6 +118,11 @@ module.exports = {
       "dss2ir":"http://www.diskdetective.org/img/examples/good/dss2ir.png"
     metadata:
       bands: [
+        "sdssu",
+        "sdssg",
+        "sdssr",
+        "sdssi",
+        "sdssz",
         "dss2blue",
         "dss2red",
         "dss2ir",
@@ -151,11 +136,6 @@ module.exports = {
       ]
   shift:
     location:
-      "sdssu":"http://www.diskdetective.org/img/examples/shift/sdssu.png"
-      "sdssg":"http://www.diskdetective.org/img/examples/shift/sdssg.png"
-      "sdssr":"http://www.diskdetective.org/img/examples/shift/sdssr.png"
-      "sdssi":"http://www.diskdetective.org/img/examples/shift/sdssi.png"
-      "sdssz": "http://www.diskdetective.org/img/examples/shift/sdssz.png"
       "wise1":"http://www.diskdetective.org/img/examples/shift/wise1.png"
       "dss2blue":"http://www.diskdetective.org/img/examples/shift/dss2blue.png"
       "dss2red":"http://www.diskdetective.org/img/examples/shift/dss2red.png"

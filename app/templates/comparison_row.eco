@@ -1,6 +1,11 @@
 <tr>
   <td><%= @name %></td>
   <% for img in @imgs: %>
-    <td><img height="100" width="100" src="<%= img %>" /></td>
+    <td>
+      <% if img is '': %>
+        <p> No Image Available</p>
+      <% else: %>
+        <img height="100" width="100" src="<%= img %>" /></td>
+      <% end %>
   <% end %>
 </tr>

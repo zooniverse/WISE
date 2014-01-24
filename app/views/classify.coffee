@@ -30,8 +30,9 @@ class Classify extends ToggleView
 
   onUserChange: =>
     if User.current?.preferences?.wise?.tutorial_done
-      return Subject.next() 
-    @startTutorial()
+      Subject.next() 
+    else
+      @startTutorial()
 
   onNextSubject: =>
     @tut.end() if @tut
@@ -57,7 +58,7 @@ class Classify extends ToggleView
     't' : 'startTutorial'
     'g' : 'showGuide'
     '1 2 3 4 5 6' : 'markAnswer'
-    'enter' : 'onClickNext'
+    'enter' : 'onClickNext' 
     'l' : 'toggleLoop'
     'up' : 'nextImage'
     'down': 'prevImage'
@@ -159,7 +160,7 @@ class Classify extends ToggleView
 
   show: ->
     super
-    _.defer(=> @onUserChange())
+    @onUserChange()
 
   hide: ->
     super
