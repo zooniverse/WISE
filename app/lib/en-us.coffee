@@ -96,6 +96,8 @@ module.exports =
 
 <p>Disk Detective is the first NASA led and funded Zooniverse project. Is is also the first NASA led and funded crowdsourcing project whose main goal is to produce publishable scientific results. It was built using seed money from NASA's Science Innovation Fund. See the White House’s second <a href="http://www.whitehouse.gov/blog/2013/12/06/united-states-releases-its-second-open-government-national-action-plan">Open Government National Action Plan</a>for more information on the U.S. federal government’s commitment to crowdsourcing and open data.</p>
 
+<p><img src="img/nasa_logo.gif" height="150" alt="NASA Logo" />This material is based upon work supported by NASA under grant number NNX13AG53G. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Aeronautics and Space Administration (NASA).</p>
+
 <h3>Image Credits:</h3>
 <p>This project makes use of data products from the Wide-field Infrared Survey Explorer (WISE), the Two Micron All Sky Survey (2MASS), the Digitized Sky Syrvey (DSS) and the Sloan Digital Sky Survey (SDSS).</p>
 
