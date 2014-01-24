@@ -5,17 +5,16 @@ module.exports = {
   "workflow_ids":["5193f3c43ae7402e2c000002"]
   "zooniverse_id":"AWI0000027"
   "location":
-    "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise3.png"
-    "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise2.png"
-    "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-2massj.png"
-    "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise1.png"
-    "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-2massk.png"
-    "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-dss2red.png"
-    "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-dss2blue.png"
-    "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-2massh.png"
-    "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-dss2ir.png"
-    "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise4.png"
-    "standard":"http://www.diskdetective.org/beta/subjects/standard/529e01c3806ea51d76000010-wise3.png"
+    "wise1":"http://www.diskdetective.org/img/examples/good/wise1.png"
+    "dss2blue":"http://www.diskdetective.org/img/examples/good/dss2blue.png"
+    "dss2red":"http://www.diskdetective.org/img/examples/good/dss2red.png"
+    "wise2":"http://www.diskdetective.org/img/examples/good/wise2.png"
+    "2massh":"http://www.diskdetective.org/img/examples/good/2massh.png"
+    "wise3":"http://www.diskdetective.org/img/examples/good/wise3.png"
+    "wise4":"http://www.diskdetective.org/img/examples/good/wise4.png"
+    "2massk":"http://www.diskdetective.org/img/examples/good/2massk.png"
+    "2massj":"http://www.diskdetective.org/img/examples/good/2massj.png"
+    "dss2ir":"http://www.diskdetective.org/img/examples/good/dss2ir.png"
   "metadata":
     "files": [
       "J041915.83+290626.6_w3.png",

@@ -15,7 +15,7 @@ class Classify extends ToggleView
   initialize: ->
     @guideButton = @$('#guide')
     @keyboardButton = @$('#keyboard')
-    @viewer = new ImageViewer({el: "#canvas-container", controls: true})
+    @viewer = new ImageViewer({el: "#canvas-container", controls: true, timeline: true})
     @exampleGuide = new ExampleGuide()
     @keyboardGuide = new KeyboardGuide()
 

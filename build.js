@@ -10,36 +10,46 @@ AWS.config.loadFromPath('./.aws-cred.json');
 var s3bucket = new AWS.S3({params: {Bucket: 'www.diskdetective.org'}});
 var $ = cheerio.load(fs.readFileSync("./public/index.html"));
 var version = require('./package').version
+prefix = ''
 
 console.log("Building WISE-ZOO Version: ", version);
 
 // Upload Images
-
-fs.readdir('./public/img', function(err, imgs) {
-  if (err)
-    return console.log("Failed to read img dir");
-  imgs.forEach(function(img) {
-    fs.readFile('./public/img/' + img, function(err, file) {
-      if (err)
-        return console.log("Failed to read: ", img);
-      var fileType = img.split('.').slice(-1)[0],
-        contentType = (fileType === "svg") ? "image/svg+xml" : "image/" + fileType;
-
-      console.log(contentType);
-      s3bucket.putObject({
-        ACL: 'public-read',
-        Body: file,
-        Key: 'beta/img/' + img,
-        ContentType: contentType 
-      }, function(err) {
-        if (err)
-          console.log("Failed to upload: ", img)
-        else
-          console.log("Uploaded: ", img)
-      });
+uploadImgs = function(dir) {
+  fs.readdir(dir, function(err, imgs) {
+    if (err)
+      return console.log("Failed to read img dir");
+    dirs = imgs.filter(function(i) {
+      stat = fs.lstatSync(dir + "/" + i);
+      return stat.isDirectory();
     });
+
+    imgs.filter(function(i) { return !(i in dirs) })
+      .forEach(function(img) {
+        fs.readFile(dir + "/" + img, function(err, file) {
+          var d = dir.slice(9)
+          if (err)
+            return console.log("Failed to read: ", d + "/" + img);
+          var fileType = img.split('.').slice(-1)[0],
+            contentType = (fileType === "svg") ? "image/svg+xml" : "image/" + fileType;
+          s3bucket.putObject({
+            ACL: 'public-read',
+            Body: file,
+            Key: prefix + d + '/' + img,
+            ContentType: contentType 
+          }, function(err) {
+            if (err)
+              console.log("Failed to upload: ", d + "/" + img)
+            else
+              console.log("Uploaded: ", d + "/" + img)
+          });
+        });
+      });
+    dirs.forEach(function(d) { uploadImgs(dir + "/" + d) });
   });
-});
+};
+
+uploadImgs('./public/img');
 
 // Compress CSS - Write to ./output/css/
 
@@ -62,7 +72,7 @@ zlib.gzip(css, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'beta/css/style.' + version + '.css',
+    Key: prefix + '/css/style.' + version + '.css',
     ContentEncoding: 'gzip',
     ContentType: 'text/css'
   }, function(err) {
@@ -93,7 +103,7 @@ zlib.gzip(js.code, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'beta/js/app.' + version + '.js',
+    Key: prefix + '/js/app.' + version + '.js',
     ContentEncoding: 'gzip',
     ContentType: 'application/javascript'
   }, function(err) {
@@ -121,7 +131,7 @@ zlib.gzip($.html(), function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: 'beta/index.html',
+    Key: prefix + '/index.html',
     ContentEncoding: 'gzip',
     CacheControl: 'no-cache, must-revalidate',
     ContentType: 'text/html'

@@ -1,93 +1,187 @@
 module.exports = {
   nebula:
-    id: "529e06ed806ea52a0d000018"
     location:
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-2massk.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise4.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-dss2ir.png"
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise1.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise3.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-2massh.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-2massj.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-dss2blue.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-wise2.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e06ed806ea52a0d000018-dss2red.png"
+      "2massk":"http://www.diskdetective.org/img/examples/nebula/2massk.png"
+      "wise4":"http://www.diskdetective.org/img/examples/nebula/wise4.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/nebula/dss2ir.png"
+      "wise1":"http://www.diskdetective.org/img/examples/nebula/wise1.png"
+      "wise3":"http://www.diskdetective.org/img/examples/nebula/wise3.png"
+      "2massh":"http://www.diskdetective.org/img/examples/nebula/2massh.png"
+      "2massj":"http://www.diskdetective.org/img/examples/nebula/2massj.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/nebula/dss2blue.png"
+      "wise2":"http://www.diskdetective.org/img/examples/nebula/wise2.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/nebula/dss2red.png"
+    metadata:
+      bands: [
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
   multiple:
-    id: "529e06ff806ea52a0d00002c"
     location:
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-wise1.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-dss2red.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-wise2.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-2massh.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-wise3.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-wise4.png"
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-2massk.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-2massj.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e06ff806ea52a0d00002c-dss2ir.png"
+      "wise1":"http://www.diskdetective.org/img/examples/multiple/wise1.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/multiple/dss2blue.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/multiple/dss2red.png"
+      "wise2":"http://www.diskdetective.org/img/examples/multiple/wise2.png"
+      "2massh":"http://www.diskdetective.org/img/examples/multiple/2massh.png"
+      "wise3":"http://www.diskdetective.org/img/examples/multiple/wise3.png"
+      "wise4":"http://www.diskdetective.org/img/examples/multiple/wise4.png"
+      "2massk":"http://www.diskdetective.org/img/examples/multiple/2massk.png"
+      "2massj":"http://www.diskdetective.org/img/examples/multiple/2massj.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/multiple/dss2ir.png"
+    metadata:
+      bands: [
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
   multi:
-    id: "529e06f4806ea52a0d000020"
     location:
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-wise1.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-dss2red.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-wise2.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-2massh.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-wise3.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-wise4.png"
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-2massk.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-2massj.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e06f4806ea52a0d000020-dss2ir.png"
+      "wise1":"http://www.diskdetective.org/img/examples/multi/wise1.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/multi/dss2blue.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/multi/dss2red.png"
+      "wise2":"http://www.diskdetective.org/img/examples/multi/wise2.png"
+      "2massh":"http://www.diskdetective.org/img/examples/multi/2massh.png"
+      "wise3":"http://www.diskdetective.org/img/examples/multi/wise3.png"
+      "wise4":"http://www.diskdetective.org/img/examples/multi/wise4.png"
+      "2massk":"http://www.diskdetective.org/img/examples/multi/2massk.png"
+      "2massj":"http://www.diskdetective.org/img/examples/multi/2massj.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/multi/dss2ir.png"
+    metadata:
+      bands: [
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
   empty:
-    id: "529e0709806ea52a0d000035"
     location:
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise1.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-dss2red.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise2.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-2massh.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise3.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-wise4.png"
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-2massk.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-2massj.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e0709806ea52a0d000035-dss2ir.png"
+      "wise1":"http://www.diskdetective.org/img/examples/empty/wise1.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/empty/dss2blue.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/empty/dss2red.png"
+      "wise2":"http://www.diskdetective.org/img/examples/empty/wise2.png"
+      "2massh":"http://www.diskdetective.org/img/examples/empty/2massh.png"
+      "wise3":"http://www.diskdetective.org/img/examples/empty/wise3.png"
+      "wise4":"http://www.diskdetective.org/img/examples/empty/wise4.png"
+      "2massk":"http://www.diskdetective.org/img/examples/empty/2massk.png"
+      "2massj":"http://www.diskdetective.org/img/examples/empty/2massj.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/empty/dss2ir.png"
+    metadata:
+      bands: [
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
   galaxy:
-    id: "529e0705806ea52a0d000032"
     location:
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-wise1.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-dss2red.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-wise2.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-2massh.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-wise3.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-wise4.png"
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-2massk.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-2massj.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e0705806ea52a0d000032-dss2ir.png"
+      "wise1":"http://www.diskdetective.org/img/examples/galaxy/wise1.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/galaxy/dss2blue.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/galaxy/dss2red.png"
+      "wise2":"http://www.diskdetective.org/img/examples/galaxy/wise2.png"
+      "2massh":"http://www.diskdetective.org/img/examples/galaxy/2massh.png"
+      "wise3":"http://www.diskdetective.org/img/examples/galaxy/wise3.png"
+      "wise4":"http://www.diskdetective.org/img/examples/galaxy/wise4.png"
+      "2massk":"http://www.diskdetective.org/img/examples/galaxy/2massk.png"
+      "2massj":"http://www.diskdetective.org/img/examples/galaxy/2massj.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/galaxy/dss2ir.png"
+    metadata:
+      bands: [
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
   good:
-    id: "529e077a806ea52f5d00003e"
     location:
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-wise1.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-dss2red.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-wise2.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-2massh.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-wise3.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-wise4.png"
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-2massk.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-2massj.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e077a806ea52f5d00003e-dss2ir.png"
+      "wise1":"http://www.diskdetective.org/img/examples/good/wise1.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/good/dss2blue.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/good/dss2red.png"
+      "wise2":"http://www.diskdetective.org/img/examples/good/wise2.png"
+      "2massh":"http://www.diskdetective.org/img/examples/good/2massh.png"
+      "wise3":"http://www.diskdetective.org/img/examples/good/wise3.png"
+      "wise4":"http://www.diskdetective.org/img/examples/good/wise4.png"
+      "2massk":"http://www.diskdetective.org/img/examples/good/2massk.png"
+      "2massj":"http://www.diskdetective.org/img/examples/good/2massj.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/good/dss2ir.png"
+    metadata:
+      bands: [
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
   shift:
-    id: "529e06f2806ea52a0d00001e"
     location:
-      "wise1":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-wise1.png"
-      "dss2blue":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-dss2blue.png"
-      "dss2red":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-dss2red.png"
-      "wise2":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-wise2.png"
-      "2massh":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-2massh.png"
-      "wise3":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-wise3.png"
-      "wise4":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-wise4.png"
-      "2massk":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-2massk.png"
-      "2massj":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-2massj.png"
-      "dss2ir":"http://www.diskdetective.org/beta/subjects/standard/529e06f2806ea52a0d00001e-dss2ir.png"
+      "sdssu":"http://www.diskdetective.org/img/examples/shift/sdssu.png"
+      "sdssg":"http://www.diskdetective.org/img/examples/shift/sdssg.png"
+      "sdssr":"http://www.diskdetective.org/img/examples/shift/sdssr.png"
+      "sdssi":"http://www.diskdetective.org/img/examples/shift/sdssi.png"
+      "sdssz": "http://www.diskdetective.org/img/examples/shift/sdssz.png"
+      "wise1":"http://www.diskdetective.org/img/examples/shift/wise1.png"
+      "dss2blue":"http://www.diskdetective.org/img/examples/shift/dss2blue.png"
+      "dss2red":"http://www.diskdetective.org/img/examples/shift/dss2red.png"
+      "wise2":"http://www.diskdetective.org/img/examples/shift/wise2.png"
+      "2massh":"http://www.diskdetective.org/img/examples/shift/2massh.png"
+      "wise3":"http://www.diskdetective.org/img/examples/shift/wise3.png"
+      "wise4":"http://www.diskdetective.org/img/examples/shift/wise4.png"
+      "2massk":"http://www.diskdetective.org/img/examples/shift/2massk.png"
+      "2massj":"http://www.diskdetective.org/img/examples/shift/2massj.png"
+      "dss2ir":"http://www.diskdetective.org/img/examples/shift/dss2ir.png"
+    metadata:
+      bands: [
+        "sdssu",
+        "sdssg",
+        "sdssr",
+        "sdssi",
+        "sdssz",
+        "dss2blue",
+        "dss2red",
+        "dss2ir",
+        "2massj",
+        "2massh",
+        "2massk",
+        "wise1",
+        "wise2",
+        "wise3",
+        "wise4"
+      ]
 }

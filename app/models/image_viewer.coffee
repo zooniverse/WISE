@@ -40,6 +40,7 @@ class ImageViewer extends Backbone.Model
       img.onload = inc
       {img: img, wavelength: source.wavelength})
 
+    @set('max', imgs.length)
     @set('images', imgs)
 
     return promise
@@ -54,7 +55,6 @@ class ImageViewer extends Backbone.Model
       srcs = _.filter(srcs, (s) -> 
         not (s.wavelength in ['dss2blue', 'dss2red', 'dss2ir']))
 
-    @set('max', srcs.length)
     srcs
 
   isPlaying: ->
@@ -73,23 +73,23 @@ class ImageViewer extends Backbone.Model
   decrementIndex: ->
     i = @get('index') - 1
     l = @get('loop')
-    imgs = @get('images')
+    max = @get('max') - 1
 
     if i < 0
       unless l
         @set('animate', false) 
         i = 0
       else
-        i = imgs.length - 1
+        i = max
 
     @set('index', i) 
 
   incrementIndex: ->
     i = @get('index') + 1
     l = @get('loop')
-    imgs = @get('images')
+    max = @get('max') - 1
 
-    if i >= imgs.length
+    if i > max
       unless l
         @set('animate', false) 
         i = i - 1

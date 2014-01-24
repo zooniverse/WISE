@@ -35,7 +35,7 @@ class ExampleGuide extends ToggleView
   render: (ex) ->
     id = "#{ex}-example"
     return if @viewers[id]?
-    iv = new ImageViewer({el: ("#" + id + "> .column.half:first-child"), controls: true})
+    iv = new ImageViewer({el: ("#" + id + "> .column.half:first-child"), controls: true, timeline: false})
     iv.setupSubject(exampleSubjects[ex])
     @viewers[id] = iv
 
@@ -49,7 +49,8 @@ class ExampleGuide extends ToggleView
   updateTarget: (target) ->
     @hideCompare()
     @target = target
-    @targetWavelengths = _.keys(wavelengthKeys) 
+    @targetWavelengths = _.filter(_.keys(wavelengthKeys), (w) -> 
+      w in target.metadata.bands)
     @$('thead').html(headerTemplate({waves: @targetWavelengths}))
     @compare()
 
@@ -66,12 +67,17 @@ class ExampleGuide extends ToggleView
 
   compare: ->
     imgs = _.values(_.pick(@target.location, @targetWavelengths))
-    @$('tbody').html(rowTemplate({name: 'subject', imgs: imgs})) 
+    @$('tbody').html(rowTemplate({name: 'Subject', imgs: imgs})) 
     _.chain(@selected)
       .map((s) -> exampleSubjects[s].location)
       .each(((ex, i) -> 
         imgs = _.values(_.pick(ex, @targetWavelengths))
-        @$('tbody').append(rowTemplate({name: @selected[i], imgs: imgs}))), @)
+        name =  @selected[i].replace(/^./, (c) -> 
+          c.toLocaleUpperCase())
+        @$('tbody').append(rowTemplate({
+          name: name, 
+          imgs: imgs
+        }))), @)
 
   hideCompare: ->
     @$('.compare').removeClass('active')

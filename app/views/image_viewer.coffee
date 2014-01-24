@@ -9,10 +9,12 @@ class ImageViewer extends Backbone.View
 
     @model = new IVModel()
 
-    if opts.controls?
-      @timeline = new Timeline({model: @model})
+    if opts.controls
       @controls = new Controls({model: @model, el: @el})
       @controls.render()
+
+    if opts.timeline
+      @timeline = new Timeline({model: @model})
 
     @overlay = new Overlay({model: @model, el: @canvas})
 
@@ -42,7 +44,8 @@ class ImageViewer extends Backbone.View
 
   postloadImages: =>
     @$('.loading').hide()
-    @timeline.updateTimeline(@model, @model.get('index'))
+    if @timeline?
+      @timeline.updateTimeline(@model, @model.get('index'))
     @drawImage()
     @listenTo(@model, 'change:index', @drawImage)
 
