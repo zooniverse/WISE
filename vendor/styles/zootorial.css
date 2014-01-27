@@ -9,7 +9,7 @@
   -o-transition: left 0.25s ease-in, top 0.25s ease-out;
   -ms-transition: left 0.25s ease-in, top 0.25s ease-out;
   transition: left 0.25s ease-in, top 0.25s ease-out;
-  z-index: 2;
+  z-index: 222;
 }
 .zootorial-dialog.open {
   display: block;

@@ -3,7 +3,7 @@
 module.exports =
   id: "wise-tut"
   firstStep: "welcome"
-  length: 5
+  length: 9 
   steps:
     welcome: new Step
       number: 1
@@ -18,7 +18,7 @@ module.exports =
       details: "We find new debris disk stars by looking at flipbooks of images of the star taken with different telescopes. You won't see a disk or ring directly. Click the Play button to start the flipbook."
       attachment: "left center #canvas-container .play right center"
       className: "arrow-left"
-      next: { 'click button#play': 'explain1' }
+      next: { 'click button.play': 'explain1' }
 
     explain1: new Step
       number: 2
@@ -63,18 +63,26 @@ module.exports =
       details: "There are a variety of reasons that an object may not end up being a good candidate. We're interested in what the bad subjects are. We have examples of all the possible classifications in a guide accessible by clicking on this button. Open it up!"
       attachment: "center top #guide center bottom"
       className: "arrow-up"
-      next: {"click #guide" : "guide2"}
+      next: {"click #guide" : -> "guide2"}
 
     guide2: new Step
       number: 7
       header: "Guide"
-      details: "To see a flipbook play through, hover over it with your mouse. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done click 'Close Guide' to return to the classification."
-      attachment: "-1.0 center #classification-guide right center"
+      details: "You can click 'Compare' next to an example to see how each image from the example next to the current subject. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done click 'Close Guide' to return to the classification."
+      attachment: "right top #classify right top"
       className: "arrow-left"
-      next: {"click .close" : "end"}
+      next: {"click .close" : "talk"}
+
+    talk: new Step
+      number: 8
+      header: "Talk"
+      details: "If you ever have a question about a subject, or want to talk about something interesting you saw, clicking here will take you to the discussion page for the current subject." 
+      attachment: "center top #talk center bottom"
+      className: 'arrow-up'
+      next: "end"
 
     end: new Step
-      number: 8
+      number: 9
       header: "Good Luck"
       details: "And that's all there is to it! Have fun classifying!"
       attachment: "center center #canvas-container center center"
