@@ -16,10 +16,16 @@ module.exports = ->
     t7e.refresh()
   )
 
-  api = new zooniverse.Api({
-    project: 'wise'
-    host: 'http://0.0.0.0:3000'
-  })
+  api = if location.hostname is 'localhost'
+    new zooniverse.Api({
+      project: 'wise'
+      host: 'http://0.0.0.0:3000'
+    })
+  else
+    new zooniverse.Api({
+      project: 'wise'
+      host: 'https://api.zooniverse.org'
+    })
 
   ga = new zooniverse.GoogleAnalytics({account: 'UA-1224199-50'})
 
