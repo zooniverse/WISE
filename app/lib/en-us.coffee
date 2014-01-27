@@ -47,7 +47,7 @@ module.exports =
     close: "close"
     good: "An example of a good candidate--it looks round-ish at all wavelengths and stays close to the plus sign."
     nebula: "The object is extended beyond the red circle in the WISE images. It's probably a Nebula."
-    galaxy: "This is an example of a candidate that is not round in the DSS and 2MASS images. It's probably a Galaxy."
+    galaxy: "This is an example of a candidate that is not round in the DSS or 2MASS images. It's probably a Galaxy."
     shift: "This object moves substantially between images. It is on the crosshairs in the DSS2 and 2MASS images, but off the crosshairs in the WISE 4 image."
     empty: "In the WISE images, there is no object in the red circle."
     multi: "This example has multiple objects in the DSS and 2MASS images"
@@ -70,14 +70,14 @@ module.exports =
     shift: "Object Moves Off the Crosshairs"
     extended: "Extended beyond circle in WISE images"
     empty: "Empty circle in WISE images"
-    oval: "Not round in DSS2 and 2MASS images"
+    oval: "Not round in DSS2 or 2MASS images"
     good: "None of the Above/Good candidate"
     finish: "Finish"
 
   science_page: """<h2>Science</h2>
           <p>A few billion stars in our Galaxy host disks of rock, dust and sometimes gas that are nurseries for planets. Disk Detectives aims to find these special stars, surround by disks, so we can learn more about where planets are and how they form.</p>
 
-<p>A star surrounded by a disk can be tricky to spot, but an important clue is that the radiation coming from the star is augmented by radiation coming from the disk, which glows in infrared light. NASA’s WISE mission surveyed the whole sky at infrared wavelengths to help find these disks, and the targets you will look at in Disk Detectives have all been pre-selected to be extra bright in infrared light.  In particular, the objects you will look at are anomalously bright at WISE’s “W4” band, which corresponds to light with a wavelength of 22 microns, about the width of very fine piece of human hair.</p>
+<p>A star surrounded by a disk can be tricky to spot, but an important clue is that the radiation coming from the star is augmented by radiation coming from the disk, which glows in infrared light. NASA’s WISE mission surveyed the whole sky at infrared wavelengths to help find these disks, and the targets you will look at in Disk Detective have all been pre-selected to be extra bright in infrared light.  In particular, the objects you will look at are anomalously bright at WISE’s “W4” band, which corresponds to light with a wavelength of 22 microns, about the width of very fine piece of human hair.</p>
 
 <p>But disks are not the only kind of celestial object that glows bright in the infrared. Galaxies, asteroids, active galactic nuclei, and interstellar dust all emit at these wavelengths. So we need to examine all these disk candidates by eye to make sure they really are stars, and not some other kind of interloper.  </p>
 
@@ -94,7 +94,7 @@ module.exports =
 
 <p>NASA’s WISE mission probably made images of thousands of debris disks and YSO disks.  Alas, these disks are buried among images of millions of other kinds of astronomical objects like galaxies and nebulae, and mixed in with images that contain artifacts created by the telescope itself.  In Disk Detective, you will help astronomers find these disks, homes for extrasolar planets.</p>
 
-<p>Disk Detective is the first NASA led and funded Zooniverse project. Is is also the first NASA led and funded crowdsourcing project whose main goal is to produce publishable scientific results. It was built using seed money from NASA's Science Innovation Fund. See the White House’s second <a href="http://www.whitehouse.gov/blog/2013/12/06/united-states-releases-its-second-open-government-national-action-plan">Open Government National Action Plan</a>for more information on the U.S. federal government’s commitment to crowdsourcing and open data.</p>
+<p>Disk Detective is the first NASA led and funded Zooniverse project. It is also the first NASA led and funded crowdsourcing project whose main goal is to produce publishable scientific results. It was built using seed money from NASA's Science Innovation Fund. See the White House’s second <a href="http://www.whitehouse.gov/blog/2013/12/06/united-states-releases-its-second-open-government-national-action-plan">Open Government National Action Plan</a>for more information on the U.S. federal government’s commitment to crowdsourcing and open data.</p>
 
 <p><img src="img/nasa_logo.gif" height="150" alt="NASA Logo" />This material is based upon work supported by NASA under grant number NNX13AG53G. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Aeronautics and Space Administration (NASA).</p>
 
