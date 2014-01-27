@@ -30,12 +30,12 @@ class Classify extends ToggleView
 
   onUserChange: =>
     if User.current?.preferences?.wise?.tutorial_done
+      @tut.end() if @tut
       Subject.next() 
     else
       @startTutorial()
 
   onNextSubject: =>
-    @tut.end() if @tut
     @exampleGuide.updateTarget(Subject.current)
     @classification = new Classification({subject: Subject.current})
     @viewer.setupSubject(Subject.current)
