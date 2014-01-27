@@ -72,7 +72,7 @@ zlib.gzip(css, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: prefix + '/css/style.' + version + '.css',
+    Key: prefix + 'css/style.' + version + '.css',
     ContentEncoding: 'gzip',
     ContentType: 'text/css'
   }, function(err) {
@@ -103,7 +103,7 @@ zlib.gzip(js.code, function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: prefix + '/js/app.' + version + '.js',
+    Key: prefix + 'js/app.' + version + '.js',
     ContentEncoding: 'gzip',
     ContentType: 'application/javascript'
   }, function(err) {
@@ -131,7 +131,7 @@ zlib.gzip($.html(), function(err, result) {
   s3bucket.putObject({
     ACL: 'public-read',
     Body: result,
-    Key: prefix + '/index.html',
+    Key: prefix + 'index.html',
     ContentEncoding: 'gzip',
     CacheControl: 'no-cache, must-revalidate',
     ContentType: 'text/html'
