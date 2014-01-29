@@ -45,7 +45,7 @@ module.exports =
     """
   examples:
     close: "close"
-    good: "An example of a good candidate--it looks round at all wavelengths and stays close to the plus sign."
+    good: "An example of a good candidate--it looks round-ish at all wavelengths and stays close to the plus sign."
     nebula: "The object is extended beyond the red circle in the WISE images. It's probably a Nebula."
     galaxy: "This is an example of a candidate that is not round in the DSS and 2MASS images. It's probably a Galaxy."
     shift: "This object moves substantially between images. It is on the crosshairs in the DSS2 and 2MASS images, but off the crosshairs in the WISE 4 image."

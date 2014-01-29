@@ -23,7 +23,7 @@ module.exports =
     explain1: new Step
       number: 2
       header: "Using the Interface"
-      details: "The ideal debris disk star does not move from image to image and does not break into two or more objects. It's pure, clean, and round."
+      details: "The ideal debris disk star does not move from image to image and does not break into two or more objects. It's pure, clean, and round-ish."
       attachment: "center top #question center bottom"
       next: 'explain2'
 
