@@ -1,5 +1,7 @@
 ToggleView = require('views/toggle_view')
 Subject = zooniverse.models.Subject
+User = zooniverse.models.User
+Classification = zooniverse.models.Classification
 
 class Menu extends ToggleView 
   el: 'nav'
@@ -20,8 +22,16 @@ class Menu extends ToggleView
     @twitter.attr('href', subject.twitterHref())
     @pinterest.attr('href', subject.pinterestHref())
 
+  updateCounts: ->
+    @$('.session-count').text(Classification.sentThisSession)
+    @$('.total-count').text(User.current.project.classification_count)
+
   hide: ->
     super
     @trigger 'hidden'
+
+  show: ->
+    super
+    @updateCounts()
 
 module.exports = Menu

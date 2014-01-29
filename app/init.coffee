@@ -19,7 +19,7 @@ module.exports = ->
   api = if location.hostname is 'localhost'
     new zooniverse.Api({
       project: 'wise'
-      host: 'http://0.0.0.0:3000'
+      host: 'https://dev.zooniverse.org'
     })
   else
     new zooniverse.Api({
