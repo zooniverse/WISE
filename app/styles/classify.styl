@@ -110,7 +110,7 @@ section#classify
     border-color: #45aae3
     background-color: #45aae3
 
-@media(max-height: 790px)
+@media(max-height: 790px) and (min-height: 400px) and (orientation: landscape)
   section#classify 
     min-height: 500px
     .move-right
@@ -142,4 +142,19 @@ section#classify
       position: absolute
       right: 50%
       margin-right: -30px
+
+@media(max-width:400px)
+  section#classify
+    canvas
+      width: 100%
+
+    .column.half.pull-left
+      width: 50%
+      display: inline-block 
+
+    .column.half.pull-right
+      width: 30%
+      float: right
+      display: inline-block
+      margin-top: 0
 

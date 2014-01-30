@@ -35,7 +35,7 @@ section#science
         width: 100%
         color: #fff
 
-@media(max-width: 700px)
+@media(max-width: 700px) and (min-width: 400px)
   section#science
     .row
       width: 400px
@@ -52,3 +52,23 @@ section#science
         &:last-child
           padding-left: 30px
           float: none
+
+@media(max-width: 400px)
+  section#science
+    .row
+      width: 90%
+
+      .column.half
+        width: 100%
+
+        &:first-child
+          padding-right: 30px
+
+          img
+            top: -60px
+
+        &:last-child
+          padding-left: 30px
+          float: none
+
+
