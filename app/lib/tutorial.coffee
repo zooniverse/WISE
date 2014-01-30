@@ -45,7 +45,7 @@ module.exports =
     survey: new Step
       number: 5
       header: "Different Surveys"
-      details: "When you watch through the flipbook, you should pay attention to what survey each image is from. You'll be looking for different problems in images from different surveys. For example, look for non-circular objects in images from the DSS2 and 2MASS surveys."
+      details: "As you go through the flipbook, you should pay attention to what survey each image is from. You'll be looking for different features in images from different surveys. For example, non-circular objects in images from the DSS2 and 2MASS surveys is a sign that it's not a disk."
       attachment: "center top #timeline p:last-child center 1.8"
       className: "arrow-up"
       next: "good"
@@ -53,7 +53,7 @@ module.exports =
     good: new Step
       number: 5
       header: "Classify"
-      details: "After you watch the flipbook at least once, you can select a classification for the star. This is a good candidate since it is round and entirely contained within the circle. Go ahead and select 'Good Candidate', then click 'Finish'."
+      details: "After you watch the flipbook at least once, you can select a classification for the star. This is a good candidate since it is round and entirely contained within the circle. Go ahead and select 'None of the Above/Good Candidate', then click 'Finish'."
       attachment: "center bottom #canvas-container center bottom"
       next: {"click #finish" : "guide"}
 
