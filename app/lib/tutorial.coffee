@@ -45,7 +45,7 @@ module.exports =
     survey: new Step
       number: 5
       header: "Different Surveys"
-      details: "When you watch through the flipbook, you should pay attention to what survey each image is from. You'll be looking for different problems in images from different surveys. For example non-circular objects in images from the DSS2 and 2 MASS surveys."
+      details: "When you watch through the flipbook, you should pay attention to what survey each image is from. You'll be looking for different problems in images from different surveys. For example, look for non-circular objects in images from the DSS2 and 2MASS surveys."
       attachment: "center top #timeline p:last-child center 1.8"
       className: "arrow-up"
       next: "good"
@@ -53,7 +53,7 @@ module.exports =
     good: new Step
       number: 5
       header: "Classify"
-      details: "After you watch the flipbook at least once. You can select a classification for the star. This is a good candidate since it is round and entirely contained within the circle. Go ahead and select 'Good Candidate' then click 'Finish'."
+      details: "After you watch the flipbook at least once, you can select a classification for the star. This is a good candidate since it is round and entirely contained within the circle. Go ahead and select 'Good Candidate', then click 'Finish'."
       attachment: "center bottom #canvas-container center bottom"
       next: {"click #finish" : "guide"}
 
@@ -68,7 +68,7 @@ module.exports =
     guide2: new Step
       number: 7
       header: "Guide"
-      details: "You can click 'Compare' next to an example to see how each image from the example next to the current subject. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done click 'Close Guide' to return to the classification."
+      details: "You can click 'Compare' to see an example image for that classification next to the current subject. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done, click 'Close Guide' to return to the classification."
       attachment: "right top #classify right top"
       className: "arrow-left"
       next: {"click .close" : "talk"}
