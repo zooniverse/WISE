@@ -122,6 +122,7 @@ module.exports =
 
           <p><a href="http://www.astro.ethz.ch/people/kevinsc">Kevin Schawinski</a> is an Assistant Professor at the ETH Zurich in Switzerland. He works on galaxies, black holes and has been with the Zooniverse since the beginning.</p>
 
+          <p><a href="http://www.astro.utoronto.ca/~currie">Thayne Currie</a> is currently a McLean Postdoctoral Fellow in the Department of Astronomy and Astrophysics at the University of Toronoto. His research primarily focuses on directly imaging and characterizing young extrasolar planets around nearby stars, many of which are surrounded by debris disks like those we seek to identify from Disk Detective.</p>
 
           <p><a href="http://astro.uchicago.edu/~abans/index.html">Alissa Bans</a> received her PhD in Astronomy and Astrophysics from the University of Chicago, and is currently a postdoctoral scholar at the Adler Planetarium. Her research focuses on how solar systems form and evolve, particularly she focuses on the role of large-scale magnetic fields and also matching theory with observations. In addition to astronomy research, part of her role at the Adler Planetarium is engaging the public through education and outreach, including working with Zooniverse citizen science projects.</p>
 

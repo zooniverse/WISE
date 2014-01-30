@@ -23,8 +23,12 @@ class Menu extends ToggleView
     @pinterest.attr('href', subject.pinterestHref())
 
   updateCounts: ->
-    @$('.session-count').text(Classification.sentThisSession)
-    @$('.total-count').text(User.current.project.classification_count)
+    @$('.session-count').text(Classification.sentThisSession || 0)
+    if User.current?
+      @$('.total').show()
+      @$('.total-count').text(User.current.project.classification_count || 0)
+    else
+      @$('.total').hide()
 
   hide: ->
     super
