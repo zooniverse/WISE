@@ -50,6 +50,7 @@ class Classify extends ToggleView
     'click button#guide' : 'showGuide'
     'click button#tutorial' : 'startTutorial'
     'click button#keyboard' : 'showKeyboardGuide'
+    'click a#talk' : 'recordTalkVisit'
   }
 
   keyboardEvents: {
@@ -157,6 +158,9 @@ class Classify extends ToggleView
     @$('button#tutorial').removeClass('active')
     if User.current
       User.current.setPreference('tutorial_done', true)
+
+  recordTalkVisit: ->
+    @classification.annotate({visited_talk: true})
 
   show: ->
     super
