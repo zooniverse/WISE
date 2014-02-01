@@ -3710,6 +3710,148 @@ if (typeof module !== 'undefined') module.exports = template;
 }).call(this);
 
 (function() {
+  var BaseController, SignupForm, User, translate, _base, _base1, _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  if (window.zooniverse == null) {
+    window.zooniverse = {};
+  }
+
+  if ((_base = window.zooniverse).controllers == null) {
+    _base.controllers = {};
+  }
+
+  if ((_base1 = window.zooniverse).models == null) {
+    _base1.models = {};
+  }
+
+  BaseController = zooniverse.controllers.BaseController || require('./base-controller');
+
+  User = zooniverse.models.User || require('../models/user');
+
+  translate = zooniverse.translate || require('../lib/translate');
+
+  SignupForm = (function(_super) {
+    __extends(SignupForm, _super);
+
+    function SignupForm() {
+      _ref = SignupForm.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    SignupForm.prototype.tagName = 'form';
+
+    SignupForm.prototype.className = 'zooniverse-signup-form';
+
+    SignupForm.prototype.events = {
+      'submit*': 'onSubmit'
+    };
+
+    SignupForm.prototype.elements = {
+      'input[name="username"]': 'usernameInput',
+      'input[name="password"]': 'passwordInput',
+      'input[name="email"]': 'emailInput',
+      'input[name="real-name"]': 'realNameInput',
+      'button[type="submit"]': 'signUpButton',
+      '.error-message': 'errorContainer'
+    };
+
+    SignupForm.prototype.onSubmit = function() {
+      var signup,
+        _this = this;
+      this.el.addClass('loading');
+      this.signUpButton.attr({
+        disabled: true
+      });
+      signup = User.signup({
+        username: this.usernameInput.val(),
+        password: this.passwordInput.val(),
+        email: this.emailInput.val(),
+        real_name: this.realNameInput.val()
+      });
+      signup.done(function(_arg) {
+        var message, success;
+        success = _arg.success, message = _arg.message;
+        if (!success) {
+          return _this.showError(message);
+        }
+      });
+      signup.fail(function() {
+        return _this.showError(translate('signInFailed'));
+      });
+      return signup.always(function() {
+        _this.el.removeClass('loading');
+        return _this.signUpButton.attr({
+          disabled: false
+        });
+      });
+    };
+
+    SignupForm.prototype.showError = function(message) {
+      return this.errorContainer.html(message);
+    };
+
+    return SignupForm;
+
+  })(BaseController);
+
+  window.zooniverse.controllers.SignupForm = SignupForm;
+
+  if (typeof module !== "undefined" && module !== null) {
+    module.exports = SignupForm;
+  }
+
+}).call(this);
+
+(function() {
+  var Dialog, SignupForm, User, signupDialog, template, _base, _base1, _base2;
+
+  if (window.zooniverse == null) {
+    window.zooniverse = {};
+  }
+
+  if ((_base = window.zooniverse).controllers == null) {
+    _base.controllers = {};
+  }
+
+  if ((_base1 = window.zooniverse).views == null) {
+    _base1.views = {};
+  }
+
+  if ((_base2 = window.zooniverse).models == null) {
+    _base2.models = {};
+  }
+
+  Dialog = zooniverse.controllers.Dialog || require('./dialog');
+
+  SignupForm = zooniverse.controllers.SignupForm || require('./signup-form');
+
+  template = zooniverse.views.signupDialog || require('../views/signup-dialog');
+
+  User = zooniverse.models.User || require('../models/user');
+
+  signupDialog = new Dialog({
+    content: (new SignupForm({
+      template: template
+    })).el
+  });
+
+  User.on('change', function(e, user) {
+    if (user != null) {
+      return signupDialog.hide();
+    }
+  });
+
+  window.zooniverse.controllers.signupDialog = signupDialog;
+
+  if (typeof module !== "undefined" && module !== null) {
+    module.exports = signupDialog;
+  }
+
+}).call(this);
+
+(function() {
   var Api, BaseController, LoginForm, User, signupDialog, template, translate, _base, _base1, _base2,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -3884,148 +4026,6 @@ if (typeof module !== 'undefined') module.exports = template;
 
   if (typeof module !== "undefined" && module !== null) {
     module.exports = loginDialog;
-  }
-
-}).call(this);
-
-(function() {
-  var BaseController, SignupForm, User, translate, _base, _base1, _ref,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  if (window.zooniverse == null) {
-    window.zooniverse = {};
-  }
-
-  if ((_base = window.zooniverse).controllers == null) {
-    _base.controllers = {};
-  }
-
-  if ((_base1 = window.zooniverse).models == null) {
-    _base1.models = {};
-  }
-
-  BaseController = zooniverse.controllers.BaseController || require('./base-controller');
-
-  User = zooniverse.models.User || require('../models/user');
-
-  translate = zooniverse.translate || require('../lib/translate');
-
-  SignupForm = (function(_super) {
-    __extends(SignupForm, _super);
-
-    function SignupForm() {
-      _ref = SignupForm.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
-
-    SignupForm.prototype.tagName = 'form';
-
-    SignupForm.prototype.className = 'zooniverse-signup-form';
-
-    SignupForm.prototype.events = {
-      'submit*': 'onSubmit'
-    };
-
-    SignupForm.prototype.elements = {
-      'input[name="username"]': 'usernameInput',
-      'input[name="password"]': 'passwordInput',
-      'input[name="email"]': 'emailInput',
-      'input[name="real-name"]': 'realNameInput',
-      'button[type="submit"]': 'signUpButton',
-      '.error-message': 'errorContainer'
-    };
-
-    SignupForm.prototype.onSubmit = function() {
-      var signup,
-        _this = this;
-      this.el.addClass('loading');
-      this.signUpButton.attr({
-        disabled: true
-      });
-      signup = User.signup({
-        username: this.usernameInput.val(),
-        password: this.passwordInput.val(),
-        email: this.emailInput.val(),
-        real_name: this.realNameInput.val()
-      });
-      signup.done(function(_arg) {
-        var message, success;
-        success = _arg.success, message = _arg.message;
-        if (!success) {
-          return _this.showError(message);
-        }
-      });
-      signup.fail(function() {
-        return _this.showError(translate('signInFailed'));
-      });
-      return signup.always(function() {
-        _this.el.removeClass('loading');
-        return _this.signUpButton.attr({
-          disabled: false
-        });
-      });
-    };
-
-    SignupForm.prototype.showError = function(message) {
-      return this.errorContainer.html(message);
-    };
-
-    return SignupForm;
-
-  })(BaseController);
-
-  window.zooniverse.controllers.SignupForm = SignupForm;
-
-  if (typeof module !== "undefined" && module !== null) {
-    module.exports = SignupForm;
-  }
-
-}).call(this);
-
-(function() {
-  var Dialog, SignupForm, User, signupDialog, template, _base, _base1, _base2;
-
-  if (window.zooniverse == null) {
-    window.zooniverse = {};
-  }
-
-  if ((_base = window.zooniverse).controllers == null) {
-    _base.controllers = {};
-  }
-
-  if ((_base1 = window.zooniverse).views == null) {
-    _base1.views = {};
-  }
-
-  if ((_base2 = window.zooniverse).models == null) {
-    _base2.models = {};
-  }
-
-  Dialog = zooniverse.controllers.Dialog || require('./dialog');
-
-  SignupForm = zooniverse.controllers.SignupForm || require('./signup-form');
-
-  template = zooniverse.views.signupDialog || require('../views/signup-dialog');
-
-  User = zooniverse.models.User || require('../models/user');
-
-  signupDialog = new Dialog({
-    content: (new SignupForm({
-      template: template
-    })).el
-  });
-
-  User.on('change', function(e, user) {
-    if (user != null) {
-      return signupDialog.hide();
-    }
-  });
-
-  window.zooniverse.controllers.signupDialog = signupDialog;
-
-  if (typeof module !== "undefined" && module !== null) {
-    module.exports = signupDialog;
   }
 
 }).call(this);
