@@ -150,6 +150,8 @@ class Classify extends ToggleView
     @onNextSubject()
     @tut or= new Tutorial(tutorial)
     @tut.el.bind('end-tutorial', @endTutorial)
+    @tut.el.bind 'start-tutorial enter-tutorial-step', =>
+      t7e.refresh @tut.el.get 0
     @$('button#tutorial').addClass('active')
     @tut.start()
 
