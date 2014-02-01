@@ -128,15 +128,16 @@ window.base64 = {
     password: 'Password',
     email: 'Email',
     realName: 'Real name',
-    whyRealName: 'This will be used when we thank contributors, for example, in talks or on posters.<br />If you don\'t want to be mentioned publicly, leave this blank.',
+    whyRealName: 'This will be used when we thank contributors, for example, in talks or on posters. If you don\'t want to be mentioned publicly, leave this blank.',
     noAccount: 'Don\'t have an account?',
-    privacyPolicy: 'I agree to the <a href="https://www.zooniverse.org/privacy" target="_blank">privacy policy</a>.',
+    agreeToPrivacyPolicy: 'I agree to the <a href="https://www.zooniverse.org/privacy" target="_blank">privacy policy</a>.',
     forgotPassword: 'Forgot your password?',
     badLogin: 'Incorrect username or password',
     signInFailed: 'Sign in failed.',
     signInForProfile: 'Sign in to see your profile.',
     footerHeading: 'The Zooniverse is a collection of web-based citizen science projects that use the efforts of volunteers to help researchers deal with the flood of data that confronts them.',
     privacyPolicy: 'Privacy policy',
+    forkOnGitHub: 'Source & bugs',
     recents: 'Recents',
     favorites: 'Favorites',
     none: 'none'
@@ -221,6 +222,50 @@ window.base64 = {
 
   if (typeof module !== "undefined" && module !== null) {
     module.exports = fr;
+  }
+
+}).call(this);
+
+(function() {
+  var pl, _base;
+
+  pl = {
+    topBarHeading: 'Projekt Zooniverse',
+    signUpHeading: 'Utwórz nowe konto Zooniverse',
+    signInHeading: 'Zaloguj się na swoje konto Zooniverse',
+    signUp: 'Zarejestruj',
+    signIn: 'Zaloguj',
+    signOut: 'Wyloguj',
+    username: 'Nazwa użytkownika',
+    password: 'Hasło',
+    email: 'Adres e-mail',
+    realName: 'Prawdziwe imię',
+    whyRealName: 'Korzystamy z tych danych, kiedy dziękujemy ochotnikom za ich wkład, na przykład podczas rozmów czy na plakatach. <br/> Jeżeli nie chcesz, abyśmy wymieniali Cię publicznie z imienia i nazwiska, zostaw to pole puste.',
+    noAccount: 'Nie masz jeszcze konta?',
+    privacyPolicy: 'Zgadzam się z <a href="https://www.zooniverse.org/privacy" target="_blank">polityką prywatności</a>.',
+    forgotPassword: 'Nie pamiętasz hasła?',
+    badLogin: 'Niepoprawna nazwa użytkownika lub hasło',
+    signInFailed: 'Nie udało się zalogować',
+    signInForProfile: 'Zaloguj się, aby zobaczyć swój profil',
+    footerHeading: 'Zooniverse to zbiór projektów nauki obywatelskiej w Internecie, dzięki którym ochotnicy pomagają badaczom przedzierać się przez powódź napływających danych.',
+    privacyPolicy: 'Polityka prywatności',
+    recents: 'Najnowsze',
+    favorites: 'Ulubione',
+    none: 'nic'
+  };
+
+  if (window.zooniverse == null) {
+    window.zooniverse = {};
+  }
+
+  if ((_base = window.zooniverse).translations == null) {
+    _base.translations = {};
+  }
+
+  window.zooniverse.translations.pl = pl;
+
+  if (typeof module !== "undefined" && module !== null) {
+    module.exports = pl;
   }
 
 }).call(this);
@@ -658,50 +703,10 @@ window.base64 = {
 }).call(this);
 
 (function() {
-  var offset, _base;
-
-  offset = function(el, from) {
-    var currentElement, left, top;
-    left = 0;
-    top = 0;
-    currentElement = el;
-    while (currentElement != null) {
-      if (!isNaN(currentElement.offsetLeft)) {
-        left += currentElement.offsetLeft;
-      }
-      if (!isNaN(currentElement.offsetTop)) {
-        top += currentElement.offsetTop;
-      }
-      currentElement = currentElement.offsetParent;
-    }
-    left += parseFloat(getComputedStyle(document.body.parentNode).marginLeft);
-    top += parseFloat(getComputedStyle(document.body.parentNode).marginTop);
-    return {
-      left: left,
-      top: top
-    };
-  };
-
-  if (window.zooniverse == null) {
-    window.zooniverse = {};
-  }
-
-  if ((_base = window.zooniverse).util == null) {
-    _base.util = {};
-  }
-
-  window.zooniverse.util.offset = offset;
-
-  if (typeof module !== "undefined" && module !== null) {
-    module.exports = offset;
-  }
-
-}).call(this);
-
-(function() {
   var $, EventEmitter, LanguageManager, _ref,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   EventEmitter = ((_ref = window.zooniverse) != null ? _ref.EventEmitter : void 0) || require('./event-emitter');
 
@@ -717,7 +722,7 @@ window.base64 = {
     LanguageManager.prototype.code = 'en';
 
     function LanguageManager(_arg) {
-      var lang, _ref1, _ref2, _ref3, _ref4, _ref5,
+      var lang, _base, _name, _ref1, _ref2, _ref3, _ref4, _ref5,
         _this = this;
       _ref1 = _arg != null ? _arg : {}, this.translations = _ref1.translations, this.code = _ref1.code;
       if (this.translations == null) {
@@ -731,7 +736,7 @@ window.base64 = {
         }
       }
       if (this.code == null) {
-        this.code = (_ref3 = location.search.match(/lang=(\w+)/)) != null ? _ref3[1] : void 0;
+        this.code = (_ref3 = location.search.match(/lang=([^&]+)/)) != null ? _ref3[1] : void 0;
       }
       if (this.code == null) {
         this.code = localStorage.getItem('zooniverse-language-code');
@@ -745,6 +750,14 @@ window.base64 = {
       if (this.code == null) {
         this.code = this.constructor.prototype.code;
       }
+      if (__indexOf.call(this.code, '/') >= 0 || __indexOf.call(this.code, '.json') >= 0) {
+        if ((_base = this.translations)[_name = this.code] == null) {
+          _base[_name] = {
+            label: this.code,
+            strings: this.code
+          };
+        }
+      }
       this.constructor.current = this;
       setTimeout(function() {
         return _this.setLanguage(_this.code);
@@ -752,26 +765,26 @@ window.base64 = {
     }
 
     LanguageManager.prototype.setLanguage = function(code, done, fail) {
-      var localStrings, request, _ref1,
+      var localStrings, pathToStrings, request, _ref1, _ref2,
         _this = this;
       this.code = code;
       if (typeof ((_ref1 = this.translations[this.code]) != null ? _ref1.strings : void 0) === 'string') {
+        pathToStrings = (_ref2 = this.translations[this.code]) != null ? _ref2.strings : void 0;
         localStrings = JSON.parse(localStorage.getItem("zooniverse-language-strings-" + this.code));
         if (localStrings != null) {
           this.translations[this.code].strings = localStrings;
-          return this.setLanguage(this.code, done, fail);
-        } else {
-          request = $.getJSON(this.translations[this.code].strings);
-          request.done(function(data) {
-            localStorage.setItem("zooniverse-language-strings-" + _this.code, JSON.stringify(data));
-            _this.translations[_this.code].strings = data;
-            return _this.setLanguage(_this.code, done, fail);
-          });
-          return request.fail(function() {
-            _this.trigger('language-fetch-fail');
-            return typeof fail === "function" ? fail.apply(null, arguments) : void 0;
-          });
+          this.setLanguage(this.code, done, fail);
         }
+        request = $.getJSON(pathToStrings);
+        request.done(function(data) {
+          localStorage.setItem("zooniverse-language-strings-" + _this.code, JSON.stringify(data));
+          _this.translations[_this.code].strings = data;
+          return _this.setLanguage(_this.code, done, fail);
+        });
+        return request.fail(function() {
+          _this.trigger('language-fetch-fail');
+          return typeof fail === "function" ? fail.apply(null, arguments) : void 0;
+        });
       } else {
         localStorage.setItem('zooniverse-language-code', this.code);
         this.trigger('change-language', [this.code, this.translations[this.code].strings]);
@@ -796,7 +809,7 @@ window.base64 = {
 }).call(this);
 
 (function() {
-  var LanguageManager, translate, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6,
+  var LanguageManager, translate, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8,
     __slice = [].slice;
 
   LanguageManager = ((_ref = window.zooniverse) != null ? _ref.LanguageManager : void 0) || require('./language-manager');
@@ -819,15 +832,16 @@ window.base64 = {
   translate.strings = {
     en: ((_ref1 = window.zooniverse) != null ? (_ref2 = _ref1.translations) != null ? _ref2.en : void 0 : void 0) || require('../translations/en'),
     es: ((_ref3 = window.zooniverse) != null ? (_ref4 = _ref3.translations) != null ? _ref4.es : void 0 : void 0) || require('../translations/es'),
-    fr: ((_ref5 = window.zooniverse) != null ? (_ref6 = _ref5.translations) != null ? _ref6.fr : void 0 : void 0) || require('../translations/fr')
+    fr: ((_ref5 = window.zooniverse) != null ? (_ref6 = _ref5.translations) != null ? _ref6.fr : void 0 : void 0) || require('../translations/fr'),
+    pl: ((_ref7 = window.zooniverse) != null ? (_ref8 = _ref7.translations) != null ? _ref8.pl : void 0 : void 0) || require('../translations/pl')
   };
 
   translate.refresh = function(element, key) {
-    var name, property, string, value, _i, _len, _ref10, _ref11, _ref7, _ref8, _ref9, _results;
-    _ref7 = element.attributes;
+    var name, property, string, value, _i, _len, _ref10, _ref11, _ref12, _ref13, _ref9, _results;
+    _ref9 = element.attributes;
     _results = [];
-    for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
-      _ref8 = _ref7[_i], name = _ref8.name, value = _ref8.value;
+    for (_i = 0, _len = _ref9.length; _i < _len; _i++) {
+      _ref10 = _ref9[_i], name = _ref10.name, value = _ref10.value;
       if (name.slice(0, translate.attr.length) !== translate.attr) {
         continue;
       }
@@ -835,20 +849,24 @@ window.base64 = {
         continue;
       }
       property = name.slice(translate.attr.length + 1) || 'innerHTML';
-      string = (_ref9 = translate.strings[(_ref10 = LanguageManager.current) != null ? _ref10.code : void 0]) != null ? _ref9[value] : void 0;
-      string || (string = (_ref11 = translate.strings[LanguageManager.prototype.code]) != null ? _ref11[value] : void 0);
+      string = (_ref11 = translate.strings[(_ref12 = LanguageManager.current) != null ? _ref12.code : void 0]) != null ? _ref11[value] : void 0;
+      string || (string = (_ref13 = translate.strings[LanguageManager.prototype.code]) != null ? _ref13[value] : void 0);
       string || (string = value);
-      _results.push(element[property] = string);
+      if (element.hasAttribute(property)) {
+        _results.push(element.setAttribute(property, string));
+      } else {
+        _results.push(element[property] = string);
+      }
     }
     return _results;
   };
 
   LanguageManager.on('change-language', function() {
-    var element, _i, _len, _ref7, _results;
-    _ref7 = document.querySelectorAll("[" + translate.attr + "]");
+    var element, _i, _len, _ref9, _results;
+    _ref9 = document.querySelectorAll("[" + translate.attr + "]");
     _results = [];
-    for (_i = 0, _len = _ref7.length; _i < _len; _i++) {
-      element = _ref7[_i];
+    for (_i = 0, _len = _ref9.length; _i < _len; _i++) {
+      element = _ref9[_i];
       _results.push(translate.refresh(element));
     }
     return _results;
@@ -1476,6 +1494,8 @@ window.base64 = {
     Subject.prototype.id = '';
 
     Subject.prototype.zooniverse_id = '';
+
+    Subject.prototype.classification_count = null;
 
     Subject.prototype.coords = null;
 
@@ -2429,11 +2449,11 @@ template = function(__obj) {
     
       __out.push(groupIconSvg());
     
-      __out.push('</button>\n    </div>\n  </div>\n\n  <div class="messages piece">\n    <a href="http://talk.');
+      __out.push('</button>\n    </div>\n  </div>\n\n  <div class="messages piece">\n    <a href="');
     
-      __out.push(__sanitize(location.hostname.replace(/^www\./, '')));
+      __out.push(this.talkProfileHref);
     
-      __out.push('/#/profile" class="message-link">\n      ');
+      __out.push('" class="message-link">\n      ');
     
       __out.push(mailIconSvg());
     
@@ -2573,7 +2593,15 @@ template = function(__obj) {
     
       __out.push(translate('signInHeading'));
     
-      __out.push('\n</header>\n\n<label>\n  <input type="text" name="username" required="required" data-zooniverse-translate="" data-zooniverse-translate-placeholder="username" />\n</label>\n\n<label>\n  <input type="password" name="password" required="required" data-zooniverse-translate="" data-zooniverse-translate-placeholder="password" />\n</label>\n\n<div class="error-message"></div>\n\n<div class="action">\n  <a href="https://www.zooniverse.org/password/reset">');
+      __out.push('\n</header>\n\n<label>\n  <span class="text-label">');
+    
+      __out.push(translate('username'));
+    
+      __out.push('</span><br />\n  <input type="text" name="username" required="required" />\n</label>\n\n<label>\n  <span class="text-label">');
+    
+      __out.push(translate('password'));
+    
+      __out.push('</span><br />\n  <input type="password" name="password" required="required" />\n</label>\n\n<div class="error-message"></div>\n\n<div class="action">\n  <a href="https://www.zooniverse.org/password/reset">');
     
       __out.push(translate('forgotPassword'));
     
@@ -2649,13 +2677,29 @@ template = function(__obj) {
     
       __out.push(translate('signUpHeading'));
     
-      __out.push('\n</header>\n\n<label>\n  <input type="text" name="username" required="required" data-zooniverse-translate="" data-zooniverse-translate-placeholder="username" />\n</label>\n\n<label>\n  <input type="password" name="password" required="required" data-zooniverse-translate="" data-zooniverse-translate-placeholder="password" />\n</label>\n\n<label>\n  <input type="email" name="email" required="required" data-zooniverse-translate="" data-zooniverse-translate-placeholder="email" />\n</label>\n\n<label>\n  <input type="text" name="real-name" data-zooniverse-translate="" data-zooniverse-translate-placeholder="realName" />\n  <div class="explanation">');
+      __out.push('\n</header>\n\n<label>\n  <span class="text-label">');
+    
+      __out.push(translate('username'));
+    
+      __out.push('</span><br />\n  <input type="text" name="username" required="required" />\n</label>\n\n<label>\n  <span class="text-label">');
+    
+      __out.push(translate('password'));
+    
+      __out.push('</span><br />\n  <input type="password" name="password" required="required" />\n</label>\n\n<label>\n  <span class="text-label">');
+    
+      __out.push(translate('email'));
+    
+      __out.push('</span><br />\n  <input type="email" name="email" required="required" />\n</label>\n\n<label>\n  <span class="text-label">');
+    
+      __out.push(translate('realName'));
+    
+      __out.push('</span><br />\n  <input type="text" name="real-name" />\n  <div class="explanation">');
     
       __out.push(translate('whyRealName'));
     
       __out.push('</div>\n</label>\n\n<label>\n  <span></span>\n  <input type="checkbox" required="required" />');
     
-      __out.push(translate('privacyPolicy'));
+      __out.push(translate('agreeToPrivacyPolicy'));
     
       __out.push('\n</label>\n\n<div class="error-message"></div>\n\n<div class="action">\n  <button type="submit">');
     
@@ -2861,17 +2905,17 @@ template = function(__obj) {
   }
   (function() {
     (function() {
-      var Favorite, location, thumbSrc, _ref, _ref1;
+      var Favorite, location, thumbSrc, _ref, _ref1, _ref2, _ref3;
     
-      Favorite = require('zooniverse/models/favorite');
+      Favorite = ((_ref = window.zooniverse) != null ? (_ref1 = _ref.models) != null ? _ref1.Favorite : void 0 : void 0) || require('zooniverse/models/favorite');
     
       __out.push('\n\n<div class=\'item\'>\n  <a href="');
     
-      __out.push(__sanitize(((_ref = this.subjects[0]) != null ? _ref.talkHref() : void 0) || '#/SUBJECT_ERROR'));
+      __out.push(__sanitize(((_ref2 = this.subjects[0]) != null ? _ref2.talkHref() : void 0) || '#/SUBJECT_ERROR'));
     
       __out.push('">\n    ');
     
-      location = (_ref1 = this.subjects[0]) != null ? _ref1.location : void 0;
+      location = (_ref3 = this.subjects[0]) != null ? _ref3.location : void 0;
     
       __out.push('\n    ');
     
@@ -2992,11 +3036,15 @@ template = function(__obj) {
         __out.push('\n    </div>\n  ');
       }
     
-      __out.push('\n\n  <div class="zooniverse-footer-general">\n    <!--div class="zooniverse-footer-category"><a href="#">Zooniverse Daily</a></div-->\n    <div class="zooniverse-footer-category"><a href="https://www.zooniverse.org/privacy">');
+      __out.push('\n\n  <div class="zooniverse-footer-general">\n    <!--div class="zooniverse-footer-category"><a href="#">Zooniverse Daily</a></div-->\n    <div class="zooniverse-footer-category">\n      <a href="https://www.zooniverse.org/privacy">');
     
       __out.push(translate('privacyPolicy'));
     
-      __out.push('</a></div>\n  </div>\n</div>\n');
+      __out.push('</a>\n    </div>\n\n    <div class="zooniverse-footer-category">\n      <a href="https://github.com/zooniverse">');
+    
+      __out.push(translate('forkOnGitHub'));
+    
+      __out.push('</a>\n    </div>\n  </div>\n</div>\n');
     
     }).call(this);
     
@@ -3555,7 +3603,7 @@ if (typeof module !== 'undefined') module.exports = template;
 }).call(this);
 
 (function() {
-  var BaseController, Dialog, template, _base, _base1,
+  var BaseController, Dialog, template, translate, _base, _base1,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -3574,6 +3622,8 @@ if (typeof module !== 'undefined') module.exports = template;
   BaseController = zooniverse.controllers.BaseController || require('./base-controller');
 
   template = zooniverse.views.dialog || require('../views/dialog');
+
+  translate = zooniverse.translate || require('../lib/translate');
 
   Dialog = (function(_super) {
     __extends(Dialog, _super);
@@ -3621,7 +3671,13 @@ if (typeof module !== 'undefined') module.exports = template;
     };
 
     Dialog.prototype.show = function() {
-      var _this = this;
+      var element, _i, _len, _ref,
+        _this = this;
+      _ref = this.el.get(0).querySelectorAll("[" + translate.attr + "]");
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        element = _ref[_i];
+        translate.refresh(element);
+      }
       this.el.css({
         display: ''
       });
@@ -3654,7 +3710,7 @@ if (typeof module !== 'undefined') module.exports = template;
 }).call(this);
 
 (function() {
-  var Api, BaseController, LoginForm, User, template, translate, _base, _base1, _base2,
+  var Api, BaseController, LoginForm, User, signupDialog, template, translate, _base, _base1, _base2,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -3683,6 +3739,8 @@ if (typeof module !== 'undefined') module.exports = template;
   User = zooniverse.models.User || require('../models/user');
 
   translate = zooniverse.translate || require('../lib/translate');
+
+  signupDialog = zooniverse.controllers.signupDialog || require('./signup-dialog');
 
   LoginForm = (function(_super) {
     __extends(LoginForm, _super);
@@ -3744,6 +3802,10 @@ if (typeof module !== 'undefined') module.exports = template;
           });
         });
       });
+    };
+
+    LoginForm.prototype.onClickSignUp = function() {
+      return signupDialog.show();
     };
 
     LoginForm.prototype.onClickSignOut = function() {
@@ -3969,13 +4031,11 @@ if (typeof module !== 'undefined') module.exports = template;
 }).call(this);
 
 (function() {
-  var Dropdown, offset, toggleClass, _base, _ref, _ref1,
+  var Dropdown, toggleClass, _base, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   toggleClass = ((_ref = zooniverse.util) != null ? _ref.toggleClass : void 0) || require('../util/toggle-class');
-
-  offset = ((_ref1 = zooniverse.util) != null ? _ref1.offset : void 0) || require('../util/offset');
 
   Dropdown = (function() {
     var _this = this;
@@ -3989,12 +4049,12 @@ if (typeof module !== 'undefined') module.exports = template;
     Dropdown.elements = [];
 
     Dropdown.closeAll = function(_arg) {
-      var except, instance, _i, _len, _ref2, _results;
+      var except, instance, _i, _len, _ref1, _results;
       except = (_arg != null ? _arg : {}).except;
-      _ref2 = this.instances;
+      _ref1 = this.instances;
       _results = [];
-      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-        instance = _ref2[_i];
+      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+        instance = _ref1[_i];
         if (instance !== except) {
           _results.push(instance.close());
         } else {
@@ -4004,7 +4064,7 @@ if (typeof module !== 'undefined') module.exports = template;
       return _results;
     };
 
-    addEventListener('click', function(e) {
+    addEventListener('mousedown', function(e) {
       var node, shouldClose;
       shouldClose = true;
       node = e.target.correspondingUseElement || e.target;
@@ -4107,9 +4167,9 @@ if (typeof module !== 'undefined') module.exports = template;
 
     Dropdown.prototype.positionMenu = function() {
       var buttonOffset;
-      buttonOffset = offset(this.button);
-      this.menu.style.left = (buttonOffset.left + (this.button.clientWidth * this.buttonPinning[0])) - (this.menu.clientWidth * this.menuPinning[0]) + 'px';
-      return this.menu.style.top = (buttonOffset.top + (this.button.clientHeight * this.buttonPinning[1])) - (this.menu.clientHeight * this.menuPinning[1]) + 'px';
+      buttonOffset = this.button.getBoundingClientRect();
+      this.menu.style.left = ((buttonOffset.left + pageXOffset) + (this.button.offsetWidth * this.buttonPinning[0])) - (this.menu.offsetWidth * this.menuPinning[0]) + 'px';
+      return this.menu.style.top = ((buttonOffset.top + pageYOffset) + (this.button.offsetHeight * this.buttonPinning[1])) - (this.menu.offsetHeight * this.menuPinning[1]) + 'px';
     };
 
     Dropdown.prototype.onResize = function() {
@@ -4128,15 +4188,15 @@ if (typeof module !== 'undefined') module.exports = template;
     };
 
     Dropdown.prototype.destroy = function() {
-      var _ref2, _ref3;
+      var _ref1, _ref2;
       this.constructor.instances.splice(this.constructor.instances.indexOf(this), 1);
       this.constructor.elements.splice(this.constructor.instances.indexOf(this.button), 1);
       this.constructor.elements.splice(this.constructor.instances.indexOf(this.menu), 1);
       this.button.removeEventListener('click', this.onButtonClick, false);
-      if ((_ref2 = this.button.parentNode) != null) {
-        _ref2.removeChild(this.button);
+      if ((_ref1 = this.button.parentNode) != null) {
+        _ref1.removeChild(this.button);
       }
-      return (_ref3 = this.menu.parentNode) != null ? _ref3.removeChild(this.menu) : void 0;
+      return (_ref2 = this.menu.parentNode) != null ? _ref2.removeChild(this.menu) : void 0;
     };
 
     return Dropdown;
@@ -4315,7 +4375,7 @@ if (typeof module !== 'undefined') module.exports = template;
 }).call(this);
 
 (function() {
-  var Api, BaseController, Dropdown, GroupsMenu, LanguageManager, LanguagesMenu, TopBar, User, loginDialog, signupDialog, template, _base, _base1, _base2, _base3,
+  var Api, BaseController, Dropdown, GroupsMenu, LanguageManager, LanguagesMenu, TopBar, User, defaultTalkProfileHref, loginDialog, signupDialog, template, _base, _base1, _base2, _base3,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -4360,6 +4420,8 @@ if (typeof module !== 'undefined') module.exports = template;
 
   User = zooniverse.models.User || require('../models/user');
 
+  defaultTalkProfileHref = "http://talk." + (location.hostname.replace(/^www\./, '')) + "/#/profile";
+
   TopBar = (function(_super) {
     __extends(TopBar, _super);
 
@@ -4368,6 +4430,8 @@ if (typeof module !== 'undefined') module.exports = template;
     TopBar.prototype.template = template;
 
     TopBar.prototype.messageCheckTimeout = 2 * 60 * 1000;
+
+    TopBar.prototype.talkProfileHref = defaultTalkProfileHref;
 
     TopBar.prototype.events = {
       'click button[name="sign-in"]': 'onClickSignIn',
@@ -4413,10 +4477,12 @@ if (typeof module !== 'undefined') module.exports = template;
     }
 
     TopBar.prototype.onClickSignIn = function() {
+      signupDialog.hide();
       return loginDialog.show();
     };
 
     TopBar.prototype.onClickSignUp = function() {
+      loginDialog.hide();
       return signupDialog.show();
     };
 
@@ -4738,7 +4804,7 @@ if (typeof module !== 'undefined') module.exports = template;
     Profile.prototype.onTurnPage = function(e) {
       var target, targetType;
       this.pageTurners.removeClass('active');
-      target = $(e.target);
+      target = $(e.currentTarget);
       target.addClass('active');
       targetType = target.val();
       this.recentsList.el.add(this.favoritesList.el).removeClass('active');
