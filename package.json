@@ -2,11 +2,12 @@
   "name": "WISE-Zoo",
   "description": "Description",
   "author": "Your Name",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "repository": "https://github.com/zooniverse/WISE",
   "scripts": {
     "start": "brunch watch --server",
-    "test": "brunch test"
+    "test": "brunch test",
+    "deploy-locale": "seed-translation --project wise --env production --deploy-path translations"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.0 < 1.8",
@@ -20,6 +21,7 @@
     "stylus-brunch": "~1.7.0",
     "uglify-js-brunch": ">= 1.0 < 1.8",
     "clean-css-brunch": ">= 1.0 < 1.8",
-    "coffee-script-brunch": "~1.7.2"
+    "coffee-script-brunch": "~1.7.2",
+    "translator-seed": "~0.1.0"
   }
 }
