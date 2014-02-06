@@ -7,7 +7,9 @@
   "scripts": {
     "start": "brunch watch --server",
     "test": "brunch test",
-    "deploy-locale": "seed-translation --project wise --env production --deploy-path translations"
+    "deploy-locale": "seed-translation --project wise --env production --deploy-path translations",
+    "deploy-app": "node build.js",
+    "deploy-all": "npm run deploy-locale && npm run deploy-app"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.0 < 1.8",
