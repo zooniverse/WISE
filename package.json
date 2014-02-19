@@ -1,15 +1,13 @@
 {
-  "name": "WISE-Zoo",
-  "description": "Description",
-  "author": "Your Name",
-  "version": "1.2.3",
+  "name": "Disk-Detective",
+  "version": "1.2.4",
   "repository": "https://github.com/zooniverse/WISE",
   "scripts": {
     "start": "brunch watch --server",
     "test": "brunch test",
-    "deploy-locale": "seed-translation --project wise --env production --deploy-path translations",
-    "deploy-app": "node build.js",
-    "deploy-all": "npm run deploy-locale && npm run deploy-app"
+    "deploy-locale": "seed-translation --project wise --env production",
+    "deploy-to-production": "node build.js",
+    "deploy": "npm run deploy-locale && npm run deploy-to-production"
   },
   "dependencies": {
     "javascript-brunch": ">= 1.0 < 1.8",
