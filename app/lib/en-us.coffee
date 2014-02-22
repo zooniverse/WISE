@@ -87,6 +87,7 @@ module.exports =
       description: "This candidate has multiple problems--it is not round in the DSS and 2MASS image, and it extends beyond the circle in the WISE images. It also has multiple sources within the circle."
 
   tutorial:
+    nextButton: "Continue"
     welcome:
       header: "Welcome to Disk Detective"
       details: "Help us search for stars with hidden disks of dust around them, similar to the asteroid belt. These stars show us where to look for planetary systems and how they form."
