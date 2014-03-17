@@ -24,9 +24,11 @@ class Menu extends ToggleView
 
   updateCounts: ->
     @$('.session-count').text(Classification.sentThisSession || 0)
+    totalCount = (User.current?.project?.classification_count + Classification.sentThisSession) || 0
+
     if User.current?
       @$('.total').show()
-      @$('.total-count').text(User.current.project.classification_count || 0)
+      @$('.total-count').text totalCount
     else
       @$('.total').hide()
 
