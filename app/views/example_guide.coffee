@@ -16,7 +16,7 @@ class ExampleGuide extends ToggleView
 
   viewers: {}
 
-  examples: ["good", "multiple", "galaxy", "nebula", "multi", "shift"]
+  examples: ["good", "good_artifact", "multiple", "galaxy", "nebula", "multi", "shift"]
 
   selected: []
 

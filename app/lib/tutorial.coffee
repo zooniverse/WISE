@@ -71,10 +71,17 @@ module.exports =
       nextButton: t7e 'span', 'tutorial.nextButton'
       attachment: "center top #guide center bottom"
       className: "arrow-up"
-      next: {"click #guide" : -> "guide2"}
+      next: {"click #guide" : -> "guide1"}
+
+    guide1: new Step
+      number: 7
+      header: t7e 'span', 'tutorial.guide1.header'
+      details: t7e 'span', 'tutorial.guide1.details'
+      nextButton: t7e 'span', 'tutorial.nextButton'
+      next: "guide2"
 
     guide2: new Step
-      number: 7
+      number: 8
       header: t7e 'span', 'tutorial.guide2.header'
       details: t7e 'span', 'tutorial.guide2.details'
       nextButton: t7e 'span', 'tutorial.nextButton'
@@ -83,7 +90,7 @@ module.exports =
       next: {"click .close" : "talk"}
 
     talk: new Step
-      number: 8
+      number: 9
       header: t7e 'span', 'tutorial.talk.header'
       details: t7e 'span', 'tutorial.talk.details'
       nextButton: t7e 'span', 'tutorial.nextButton'
@@ -92,7 +99,7 @@ module.exports =
       next: "end"
 
     end: new Step
-      number: 9
+      number: 10
       header: t7e 'span', 'tutorial.end.header'
       details: t7e 'span', 'tutorial.end.details'
       nextButton: t7e 'span', 'tutorial.nextButton'

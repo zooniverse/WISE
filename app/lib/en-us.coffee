@@ -70,6 +70,9 @@ module.exports =
     good: 
       label: "Good Candidate"
       description: "An example of a good candidate--it looks round-ish at all wavelengths and stays close to the plus sign."
+    good_artifact:
+      label: "Good Candidate (with artifact)"
+      description: "Another example of a good candidate. It is round at all wavelengths, but a has a cross pattern caused by the telescope."
     nebula:
       label: "Extended Example (Nebula)"
       description: "The object is extended beyond the red circle in the WISE images. It's probably a Nebula."
@@ -96,7 +99,7 @@ module.exports =
       details: "We find new debris disk stars by looking at flipbooks of images of the star taken with different telescopes. You won't see a disk or ring directly. Click the Play button to start the flipbook."
     explain1:
       header: "Using the Interface"
-      details: "The ideal debris disk star does not move from image to image and does not break into two or more objects. It's pure, clean, and round-ish."
+      details: "The ideal debris disk star does not move from image to image and does not break into two or more objects. It is a single mostly round source."
     explain2:
       header: "Using the Interface"
       details: "For a star to have a debris disk, it should mostly be contained within the red circle."
@@ -112,6 +115,9 @@ module.exports =
     guide:
       header: "Guide"
       details: "There are a variety of reasons that an object may not end up being a good candidate. We're interested in what the bad subjects are. We have examples of all the possible classifications in a guide accessible by clicking on this button. Open it up!"
+    guide1: 
+      header: "Source Artifacts"
+      details: "Some good sources may have a cross-like artifact caused by the lens of the telescope viewing them. They're stil good candidates!"
     guide2:
       header: "Guide"
       details: "You can click 'Compare' to see an example image for that classification next to the current subject. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done, click 'Close Guide' to return to the classification."
@@ -121,6 +127,9 @@ module.exports =
     end:
       header: "Good Luck"
       details: "And that's all there is to it! Have fun classifying!"
+    callout:
+      header: "New Items in the Guide!"
+      details: "We've added another example of a good candidate to the guide. Check it out!"
 
   science_page:
     header: "Looking for the homes of planets..."

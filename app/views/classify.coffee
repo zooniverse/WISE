@@ -8,6 +8,7 @@ KeyboardGuide = require('views/keyboard_guide')
 tutorialSubject = require('lib/tutorial_subject')
 {Tutorial} = zootorial
 tutorial = require('lib/tutorial')
+guideCallout = require('lib/guide_callout')
 
 class Classify extends ToggleView
   el: '#classify'
@@ -32,6 +33,10 @@ class Classify extends ToggleView
     if User.current?.preferences?.wise?.tutorial_done
       @tut.end() if @tut
       Subject.next() 
+      if User.current?.preferences?.wise?.callout_done
+        @cg.end() if @cg
+      else
+        @startCallout()
     else
       @startTutorial()
 
@@ -139,6 +144,23 @@ class Classify extends ToggleView
 
   showKeyboardGuide: ->
     @keyboardGuide.toggle()
+
+  startCallout: =>
+    if @cg?
+      @cg.end()
+      return @endCallout()
+    else if @cg? or !@visible
+      return
+    @cg or= new Tutorial(guideCallout)
+    @cg.el.bind('end-tutorial', @endCallout)
+    @cg.el.bind('start-tutorial enter-tutorial-step', (=>
+      t7e.refresh( @cg.el.get(0))))
+    @cg.start()
+
+  endCallout: =>
+    delete @cg
+    if User.current
+      User.current.setPreference('callout_done', true)
 
   startTutorial: (ev) =>
     if @tut? and ev?
