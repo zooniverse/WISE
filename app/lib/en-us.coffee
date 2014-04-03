@@ -72,7 +72,7 @@ module.exports =
       description: "An example of a good candidate--it looks round-ish at all wavelengths and stays close to the plus sign."
     good_artifact:
       label: "Good Candidate (with artifact)"
-      description: "Another example of a good candidate. It is round at all wavelengths, but a has a cross pattern caused by the telescope."
+      description: "Another example of a good candidate. It is round in all wavelengths, but has a cross pattern caused by the telescope."
     nebula:
       label: "Extended Example (Nebula)"
       description: "The object is extended beyond the red circle in the WISE images. It's probably a Nebula."
