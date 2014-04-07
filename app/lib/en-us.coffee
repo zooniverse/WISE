@@ -13,8 +13,7 @@ module.exports =
       """
 
   index:
-    header: "Find the Birthplace of Planets"
-    intro: "Scientists are combing our galaxy looking for stars that could be harbouring planet-forming disks. They need your help to explain this puzzling part of stellar evolution!"
+    header: "We need your help to discover the birthplace of planets in never-before seen data!"
     classify: "Start Classifying!"
     sub_head1: "What is WISE looking for?"
     wise: "WISE is a NASA mission surveying the whole sky in infrared. This project is looking at stars to find dusty debris disks, similar to our asteroid field. These disks suggest that these stars are in the early stages of forming planetary systems. Learning more about these stars can tell us how our Solar System formed."
