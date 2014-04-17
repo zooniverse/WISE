@@ -50,7 +50,7 @@ class ExampleGuide extends ToggleView
     @hideCompare()
     @target = target
     @targetWavelengths = _.filter(_.keys(wavelengthKeys), (w) -> 
-      w in (target.metadata.bands || target.metdata.image_bands))
+      w in (target.metadata.bands || target.metadata.image_bands))
     @$('thead').html(headerTemplate({waves: @targetWavelengths}))
     @compare()
 
