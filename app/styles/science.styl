@@ -1,6 +1,13 @@
 section#science
   margin-bottom: 80px
 
+  &:before, &:after
+    display: table
+    content: " "
+
+  &:after
+    clear: both
+
   .row 
     width: 600px
     margin: 0 auto
@@ -15,8 +22,6 @@ section#science
 
       &:last-child
         padding-left: 10px
-
-
 
     .header
       width: 100%
