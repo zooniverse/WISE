@@ -50,6 +50,8 @@ uploadImgs = function(dir) {
   });
 };
 
+sh.run('brunch build --production');
+
 uploadImgs('./public/img');
 
 // Compress CSS - Write to ./output/css/
@@ -87,8 +89,6 @@ zlib.gzip(css, function(err, result) {
 
 // Compress JS - Write to ./output/js/
 console.log("Build JS");
-
-sh.run('brunch build --production');
 
 var jsInput = [
   "./public/js/vendor.js",
