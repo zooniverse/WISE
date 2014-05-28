@@ -3,7 +3,8 @@ var fs = require('fs'),
   clean = require('clean-css'),
   uglify = require('uglify-js'),
   zlib = require('zlib'),
-  AWS = require('aws-sdk');
+  AWS = require('aws-sdk'),
+  sh = require('execSync');
 
 AWS.config.loadFromPath('./.aws-cred.json');
 
@@ -85,8 +86,9 @@ zlib.gzip(css, function(err, result) {
 
 
 // Compress JS - Write to ./output/js/
-
 console.log("Build JS");
+
+sh.run('brunch build --production');
 
 var jsInput = [
   "./public/js/vendor.js",
