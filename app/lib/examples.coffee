@@ -136,17 +136,17 @@ module.exports = {
       ]
   good_artifact:
     location:
-      "wise3": "http://www.diskdetective.org/subjects/wise3/52e169c1806ea57ec00001ab.png"
-      "wise2": "http://www.diskdetective.org/subjects/wise2/52e169c1806ea57ec00001ab.png"
-      "dss2ir": "http://www.diskdetective.org/subjects/dss2ir/52e169c1806ea57ec00001ab.png"
-      "2massj": "http://www.diskdetective.org/subjects/2massj/52e169c1806ea57ec00001ab.png"
-      "wise1": "http://www.diskdetective.org/subjects/wise1/52e169c1806ea57ec00001ab.png"
-      "dss2red": "http://www.diskdetective.org/subjects/dss2red/52e169c1806ea57ec00001ab.png"
-      "dss2blue": "http://www.diskdetective.org/subjects/dss2blue/52e169c1806ea57ec00001ab.png"
-      "wise4": "http://www.diskdetective.org/subjects/wise4/52e169c1806ea57ec00001ab.png"
-      "2massh": "http://www.diskdetective.org/subjects/2massh/52e169c1806ea57ec00001ab.png"
-      "2massk": "http://www.diskdetective.org/subjects/2massk/52e169c1806ea57ec00001ab.png"
-      "standard": "http://www.diskdetective.org/subjects/wise4/52e169c1806ea57ec00001ab.png"
+      "wise3": "http://www.diskdetective.org/subjects/wise3/52e169c2806ea57ec00006ee.png"
+      "wise2": "http://www.diskdetective.org/subjects/wise2/52e169c2806ea57ec00006ee.png"
+      "dss2ir": "http://www.diskdetective.org/subjects/dss2ir/52e169c2806ea57ec00006ee.png"
+      "2massj": "http://www.diskdetective.org/subjects/2massj/52e169c2806ea57ec00006ee.png"
+      "wise1": "http://www.diskdetective.org/subjects/wise1/52e169c2806ea57ec00006ee.png"
+      "dss2red": "http://www.diskdetective.org/subjects/dss2red/52e169c2806ea57ec00006ee.png"
+      "dss2blue": "http://www.diskdetective.org/subjects/dss2blue/52e169c2806ea57ec00006ee.png"
+      "wise4": "http://www.diskdetective.org/subjects/wise4/52e169c2806ea57ec00006ee.png"
+      "2massh": "http://www.diskdetective.org/subjects/2massh/52e169c2806ea57ec00006ee.png"
+      "2massk": "http://www.diskdetective.org/subjects/2massk/52e169c2806ea57ec00006ee.png"
+      "standard": "http://www.diskdetective.org/subjects/wise4/52e169c2806ea57ec00006ee.png"
     metadata:
       bands: [
         "dss2blue",
