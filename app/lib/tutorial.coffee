@@ -18,8 +18,12 @@ module.exports =
       header: t7e 'span', 'tutorial.flipbook.header'
       details: t7e 'span', 'tutorial.flipbook.details'
       nextButton: t7e 'span', 'tutorial.nextButton'
-      attachment: "left center #canvas-container .play right center"
+      attachment: "left center #canvas-container .play 1.4 0.5"
       className: "arrow-left"
+      onEnter: ->
+        $('button.play').addClass 'highlight'
+      onExit: ->
+        $('button.play').removeClass 'highlight'
       next: { 'click button.play': 'explain1' }
 
     explain1: new Step
@@ -45,6 +49,10 @@ module.exports =
       nextButton: t7e 'span', 'tutorial.nextButton'
       attachment: "center top #timeline center bottom"
       className: "arrow-up"
+      onEnter: ->
+        $('#timeline').addClass 'highlight'
+      onExit: ->
+        $('#timeline').removeClass 'highlight'
       next: {"mouseup #timeline input" : "survey"}
 
     survey: new Step

@@ -95,7 +95,7 @@ module.exports =
       details: "Help us search for stars with hidden disks of dust around them, similar to the asteroid belt. These stars show us where to look for planetary systems and how they form."
     flipbook:
       header: "Using the Interface"
-      details: "We find new debris disk stars by looking at flipbooks of images of the star taken with different telescopes. You won't see a disk or ring directly. Click the Play button to start the flipbook."
+      details: "We find new debris disk stars by looking at flipbooks of images of the star taken with different telescopes. You won't see a disk or ring directly.<br><br>Click the Play button to start the flipbook."
     explain1:
       header: "Using the Interface"
       details: "The ideal debris disk star does not move from image to image and does not break into two or more objects. It is a single mostly round source."
@@ -104,7 +104,7 @@ module.exports =
       details: "For a star to have a debris disk, it should mostly be contained within the red circle."
     scrub:
       header: "The Scrub Bar"
-      details: "Sometimes you'll need to look at individual frames more closely. You can use the scrub bar to move through images individually. Try it out by clicking and dragging it back and forth. Release the mouse button when you're done."
+      details: "Sometimes you'll need to look at individual frames more closely. You can use the scrub bar to move through images individually.<br><br>Try it out by clicking and dragging it back and forth. Release the mouse button when you're done."
     survey:
       header: "Different Surveys"
       details: "As you go through the flipbook, you should pay attention to what survey each image is from. You'll be looking for different features in images from different surveys. For example, non-circular objects in images from the DSS2 and 2MASS surveys is a sign that it's not a disk."
