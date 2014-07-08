@@ -8,10 +8,10 @@ var fs = require('fs'),
 
 AWS.config.loadFromPath('./.aws-cred.json');
 
-var s3bucket = new AWS.S3({params: {Bucket: 'www.diskdetective.org'}});
+var s3bucket = new AWS.S3({params: {Bucket: 'zooniverse-static'}});
 var $ = cheerio.load(fs.readFileSync("./public/index.html"));
 var version = require('./package').version
-prefix = ''
+prefix = 'www.diskdetective.org/'
 
 console.log("Building WISE-ZOO Version: ", version);
 
