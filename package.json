@@ -1,6 +1,6 @@
 {
   "name": "Disk-Detective",
-  "version": "1.2.32",
+  "version": "1.2.33",
   "repository": "https://github.com/zooniverse/WISE",
   "scripts": {
     "start": "brunch watch --server",
