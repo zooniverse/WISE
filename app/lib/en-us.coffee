@@ -6,7 +6,7 @@ module.exports =
     science: "Science"
     about: "About"
     team: "Team"
-    talk: "Discuss"
+    talk: "Talk"
     blog: "Blog"
     share: "Share"
     stats: """You've made <span class="session-count"></span> classifications this session<span class="total"> and <span class="total-count"></span> in total<span>.
