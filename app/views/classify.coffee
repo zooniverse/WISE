@@ -30,7 +30,7 @@ class Classify extends ToggleView
     Subject.on('select', @onNextSubject)
 
   onUserChange: =>
-    if User.current?.preferences?.wise?.tutorial_done
+    if User.current?.preferences?.wise?.tutorial_done || localStorage.getItem('tutorial_done')?
       @tut.end() if @tut
       Subject.next() 
       if User.current?.preferences?.wise?.callout_done
@@ -179,6 +179,7 @@ class Classify extends ToggleView
 
   endTutorial: (closeDialog) =>
     delete @tut
+    localStorage.setItem 'tutorial_done', true
     @$('button#tutorial').removeClass('active')
     if User.current
       User.current.setPreference('tutorial_done', true)
