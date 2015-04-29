@@ -4,7 +4,7 @@ var fs = require('fs'),
   uglify = require('uglify-js'),
   zlib = require('zlib'),
   AWS = require('aws-sdk'),
-  sh = require('execSync');
+  sh = require('sync-exec');
 
 AWS.config.loadFromPath('./.aws-cred.json');
 
@@ -50,7 +50,7 @@ uploadImgs = function(dir) {
   });
 };
 
-sh.run('brunch build --production');
+sh('brunch build --production');
 
 uploadImgs('./public/img');
 
