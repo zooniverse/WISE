@@ -11,6 +11,7 @@ module.exports = ->
       zh_cn: { label: "简体中文", strings: "./translations/zh-cn.json" }
       zh_tw: { label: "繁體中文", strings: "./translations/zh-tw.json" }
       es: { label: "Español", strings: "./translations/es.json" }
+      fr: { label: "Français", strings: "./translations/fr.json" }
       ru: { label: "русский", strings: "./translations/ru.json" }
       ja: { label: "日本語", strings: "./translations/ja.json" }
       de: { label: "Deutsch", strings: "./translations/de.json" }
