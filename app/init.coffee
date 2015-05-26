@@ -8,17 +8,17 @@ module.exports = ->
   languageManager = new zooniverse.LanguageManager({
     translations: {
       en: { label: "English", strings: enUS }
-      zh_cn: { label: "简体中文", strings: "./translations/zh-cn.json" }
-      zh_tw: { label: "繁體中文", strings: "./translations/zh-tw.json" }
       es: { label: "Español", strings: "./translations/es.json" }
       fr: { label: "Français", strings: "./translations/fr.json" }
-      ru: { label: "русский", strings: "./translations/ru.json" }
-      ja: { label: "日本語", strings: "./translations/ja.json" }
       de: { label: "Deutsch", strings: "./translations/de.json" }
-      id: { label: "Bahasa Indonesia", strings: "./translations/id.json" }
+      ru: { label: "русский", strings: "./translations/ru.json" }
       pl: { label: 'Polski', strings: './translations/pl.json' }
       ro: { label: "Româna", strings: "./translations/ro.json" }
       hu: { label: "Magyar", strings: "./translations/hu.json" }
+      id: { label: "Bahasa Indonesia", strings: "./translations/id.json" }
+      zh_cn: { label: "简体中文", strings: "./translations/zh-cn.json" }
+      zh_tw: { label: "繁體中文", strings: "./translations/zh-tw.json" }
+      ja: { label: "日本語", strings: "./translations/ja.json" }
     }
   })
 
