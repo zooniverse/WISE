@@ -10,7 +10,7 @@
   text-align: right
 
 .pull-left
-  text-align: left 
+  text-align: left
 
 .highlight
   animation: background-pulsing 2s infinite
@@ -20,7 +20,7 @@ html
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   height: 100%
 
-  body 
+  body
     box-sizing: border-box
     min-height 100%
     padding: 0 0 300px
@@ -42,9 +42,9 @@ html
     z-index: -1
 
     svg
-      background: url(../img/background.jpg) no-repeat 
+      background: url(../img/background.jpg) no-repeat
       background-size: cover
-      position: absolute 
+      position: absolute
 
       path#background
         fill: rgba(0,0,0,0.7)
@@ -63,7 +63,7 @@ html
     &.active
       display: block
 
-    &#about > .row, &#science > .row, &#team > .row
+    &#about > .row, &#science > .row, &#team > .row, &#faq > .row
       background: rgba(255, 255, 255, 0.7)
 
       p > img
@@ -88,7 +88,7 @@ html
       box-sizing: border-box
 
       &.full
-        width: 100% 
+        width: 100%
 
       &.half
         width: 49%
@@ -117,8 +117,8 @@ html
       border-radius: 50%
       background: #000
       color: #fff
-      width: auto 
-      height: auto 
+      width: auto
+      height: auto
       padding: 20px
 
       img
@@ -131,9 +131,9 @@ html
     &:hover
       border-color: #45aae3
 
-@media(max-width: 400px) 
+@media(max-width: 400px)
   html, section#science
-    .row 
+    .row
       width: 90%
 
     section, section#science
@@ -146,4 +146,3 @@ html
             &:last-child
               margin-top: 5px
               float: none
-

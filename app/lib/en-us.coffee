@@ -1,10 +1,11 @@
-module.exports = 
+module.exports =
   menu:
     open_menu: "Menu"
     close_menu: "Close Menu"
     classify: "Classify"
     science: "Science"
     about: "About"
+    faq: "FAQ"
     team: "Team"
     talk: "Talk"
     blog: "Blog"
@@ -66,7 +67,7 @@ module.exports =
 
   examples:
     close: "close"
-    good: 
+    good:
       label: "Good Candidate"
       description: "An example of a good candidate--it looks round-ish at all wavelengths and stays close to the plus sign."
     good_artifact:
@@ -114,7 +115,7 @@ module.exports =
     guide:
       header: "Guide"
       details: "There are a variety of reasons that an object may not end up being a good candidate. We're interested in what the bad subjects are. We have examples of all the possible classifications in a guide accessible by clicking on this button. Open it up!"
-    guide1: 
+    guide1:
       header: "Source Artifacts"
       details: "Some good sources may have a cross-like artifact caused by the lens of the telescope viewing them. They're stil good candidates!"
     guide2:
@@ -122,7 +123,7 @@ module.exports =
       details: "You can click 'Compare' to see an example image for that classification next to the current subject. Don't forget to scroll all the way to the bottom of the guide to see all the examples. When you're done, click 'Close Guide' to return to the classification."
     talk:
       header: "Talk"
-      details: "If you ever have a question about a subject, or want to talk about something interesting you saw, clicking here will take you to the discussion page for the current subject." 
+      details: "If you ever have a question about a subject, or want to talk about something interesting you saw, clicking here will take you to the discussion page for the current subject."
     end:
       header: "Good Luck"
       details: "And that's all there is to it! Have fun classifying!"
