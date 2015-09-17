@@ -1,3 +1,7 @@
-html:not([lang^="en"])
-  .faq-menu-item
-    display: none
+*[class*="hide-unless-"]
+  display: none
+
+for locale in en es
+  html[lang^="{locale}"]
+    .hide-unless-{locale}
+      display: block

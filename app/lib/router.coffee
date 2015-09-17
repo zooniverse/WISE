@@ -6,7 +6,6 @@ class Router extends Backbone.Router
     'science(/)' : 'science'
     'about(/)' : 'about'
     'team(/)' : 'team'
-    'faq(/)' : 'faq'
   }
 
   initialize: (appView) ->
@@ -26,8 +25,5 @@ class Router extends Backbone.Router
 
   team: ->
     @appView.activate('team')
-
-  faq: ->
-    @appView.activate('faq')
 
 module.exports = Router

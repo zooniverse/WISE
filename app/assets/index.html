@@ -32,7 +32,11 @@
           <li><a data-t7e-key="menu.classify" href="#/classify">Classify</a></li>
           <li><a data-t7e-key="menu.science" href="#/science">Science</a></li>
           <li><a data-t7e-key="menu.about" href="#/about">About</a></li>
-          <li class="faq-menu-item"><a data-t7e-key="menu.faq" href="#/faq">FAQ</a></li>
+
+          <!-- FAQ links for both English and Spanish -->
+          <li class="hide-unless-en faq-menu-item"><a data-t7e-key="menu.faq" href="http://blog.diskdetective.org/2015/03/05/the-disk-detective-faq/">FAQ</a></li>
+          <li class="hide-unless-es faq-menu-item"><a data-t7e-key="menu.faq" href="http://blog.diskdetective.org/2015/05/20/disk-detective-faq-en-espanol/">FAQ</a></li>
+
           <li><a data-t7e-key="menu.team" href="#/team">Team</a></li>
           <li><a data-t7e-key="menu.talk" href="http://talk.diskdetective.org">Discuss</a></li>
           <li><a data-t7e-key="menu.blog" href="http://blog.diskdetective.org">Blog</a></li>
@@ -399,142 +403,6 @@
           <p data-t7e-key="team_page.developers.edward_paget"><a href="http://twitter.com/edpaget">Edward Paget</a> joined Adler's Zooniverse Team as a software developer in August 2012. He previously worked as a freelance programmer and photographer. Ed graduated from Northwestern University with a major in Radio/TV/Film.</p>
 
           <p data-t7e-key="team_page.developers.heath_van_singel"><a href="https://zooniverse.org/team">Heath van Singel</a> is the UX/UI Designer for projects at the Zooniverse where he works to craft thoughtful and engaging user experiences. Apart from design Heath also enjoys illustration, a good sci-fi or fantasy novel, and trips back to Michigan.</p>
-        </div>
-      </div>
-    </section>
-    <section id="faq">
-      <div class="row">
-        <div class="column full">
-          <h2>FAQ</h2>
-
-          <h3>How do you determine an object is a good candidate?</h3>
-          <p>An object is a good candidate if it appears round in the DSS/Sloan and 2MASS images, shows no sign of multiple objects in the red circle, stays on the crosshairs, and is not extended beyond the circle in the WISE images. Of course you already knew that by reading the buttons—but here's some more detail (below) about what those buttons mean.</p>
-
-          <h3>What is the "round" threshold?</h3>
-          <p>A good candidate gives the impression of being round as you look through the flipbook, but the shape can look distorted in some of the frames. If it’s bright it might look “starlike”, surrounded by four spikes in the short wavelength images. Let’s look at a few examples.</p>
-          <p>Here’s an <a href="http://talk.diskdetective.org/#/subjects/AWI0005yxj">example of a good candidate where the shape looks distorted</a>. The key is that the shape is distorted in different ways in different bands. Look at the DSS 2 image, for example. It’s distorted, even pixellated. But there are other stars in the field, and you can see that their images all look a bit distorted in the same way. That tells you there was a slight problem with the optics when this image was taken; it’s not that the object itself has a distorted shape.</p>
-          <p>Here’s<a href="http://talk.diskdetective.org/#/subjects/AWI0005dr8"> a very bright star that’s a good candidate</a>. Most of the objects you’ll see in Disk Detective are much fainter than this! At shorter wavelengths (DSS Blue, Red and IR), the star appears as a large disk with a cross of four spikes. Those spikes are starlight diffracted around the struts that hold the secondary mirror in place. They have nothing to do with what the star actually looks like.</p>
-          <p>Here’s <a href="http://talk.diskdetective.org/#/subjects/AWI00059w9">another good candidate</a>.  You’ll notice that the shape looks distorted in a few of the wavebands. For example, the DSS IR image looks a bit square—that’s what happens to those diffraction spikes for slightly fainter objects; they don’t appear as a cross, only as a distortion to the shape of the image. The 2MASS K image looks elongated. The WISE 1 image bulges to the lower left. But all of these distortions are different in different bands—so none of them count! You can only trust that you are observing a real astronomical phenomenon (as opposed to an issue with the telescope) if you see it in two bands.</p>
-          <p>For contrast, let’s look at <a href="http://talk.diskdetective.org/#/subjects/AWI000007l">this subject, which is NOT a good candidate</a>. The shape is elongated, left to right, and though the shape changes a bit from band to band, you can see that it stays elongated in the same direction (except in a few bands).</p>
-
-          <h3>When do you say there are "multiple objects in the red circle"?</h3>
-          <p>Let's look at some examples. I count at least three background objects inside the red circle of this subject (besides the object in the center). These other objects could be contaminating the SED of the object we really care about, the one in the center of the circle.</p>
-          <p><a href="http://talk.diskdetective.org/#/subjects/AWI0002jeg">This subject</a> has an object sitting on the edge of the red circle, leaking light into the red circle. That counts! You’d have to click on “multiple objects in the red circle” for this one.</p>
-          <p>Just remember, a background object it only counts if you see it in two bands. Here’s an example. Clearly the DSS2 image of this subject shows some background objects inside the red circle. I see background objects at 1 o’clock, 4 o’clock, 7 o’clock and 10 o’clock (if the red circle were a clock face). Now, if you think any of these background objects appears in a second image, you would have to mark this as “multiple objects in red circle” not “none of the above/good candidate”. Indeed, if I turn my monitor all the way up, I can just barely still see the one at 7 o’clock in the DSS Red image as well, so I would mark this as “multiple objects in red circle”. (You might disagree.)</p>
-
-          <h3>How to know if an object is “extended beyond the circle”?</h3>
-          <p>An object is extended beyond the red circle if it clearly has structure that extends beyond the red circle. A faint, smooth blue halo that extends beyond the red circle is OK. Let’s look at some examples.</p>
-          <p><a href="http://talk.diskdetective.org/#/subjects/AWI0001qaj">This subject</a> clearly has structure that extends beyond the red circle. It looks like it’s sitting in a cloud—and indeed it may well be sitting in a cloud of interstellar dust. Our Galaxy is full of interstellar dust that is not part of the dust disks we’re searching for. We often see objects on Disk Detective that consist of an otherwise dust-free star that just happens to be in front of (or behind) and unrelated blob of interstellar dust.</p>
-          <p><a href="http://talk.diskdetective.org/#/subjects/AWI00000z5">Here’s another one that is extended beyond the red circle</a>, a bit more subtly. Do you see the faint wisp of blue that connects the object in the red circle to the object in the lower left corner? That’s bad. It’s a sign that the SED is contaminated by light from that object in the lower left corner. Sometimes you have to squint and turn your monitor all the way up to see these.</p>
-
-          <h3>What do artifacts look like, and where can I find examples?</h3>
-          <p>DSS images are from scanned photographic glass plates. Impurities such as dust or scratches can cause that some DSS images may contain strange objects. You can find examples of these artifacts here in this discussion.  In some images you’ll even see trails where an airplane flew overhead during the observation. Here are some examples of those.</p>
-
-          <h3>There is no “Redo” button. What happens if I have made a mistake?</h3>
-          <p>It’s okay if you make a mistake now and then.  Each image will be looked at by several Disk Detectives before the final results are published. This process generally yields results that are remarkably free of errors and bias—much more so than when a single scientist looks at the data alone. So forge ahead and try again!</p>
-          <p>Here’s an <a href="http://blog.galaxyzoo.org/2008/01/10/in-the-eye-of-the-beholder/">interesting example</a> of how a different Zooniverse project (Galaxy Zoo) used their classification data to calibrate and remove human biases that might otherwise have gone undetected.</p>
-
-          <h3>Where can I see examples of the most common SEDs?</h3>
-          <p>Here is <a href="http://blog.diskdetective.org/2015/02/15/examples-of-seds/">a blog post with examples</a> of some of most common kinds of SEDs.</p>
-
-          <h3>Where can I find more information about the object I’m classifying apart from looking at the “Image”?</h3>
-          <p>To find more information about the object you are looking at, look at the Talk page, where you’ll find the object’s Spectral Energy Distribution (SED) and a link to a page of information about the object in a database called “SIMBAD”. You can also try entering your favorite objects into the BANYAN II tool. Here is some more information about each of these resources.</p>
-          <p>I suggest starting by going to the object’s Talk page. To get to the Talk page for an object, click on the Talk  on the Talk page, you’ll find the object’s SED and a link to SIMBAD. The SED tells you where the energy is coming out as a function of wavelength; it’s an important tool for recognizing and classifying disks. Here’s a basic introduction to SEDs.  And here are <a href="http://blog.diskdetective.org/2015/02/15/examples-of-seds/">some examples of common SEDs</a> you’ll see on Disk Detective.</p>
-          <p><a href="http://simbad.u-strasbg.fr/simbad/">SIMBAD</a> (Set of Identifications, Measurements, and Bibliography for Astronomical Data) is a big database of astronomical objects; you’ll find that about half of the objects on Disk Detective have entries in SIMBAD. Here’s <a href="http://blog.diskdetective.org/2014/02/02/the-power-and-danger-of-simbad/">more information about SIMBAD</a>.</p>
-          <p>If you want to learn more about an object and it’s not in SIMBAD (SIMBAD give you a “No Astronomical Object Found” or “NoAO”), try another <a href="http://vizier.u-strasbg.fr/">database, called “VizieR”</a>.  Just type into VizieR the coordinates that pop up on the SIMBAD “No Astronomical Object Found” page and set the search radius to something like 2 arcseconds.</p>
-          <p>Note, however, that VizieR queries many different databases simultaneously and it may produce redundant or contradictory information! When you see contradictory information on VizieR, check the dates of the references—it’s generally better to trust the most recent reference. Also, note that if there are multiple objects in the search radius (default 10 arcsec) they will all pop up in the query.  So you will have to take care that you are looking at the correct object.</p>
-          <p>VizieR contains lots of information we need to plan our follow up: the V magnitude, the J magnitude, the spectral type and the V band variability. So if you find a good candidate, it would be handy to grab this info from VizieR and mention it in a comment on Talk. Be sure to provide a reference and error bars, like a good scientist!</p>
-          <p><a href="http://www.astro.umontreal.ca/~gagne/banyanII.php">BANYAN II</a> is another handy free online tool that’s not on the talk page. BANYAN II tells you if that star is likely to be part of any of several possible known groups of young stars.  That’s important because if it’s part of one of these groups that gives us a good estimate for the star’s age—and tells us that the star is pretty young (&#60;100 million years old).  If the star is young that means the planets that orbit it are young–and hot–and easy to image!  So if BANYAN II tells you the star belongs to once of these groups, the star will probably be a good planet search target.</p>
-          <p>If the star is in SIMBAD, all you need to do it type the name of the star into BANYAN II. Press RESOLVE and the press SUBMIT and Banyan gives you an answer in the form of a list of percentages.</p>
-          <p>E.g. if I enter Bet Pic  (i.e. Beta Pictoris) I get something like this</p>
-          <table width="100%">
-            <tr>
-              <th>PPV_TWA</th>
-              <th>PPV_BPIC</th>
-              <th>PPV_TUC</th>
-              <th>PPV_COL</th>
-            </tr>
-            <tr>
-              <td>0.00</td>
-              <td>99.87</td>
-              <td>0.00</td>
-              <td>0.00</td>
-            </tr>
-          </table>
-          <table width="100%">
-            <tr>
-              <th>PPV_CAR</th>
-              <th>PPV_ARG</th>
-              <th>PPV_ABD</th>
-              <th>PPV_FLD</th>
-            </tr>
-            <tr>
-              <td>0.00</td>
-              <td>0.00</td>
-              <td>0.00</td>
-              <td>0.13</td>
-            </tr>
-          </table>
-          <p>In other words, the star Beta Pictoris is 99.87% likely to be a member of the Beta Pictoris moving group. Not a big surprise.</p>
-          <p>If I type in Gam Pic, however, I get this:</p>
-          <table width="100%">
-            <tr>
-              <th>PPV_TWA</th>
-              <th>PPV_BPIC</th>
-              <th>PPV_TUC</th>
-              <th>PPV_COL</th>
-            </tr>
-            <tr>
-              <td>0.00</td>
-              <td>0.00</td>
-              <td>0.00</td>
-              <td>0.00</td>
-            </tr>
-          </table>
-          <table width="100%">
-            <tr>
-              <th>PPV_CAR</th>
-              <th>PPV_ARG</th>
-              <th>PPV_ABD</th>
-              <th>PPV_FLD</th>
-            </tr>
-            <tr>
-              <td>0.00</td>
-              <td>0.00</td>
-              <td>0.00</td>
-              <td>100.00</td>
-            </tr>
-          </table>
-          <p>In other words, Gamma Pictoris is 100% likely to be a “field star”.  A field star is one that’s not associated with any group or cluster. Beta Pictoris, of course, has a <a href="http://en.wikipedia.org/wiki/Beta_Pictoris_b">well known directly imaged</a> planet around it.  Gamma Pictoris does not.</p>
-          <p>If the star is not in SIMBAD, it takes a bit more work.  You have to type in the RA, Dec, proper motion, etc yourself.  You can get those data from VizieR.</p>
-          <p>If BANYAN indicates that a Disk Detective star is more than 80% likely to be a member of any of these groups (other than Field Star), we want to know. Make sure to comment about it on the Talk page!</p>
-
-          <h3>Why are there more object images than SED plot points?</h3>
-          <p>The plot points in the SED show how bright the object is as a function of wave band—this kind of data is what’s called “photometry”. The photometry for most Disk Detective subjects in the near infrared and mid-infrared is quite reliable. This photometry comes from the 2MASS and WISE data; that’s what you see on the SED on the Talk page. The photometry at shorter (“optical”) wavelengths, however, is of mixed quality, so we left it off of the SEDs on the Disk Detective website for now.</p>
-          <p>However, we will need to incorporate optical photometry into the SEDs of the disks we discover to help us make better models of them. (This would be a good side project if anyone is interested!)</p>
-
-          <h3>How do I make a collection with my favorite objects?</h3>
-          <p>After you look through the flipbook on the main classification page, click on the “Talk” icon next to the “star” icon, it will take you to the talk page. On the upper left, you will see “collect”, click on it to add an object to a collection. You can then choose to add it to a collection called “Favorites” or you can click on “Start a New Collection”.</p>
-
-          <h3>Why can’t I see planets in the Disk Detective images?</h3>
-          <p><a href="http://blog.diskdetective.org/2014/02/20/thats-no-moon/">Here’s a blog post</a> with the explanation.</p>
-
-          <h3>Why are DSS images so pixelated? Why is there no DSS2 Image?</h3>
-          <p>Sometimes images from the Digitized Sky Survey (DSS) look pixelated like a cheap 1980s video game. Here’s an example (also shown to the right). That happens when there’s no bright object in the field, and all you see is the detector noise. That can happen when the object we’re looking at is either cool or behind a cloud of dust (e.g. when it’s in the plane of the Milky Way). It should still show up in the longer wavelength images, though. For more information about anomalies in the DSS, see this DSS website.</p>
-
-          <h3>How big are the images we see on Disk Detective?</h3>
-          <p>In astronomy, the way we measure the size of objects on the sky is using arcseconds, and sometimes arcminutes. If you have 20/20 vision it means you can see letters that are 5 arcminutes tall, which corresponds to 300 arcseconds. Here’s a <a href="http://en.wikipedia.org/wiki/Minute_of_arc">Wikipedia article</a> with more information about these small units of angle.</p>
-          <p>The images in the Disk Detective flipbooks are 1 arcminute across (60 arcseconds). The red circle is 10.5 arcseconds, and the crosshairs are 2.1 arcseconds across. A super-human with good enough eyesight to make out an object the size of the red circle would have better than 20/1 vision.</p>
-
-          <h3>Why do most of the images seem to grow longer at larger wavelengths?</h3>
-          <p><a href="http://blog.diskdetective.org/2014/02/04/why-do-the-stars-seem-to-grow-at-longer-wavelengths/">Here’s a blog post</a> that answers this question.</p>
-
-          <h3>Some objects are noticeably bigger in the blue images than in the near IR. Does this indicate that they are more likely to be nebulae or galaxies than stars? How should we deal with them?</h3>
-          <p>Some objects will look much bigger in the blue images because they are brighter at those wavelengths and they are saturating the detector (or photographic plate). When that happens, the central pixels in the image max out, and the object starts to appear much bigger than it would if the detector were behaving in a linear way. As we were saying in the answer to frequently asked question 2. (“What is the “round” threshold?”), these objects can also show diffraction spikes and other shape distortions.</p>
-          <p>All of this is OK and should not dissuade you from classifying something as a “good candidate”! Most objects that are saturated like this are stars, and they are sometimes the best objects for further follow up because they are bright.</p>
-
-          <h3>How do I join the Advanced User Group?</h3>
-          <p>If you have done more than 300 classifications on Disk Detective and you’re eager to get more involved, send an email to diskdetectives@gmail.com and ask to join the advanced user group.  We’d love to have you!</p>
         </div>
       </div>
     </section>
