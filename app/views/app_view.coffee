@@ -1,7 +1,6 @@
 Classify = require('views/classify')
 Science = require('views/science')
 About = require('views/about')
-FAQ = require('views/faq')
 Team = require('views/team')
 Index = require('views/index')
 Menu = require('views/menu')
@@ -13,7 +12,6 @@ class AppView extends Backbone.View
     classify: new Classify()
     science: new Science()
     about: new About()
-    faq: new FAQ()
     team: new Team()
     index: new Index()
   }
@@ -43,6 +41,5 @@ class AppView extends Backbone.View
       @active.hide()
       @active = @views[view]
     @active.show()
-
 
 module.exports = AppView
