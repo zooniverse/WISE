@@ -27,16 +27,10 @@ module.exports = ->
     t7e.refresh()
   )
 
-  api = if location.hostname is 'localhost'
-    new zooniverse.Api({
-      project: 'wise'
-      host: 'https://dev.zooniverse.org'
-    })
+  api = if window.location.hostname is 'www.diskdetective.org'
+    new zooniverse.Api project: 'wise', host: 'http://www.diskdetective.org', path: '/_ouroboros_api/proxy'
   else
-    new zooniverse.Api({
-      project: 'wise'
-      host: 'https://api.zooniverse.org'
-    })
+    new zooniverse.Api project: 'wise'
 
   ga = new zooniverse.GoogleAnalytics({account: 'UA-1224199-50'})
 
