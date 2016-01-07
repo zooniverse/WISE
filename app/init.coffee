@@ -13,6 +13,7 @@ module.exports = ->
       de: { label: "Deutsch", strings: "./translations/de.json" }
       ru: { label: "русский", strings: "./translations/ru.json" }
       pl: { label: 'Polski', strings: './translations/pl.json' }
+      pt: { label: 'Português', strings: './translations/pt.json' }
       ro: { label: "Româna", strings: "./translations/ro.json" }
       hu: { label: "Magyar", strings: "./translations/hu.json" }
       id: { label: "Bahasa Indonesia", strings: "./translations/id.json" }
