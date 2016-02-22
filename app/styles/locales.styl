@@ -1,7 +1,14 @@
 *[class*="hide-unless-"]
   display: none
 
-for locale in en es
-  html[lang^="{locale}"]
-    .hide-unless-{locale}
-      display: block
+html[lang=en]
+  .hide-unless-en
+    display: block
+
+html[lang=es]
+  .hide-unless-es
+    display: block
+
+html[lang=de]
+  .hide-unless-de
+    display: block
