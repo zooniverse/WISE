@@ -1,6 +1,6 @@
 {
   "name": "Disk-Detective",
-  "version": "1.2.47",
+  "version": "1.2.48",
   "repository": "https://github.com/zooniverse/WISE",
   "scripts": {
     "start": "brunch watch --server",
@@ -10,7 +10,7 @@
     "deploy": "npm run deploy-locale && npm run deploy-to-production"
   },
   "dependencies": {
-    "aws-sdk": "1.5.2",
+    "aws-sdk": "~2.1.36",
     "brunch": "^1.7.1",
     "cheerio": "0.12.4",
     "clean-css": "1.0.12",

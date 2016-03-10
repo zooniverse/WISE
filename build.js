@@ -6,7 +6,7 @@ var fs = require('fs'),
   AWS = require('aws-sdk'),
   sh = require('sync-exec');
 
-AWS.config.loadFromPath('./.aws-cred.json');
+// AWS.config.loadFromPath('./.aws-cred.json');
 
 var s3bucket = new AWS.S3({params: {Bucket: 'zooniverse-static'}});
 var $ = cheerio.load(fs.readFileSync("./public/index.html"));
