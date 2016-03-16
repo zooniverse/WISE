@@ -30,7 +30,7 @@ module.exports = ->
   )
 
   api = if window.location.hostname is 'www.diskdetective.org'
-    new zooniverse.Api project: 'wise', host: 'http://www.diskdetective.org', path: '/_ouroboros_api/proxy'
+    new zooniverse.Api project: 'wise', host: 'https://www.diskdetective.org', path: '/_ouroboros_api/proxy'
   else
     new zooniverse.Api project: 'wise'
 
