@@ -4,6 +4,7 @@ About = require('views/about')
 Team = require('views/team')
 Index = require('views/index')
 Menu = require('views/menu')
+Authors = require('views/authors')
 
 class AppView extends Backbone.View
   el: 'body'
@@ -13,6 +14,7 @@ class AppView extends Backbone.View
     science: new Science()
     about: new About()
     team: new Team()
+    authors: new Authors()
     index: new Index()
   }
 

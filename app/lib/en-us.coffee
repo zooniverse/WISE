@@ -7,6 +7,7 @@ module.exports =
     about: "About"
     faq: "FAQ"
     team: "Team"
+    authors: "Authors"
     talk: "Talk"
     blog: "Blog"
     share: "Share"
@@ -194,6 +195,9 @@ module.exports =
       edward_paget: """<a href="http://twitter.com/edpaget">Edward Paget</a> joined Adler's Zooniverse Team as a software developer in August 2012. He previously worked as a freelance programmer and photographer. Ed graduated from Northwestern University with a major in Radio/TV/Film."""
       heath_van_singel: """<a href="https://twitter.com/heathvs">Heath van Singel</a> is the UX/UI Designer for projects at the Zooniverse where he works to craft thoughtful and engaging user experiences. Apart from design Heath also enjoys illustration, a good sci-fi or fantasy novel, and trips back to Michigan."""
 
+  authors_page:
+    title: "The people who make it all possible!"
+    block_1: "Thank you to the following volunteers, whose millions of clicks have enabled us to produce our research."
   footer:
     text: "The Zooniverse is a collection of web-based Citizen Science projects that use the efforts of volunteers to help researchers deal with the flood of data that confronts them."
     button: "Visit Zooniverse.org"
