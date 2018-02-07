@@ -5,9 +5,9 @@
   "dependencies": {
     "backbone": "~1.1.0",
     "underscore": "~1.5.2",
-    "jquery": "~2.0.3",
+    "jquery": "~3.3",
     "normalize-css": "~2.1.3",
-    "zooniverse": "0.6.10"
+    "zooniverse": "0.8.11"
   },
   "overrides": {
     "backbone": {
