@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "aws-sdk": "~2.1.36",
-    "brunch": "^1.7.1",
+    "brunch": "^2.10.0",
     "cheerio": "0.12.4",
     "clean-css": "1.0.12",
     "clean-css-brunch": "1.7.1",
